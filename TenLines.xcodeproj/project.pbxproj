@@ -12,6 +12,12 @@
 		09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09719AE81BF72578009BEE15 /* Main.storyboard */; };
 		09719AEC1BF72578009BEE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09719AEB1BF72578009BEE15 /* Assets.xcassets */; };
 		09719AEF1BF72578009BEE15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09719AED1BF72578009BEE15 /* LaunchScreen.storyboard */; };
+		09719AF71BF72ACC009BEE15 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AF61BF72ACC009BEE15 /* FeedTableViewController.swift */; };
+		09719AF91BF7315C009BEE15 /* WhiteboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AF81BF7315C009BEE15 /* WhiteboardViewController.swift */; };
+		09719AFB1BF731C0009BEE15 /* SessionSetupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AFA1BF731C0009BEE15 /* SessionSetupTableViewController.swift */; };
+		09719AFF1BF73E4A009BEE15 /* feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 09719AFE1BF73E4A009BEE15 /* feed.json */; };
+		09719B011BF73E54009BEE15 /* friends.json in Resources */ = {isa = PBXBuildFile; fileRef = 09719B001BF73E54009BEE15 /* friends.json */; };
+		09719B051BF74AA2009BEE15 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		09719AEB1BF72578009BEE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09719AEE1BF72578009BEE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09719AF01BF72578009BEE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09719AF61BF72ACC009BEE15 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		09719AF81BF7315C009BEE15 /* WhiteboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteboardViewController.swift; sourceTree = "<group>"; };
+		09719AFA1BF731C0009BEE15 /* SessionSetupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSetupTableViewController.swift; sourceTree = "<group>"; };
+		09719AFE1BF73E4A009BEE15 /* feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feed.json; sourceTree = "<group>"; };
+		09719B001BF73E54009BEE15 /* friends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends.json; sourceTree = "<group>"; };
+		09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,52 @@
 		09719AE31BF72578009BEE15 /* TenLines */ = {
 			isa = PBXGroup;
 			children = (
+				09719B021BF74A8F009BEE15 /* Third party */,
+				09719AFD1BF73E32009BEE15 /* Assets */,
+				09719AFC1BF73E25009BEE15 /* View controllers */,
 				09719AE41BF72578009BEE15 /* AppDelegate.swift */,
-				09719AE61BF72578009BEE15 /* ViewController.swift */,
 				09719AE81BF72578009BEE15 /* Main.storyboard */,
 				09719AEB1BF72578009BEE15 /* Assets.xcassets */,
 				09719AED1BF72578009BEE15 /* LaunchScreen.storyboard */,
 				09719AF01BF72578009BEE15 /* Info.plist */,
 			);
 			path = TenLines;
+			sourceTree = "<group>";
+		};
+		09719AFC1BF73E25009BEE15 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				09719AE61BF72578009BEE15 /* ViewController.swift */,
+				09719AF81BF7315C009BEE15 /* WhiteboardViewController.swift */,
+				09719AFA1BF731C0009BEE15 /* SessionSetupTableViewController.swift */,
+				09719AF61BF72ACC009BEE15 /* FeedTableViewController.swift */,
+			);
+			name = "View controllers";
+			sourceTree = "<group>";
+		};
+		09719AFD1BF73E32009BEE15 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				09719AFE1BF73E4A009BEE15 /* feed.json */,
+				09719B001BF73E54009BEE15 /* friends.json */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		09719B021BF74A8F009BEE15 /* Third party */ = {
+			isa = PBXGroup;
+			children = (
+				09719B031BF74A9A009BEE15 /* SwiftyJSON */,
+			);
+			name = "Third party";
+			sourceTree = "<group>";
+		};
+		09719B031BF74A9A009BEE15 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				09719AEF1BF72578009BEE15 /* LaunchScreen.storyboard in Resources */,
+				09719AFF1BF73E4A009BEE15 /* feed.json in Resources */,
 				09719AEC1BF72578009BEE15 /* Assets.xcassets in Resources */,
 				09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */,
+				09719B011BF73E54009BEE15 /* friends.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +188,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				09719AE71BF72578009BEE15 /* ViewController.swift in Sources */,
+				09719AFB1BF731C0009BEE15 /* SessionSetupTableViewController.swift in Sources */,
+				09719AF91BF7315C009BEE15 /* WhiteboardViewController.swift in Sources */,
+				09719B051BF74AA2009BEE15 /* SwiftyJSON.swift in Sources */,
+				09719AF71BF72ACC009BEE15 /* FeedTableViewController.swift in Sources */,
 				09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
