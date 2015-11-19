@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9527.1" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9525.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="shH-yQ-QHe" id="fR4-Gg-SBO">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -120,20 +120,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jBf-qP-Pet">
-                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jBf-qP-Pet">
+                            <rect key="frame" x="0.0" y="64" width="600" height="127"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="New sketch"/>
+                            <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                            <state key="normal" title="New sketch" image=" _New Sketch-Select Friends Button (profile pic goes over button).png"/>
                             <connections>
                                 <segue destination="Dru-zX-6te" kind="show" id="8Vy-vf-A61"/>
                             </connections>
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="rK6-pU-Jzw">
-                                <rect key="frame" x="0.0" y="136" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="219" width="600" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rK6-pU-Jzw" id="4tr-Sw-HQn">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="50" verticalCompressionResistancePriority="50" tableViewCell="rK6-pU-Jzw" id="4tr-Sw-HQn">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="299.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ae2-ze-tFR">
@@ -143,13 +144,13 @@
                                                 <constraint firstAttribute="height" constant="200" id="L5T-Yl-2nn"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hla-ke-Dme">
-                                            <rect key="frame" x="308" y="208" width="292" height="44"/>
-                                            <state key="normal" title="Comment"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" verticalHuggingPriority="75" horizontalCompressionResistancePriority="200" verticalCompressionResistancePriority="75" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hla-ke-Dme">
+                                            <rect key="frame" x="192" y="207" width="43" height="36"/>
+                                            <state key="normal" title="Comment" image=" _Comment Icon.png" backgroundImage=" _Comment Icon.png"/>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="484-0u-Z57">
-                                            <rect key="frame" x="0.0" y="208" width="300" height="44"/>
-                                            <state key="normal" title="Upvote"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="50" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="50" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="484-0u-Z57">
+                                            <rect key="frame" x="83" y="207" width="47" height="38"/>
+                                            <state key="normal" title="Upvote" image=" _Heart Icon.png"/>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -157,9 +158,9 @@
                                         <constraint firstItem="Ae2-ze-tFR" firstAttribute="width" secondItem="4tr-Sw-HQn" secondAttribute="width" id="P0I-jA-IcS"/>
                                         <constraint firstItem="Ae2-ze-tFR" firstAttribute="bottom" secondItem="484-0u-Z57" secondAttribute="top" constant="10" id="PVa-hk-GEa"/>
                                         <constraint firstItem="Ae2-ze-tFR" firstAttribute="bottom" secondItem="hla-ke-Dme" secondAttribute="top" constant="10" id="TK6-0K-miO"/>
-                                        <constraint firstItem="hla-ke-Dme" firstAttribute="width" secondItem="4tr-Sw-HQn" secondAttribute="width" multiplier="0.5" id="eCM-SW-GmT"/>
-                                        <constraint firstItem="484-0u-Z57" firstAttribute="width" secondItem="4tr-Sw-HQn" secondAttribute="width" multiplier="0.5" id="mjp-jo-qOn"/>
-                                        <constraint firstItem="484-0u-Z57" firstAttribute="leading" secondItem="4tr-Sw-HQn" secondAttribute="leadingMargin" id="qws-6p-Sxy"/>
+                                        <constraint firstItem="hla-ke-Dme" firstAttribute="width" secondItem="4tr-Sw-HQn" secondAttribute="width" multiplier="0.5" constant="1" id="eCM-SW-GmT"/>
+                                        <constraint firstItem="484-0u-Z57" firstAttribute="width" secondItem="4tr-Sw-HQn" secondAttribute="width" multiplier="0.5" constant="1" id="mjp-jo-qOn"/>
+                                        <constraint firstItem="484-0u-Z57" firstAttribute="leading" secondItem="4tr-Sw-HQn" secondAttribute="leadingMargin" multiplier="0.5" id="qws-6p-Sxy"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -181,4 +182,9 @@
             <point key="canvasLocation" x="1127" y="1203"/>
         </scene>
     </scenes>
+    <resources>
+        <image name=" _Comment Icon.png" width="329" height="252"/>
+        <image name=" _Heart Icon.png" width="325" height="252"/>
+        <image name=" _New Sketch-Select Friends Button (profile pic goes over button).png" width="489" height="211"/>
+    </resources>
 </document>
