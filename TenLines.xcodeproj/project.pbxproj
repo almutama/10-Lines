@@ -24,7 +24,8 @@
 		77E1F8A01BFE786B00AEDF3E /* Gray Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F89C1BFE786B00AEDF3E /* Gray Screen.png */; };
 		77E1F8A11BFE786B00AEDF3E /* Heart Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F89D1BFE786B00AEDF3E /* Heart Icon.png */; };
 		77E1F8A21BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F89E1BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png */; };
-
+		77E1F8A41BFE87AB00AEDF3E /* New-Sketch.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F8A31BFE87AB00AEDF3E /* New-Sketch.png */; };
+		77E1F8A61BFE8B2A00AEDF3E /*  NewSketch1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F8A51BFE8B2A00AEDF3E /*  NewSketch1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +48,8 @@
 		77E1F89C1BFE786B00AEDF3E /* Gray Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gray Screen.png"; sourceTree = "<group>"; };
 		77E1F89D1BFE786B00AEDF3E /* Heart Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Heart Icon.png"; sourceTree = "<group>"; };
 		77E1F89E1BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Sketch-Select Friends Button (profile pic goes over button).png"; sourceTree = "<group>"; };
-
+		77E1F8A31BFE87AB00AEDF3E /* New-Sketch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New-Sketch.png"; sourceTree = "<group>"; };
+		77E1F8A51BFE8B2A00AEDF3E /*  NewSketch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " NewSketch1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,8 @@
 				77E1F89C1BFE786B00AEDF3E /* Gray Screen.png */,
 				77E1F89D1BFE786B00AEDF3E /* Heart Icon.png */,
 				77E1F89E1BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png */,
+				77E1F8A31BFE87AB00AEDF3E /* New-Sketch.png */,
+				77E1F8A51BFE8B2A00AEDF3E /*  NewSketch1.png */,
 				09719AFE1BF73E4A009BEE15 /* feed.json */,
 				09719B001BF73E54009BEE15 /* friends.json */,
 			);
@@ -198,11 +202,13 @@
 				77E1F8A01BFE786B00AEDF3E /* Gray Screen.png in Resources */,
 				77E1F89F1BFE786B00AEDF3E /* Comment_Icon.png in Resources */,
 				09719AFF1BF73E4A009BEE15 /* feed.json in Resources */,
+				77E1F8A41BFE87AB00AEDF3E /* New-Sketch.png in Resources */,
 				09A4BB711BFE62180032DB59 /* logo.png in Resources */,
 				09719AEC1BF72578009BEE15 /* Assets.xcassets in Resources */,
 				09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */,
 				77E1F8A11BFE786B00AEDF3E /* Heart Icon.png in Resources */,
 				09719B011BF73E54009BEE15 /* friends.json in Resources */,
+				77E1F8A61BFE8B2A00AEDF3E /*  NewSketch1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
