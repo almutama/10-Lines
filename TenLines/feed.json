@@ -1,17 +1,32 @@
 [
     {
         "title": "Foo",
-        "url": "https://pbs.twimg.com/profile_images/458794430200152064/XdQULww6.png",
-        "artists": ["Selina", "Nyasha"]
+        "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image1.jpg",
+        "artists": ["Sarah"],
+        "upvotes": 10
     },
     {
         "title": "Bar",
-        "url": "http://3.bp.blogspot.com/-ZrIwoH6g36U/UsfI4ZaJM-I/AAAAAAAAJTY/qj7z8PaXG0g/s1600/Pusheen04.png",
-        "artists": ["Sarah", "Ben-han"]
+        "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image2.jpg",
+        "artists": ["Sarah"],
+        "upvotes": 9
     },
     {
         "title": "Baz",
-        "url": "http://cdn.playbuzz.com/cdn/86e43f96-3888-4cb9-89c7-9c6397ff59f6/09e20f95-193b-4256-9f8e-b01584485410.jpg",
-        "artists": ["Selina", "Nyasha", "Sarah"]
+        "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image3.jpg",
+        "artists": ["Sarah"],
+        "upvotes": 8
+    },
+    {
+        "title": "Baz",
+        "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image4.jpg",
+        "artists": ["Sarah"],
+        "upvotes": 7
+    },
+    {
+        "title": "Baz",
+        "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image5.jpg",
+        "artists": ["Sarah"],
+        "upvotes": 6
     }
 ]

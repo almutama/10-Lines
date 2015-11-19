@@ -18,6 +18,8 @@
 		09719AFF1BF73E4A009BEE15 /* feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 09719AFE1BF73E4A009BEE15 /* feed.json */; };
 		09719B011BF73E54009BEE15 /* friends.json in Resources */ = {isa = PBXBuildFile; fileRef = 09719B001BF73E54009BEE15 /* friends.json */; };
 		09719B051BF74AA2009BEE15 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */; };
+		09A4BB711BFE62180032DB59 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A4BB701BFE62180032DB59 /* logo.png */; };
+		09A4BB731BFE65570032DB59 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A4BB721BFE65570032DB59 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		09719AFE1BF73E4A009BEE15 /* feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feed.json; sourceTree = "<group>"; };
 		09719B001BF73E54009BEE15 /* friends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends.json; sourceTree = "<group>"; };
 		09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		09A4BB701BFE62180032DB59 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		09A4BB721BFE65570032DB59 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09A4BB731BFE65570032DB59 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,7 @@
 		09719AD81BF72578009BEE15 = {
 			isa = PBXGroup;
 			children = (
+				09A4BB721BFE65570032DB59 /* QuartzCore.framework */,
 				09719AE31BF72578009BEE15 /* TenLines */,
 				09719AE21BF72578009BEE15 /* Products */,
 			);
@@ -92,6 +98,7 @@
 		09719AFD1BF73E32009BEE15 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				09A4BB701BFE62180032DB59 /* logo.png */,
 				09719AFE1BF73E4A009BEE15 /* feed.json */,
 				09719B001BF73E54009BEE15 /* friends.json */,
 			);
@@ -174,6 +181,7 @@
 			files = (
 				09719AEF1BF72578009BEE15 /* LaunchScreen.storyboard in Resources */,
 				09719AFF1BF73E4A009BEE15 /* feed.json in Resources */,
+				09A4BB711BFE62180032DB59 /* logo.png in Resources */,
 				09719AEC1BF72578009BEE15 /* Assets.xcassets in Resources */,
 				09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */,
 				09719B011BF73E54009BEE15 /* friends.json in Resources */,

@@ -17,7 +17,11 @@ class FeedTableViewController: UITableViewController {
         
         // Setup refresh callback.
         self.refreshControl?.addTarget(self, action: "refreshFeed:", forControlEvents: UIControlEvents.ValueChanged)
-        self.view.backgroundColor = UIColor.blackColor(); 
+
+        // Setup background color.
+        self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         // Load feed immediately.
         self.refreshFeed(nil)
     }
@@ -55,6 +59,7 @@ class FeedTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        cell.backgroundColor = UIColor.clearColor()
 
         // Configure the cell...
         let imageView: UIImageView = cell.viewWithTag(10) as! UIImageView

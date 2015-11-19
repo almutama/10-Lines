@@ -15,30 +15,51 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="10 Lines" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwp-JU-eXS">
-                                <rect key="frame" x="241" y="176" width="118" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgU-P0-iif">
-                                <rect key="frame" x="241" y="356" width="117" height="46"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="191" placeholderIntrinsicHeight="262" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="1d1-2i-YBh">
+                                <rect key="frame" x="205" y="110" width="191" height="262"/>
+                            </imageView>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgU-P0-iif">
+                                <rect key="frame" x="225" y="430" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Tap to begin"/>
                                 <connections>
                                     <segue destination="1vD-31-xvv" kind="show" id="30I-9d-OIs"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.60392156862745094" green="0.92941176470588238" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Vwp-JU-eXS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="348-MB-8Ao"/>
+                            <constraint firstItem="jgU-P0-iif" firstAttribute="top" secondItem="1d1-2i-YBh" secondAttribute="bottom" constant="66" id="0K9-3e-9Ja"/>
+                            <constraint firstItem="jgU-P0-iif" firstAttribute="top" secondItem="1d1-2i-YBh" secondAttribute="bottom" constant="66" id="36J-MH-TWc"/>
                             <constraint firstItem="jgU-P0-iif" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6sn-Zv-bN4"/>
+                            <constraint firstItem="jgU-P0-iif" firstAttribute="top" secondItem="1d1-2i-YBh" secondAttribute="top" id="GOh-bA-qMW"/>
+                            <constraint firstItem="jgU-P0-iif" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QbN-GH-K6a"/>
+                            <constraint firstItem="jgU-P0-iif" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RMs-fh-1Rq"/>
+                            <constraint firstItem="jgU-P0-iif" firstAttribute="leading" secondItem="1d1-2i-YBh" secondAttribute="leading" id="hTV-Fd-35C"/>
+                            <constraint firstItem="1d1-2i-YBh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="k9I-im-dD2"/>
+                            <constraint firstItem="jgU-P0-iif" firstAttribute="top" secondItem="1d1-2i-YBh" secondAttribute="top" id="oGs-ns-CpU"/>
+                            <constraint firstItem="1d1-2i-YBh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tQK-8x-srk"/>
+                            <constraint firstItem="1d1-2i-YBh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="90" id="wuB-8a-QSy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="wuB-8a-QSy"/>
+                                <exclude reference="0K9-3e-9Ja"/>
+                                <exclude reference="6sn-Zv-bN4"/>
+                                <exclude reference="GOh-bA-qMW"/>
+                                <exclude reference="QbN-GH-K6a"/>
+                                <exclude reference="hTV-Fd-35C"/>
+                                <exclude reference="oGs-ns-CpU"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="beginButton" destination="jgU-P0-iif" id="q8Y-DE-reu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,6 +124,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="csP-Fx-xDb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.37254901960784315" green="0.3843137254901961" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.37254901960784315" green="0.3843137254901961" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Ybw-HT-aOs" kind="relationship" relationship="rootViewController" id="EJC-jf-5dp"/>
@@ -181,4 +204,7 @@
             <point key="canvasLocation" x="1127" y="1203"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="238" height="326"/>
+    </resources>
 </document>

@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import QuartzCore
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var beginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Rounded corners for begin button.
+        beginButton.clipsToBounds = true;
+        beginButton.layer.cornerRadius = 5;
     }
 
     override func didReceiveMemoryWarning() {
