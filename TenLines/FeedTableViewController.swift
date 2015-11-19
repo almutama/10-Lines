@@ -63,7 +63,7 @@ class FeedTableViewController: UITableViewController {
         let mainQueue = NSOperationQueue.mainQueue()
         NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
             if error == nil {
-                // Convert the downloaded data in to a UIImage object
+                // Convert the downloaded data in to a UIImage object.
                 let image = UIImage(data: data!)
                 dispatch_async(dispatch_get_main_queue(), {
                     imageView.image = image
