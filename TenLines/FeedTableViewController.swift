@@ -17,7 +17,7 @@ class FeedTableViewController: UITableViewController {
         
         // Setup refresh callback.
         self.refreshControl?.addTarget(self, action: "refreshFeed:", forControlEvents: UIControlEvents.ValueChanged)
-        
+        self.view.backgroundColor = UIColor.blackColor(); 
         // Load feed immediately.
         self.refreshFeed(nil)
     }
