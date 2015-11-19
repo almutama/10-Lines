@@ -146,11 +146,11 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" verticalHuggingPriority="75" horizontalCompressionResistancePriority="200" verticalCompressionResistancePriority="75" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hla-ke-Dme">
                                             <rect key="frame" x="192" y="207" width="43" height="36"/>
-                                            <state key="normal" title="Comment" image=" _Comment Icon.png" backgroundImage=" _Comment Icon.png"/>
+                                            <state key="normal" title="Comment" image="Comment_Icon.png" backgroundImage="Comment_Icon.png"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="100" verticalHuggingPriority="50" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="50" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="484-0u-Z57">
                                             <rect key="frame" x="83" y="207" width="47" height="38"/>
-                                            <state key="normal" title="Upvote" image=" _Heart Icon.png"/>
+                                            <state key="normal" title="Upvote" image="Heart Icon.png"/>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -183,8 +183,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name=" _Comment Icon.png" width="329" height="252"/>
-        <image name=" _Heart Icon.png" width="325" height="252"/>
         <image name=" _New Sketch-Select Friends Button (profile pic goes over button).png" width="489" height="211"/>
+        <image name="Comment_Icon.png" width="329" height="252"/>
+        <image name="Heart Icon.png" width="325" height="252"/>
     </resources>
 </document>
