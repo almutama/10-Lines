@@ -3,30 +3,35 @@
         "title": "Foo",
         "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image1.jpg",
         "artists": ["Sarah"],
-        "upvotes": 10
+        "upvotes": 10,
+        "comments": 5
     },
     {
         "title": "Bar",
         "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image2.jpg",
         "artists": ["Sarah"],
-        "upvotes": 9
+        "upvotes": 9,
+        "comments": 3
     },
     {
         "title": "Baz",
         "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image3.jpg",
         "artists": ["Sarah"],
-        "upvotes": 8
+        "upvotes": 8,
+        "comments": 3
     },
     {
         "title": "Baz",
         "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image4.jpg",
         "artists": ["Sarah"],
-        "upvotes": 7
+        "upvotes": 7,
+        "comments": 6
     },
     {
         "title": "Baz",
         "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image5.jpg",
         "artists": ["Sarah"],
-        "upvotes": 6
+        "upvotes": 6,
+        "comments": 1
     }
 ]

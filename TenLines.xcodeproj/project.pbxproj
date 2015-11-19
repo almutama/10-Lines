@@ -20,6 +20,11 @@
 		09719B051BF74AA2009BEE15 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */; };
 		09A4BB711BFE62180032DB59 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A4BB701BFE62180032DB59 /* logo.png */; };
 		09A4BB731BFE65570032DB59 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A4BB721BFE65570032DB59 /* QuartzCore.framework */; };
+		77E1F89F1BFE786B00AEDF3E /* Comment_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F89B1BFE786B00AEDF3E /* Comment_Icon.png */; };
+		77E1F8A01BFE786B00AEDF3E /* Gray Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F89C1BFE786B00AEDF3E /* Gray Screen.png */; };
+		77E1F8A11BFE786B00AEDF3E /* Heart Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F89D1BFE786B00AEDF3E /* Heart Icon.png */; };
+		77E1F8A21BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F89E1BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		09A4BB701BFE62180032DB59 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		09A4BB721BFE65570032DB59 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		77E1F89B1BFE786B00AEDF3E /* Comment_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Comment_Icon.png; sourceTree = "<group>"; };
+		77E1F89C1BFE786B00AEDF3E /* Gray Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gray Screen.png"; sourceTree = "<group>"; };
+		77E1F89D1BFE786B00AEDF3E /* Heart Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Heart Icon.png"; sourceTree = "<group>"; };
+		77E1F89E1BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Sketch-Select Friends Button (profile pic goes over button).png"; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				09A4BB701BFE62180032DB59 /* logo.png */,
+				77E1F89B1BFE786B00AEDF3E /* Comment_Icon.png */,
+				77E1F89C1BFE786B00AEDF3E /* Gray Screen.png */,
+				77E1F89D1BFE786B00AEDF3E /* Heart Icon.png */,
+				77E1F89E1BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png */,
 				09719AFE1BF73E4A009BEE15 /* feed.json */,
 				09719B001BF73E54009BEE15 /* friends.json */,
 			);
@@ -179,11 +193,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E1F8A21BFE786B00AEDF3E /* New Sketch-Select Friends Button (profile pic goes over button).png in Resources */,
 				09719AEF1BF72578009BEE15 /* LaunchScreen.storyboard in Resources */,
+				77E1F8A01BFE786B00AEDF3E /* Gray Screen.png in Resources */,
+				77E1F89F1BFE786B00AEDF3E /* Comment_Icon.png in Resources */,
 				09719AFF1BF73E4A009BEE15 /* feed.json in Resources */,
 				09A4BB711BFE62180032DB59 /* logo.png in Resources */,
 				09719AEC1BF72578009BEE15 /* Assets.xcassets in Resources */,
 				09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */,
+				77E1F8A11BFE786B00AEDF3E /* Heart Icon.png in Resources */,
 				09719B011BF73E54009BEE15 /* friends.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

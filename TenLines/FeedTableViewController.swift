@@ -21,7 +21,7 @@ class FeedTableViewController: UITableViewController {
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
+
         // Load feed immediately.
         self.refreshFeed(nil)
     }
@@ -78,6 +78,16 @@ class FeedTableViewController: UITableViewController {
                 print("Error: \(error!.localizedDescription)")
             }
         })
+        
+        // Upvote button.
+        let upvoteButton: UIButton = cell.viewWithTag(20) as! UIButton
+        let numUpvotes = feedItems![indexPath.row]["upvotes"].int
+        //upvoteButton.setTitle("\(numUpvotes)", forState: UIControlState.Normal)
+        
+        // Comments button.
+        let commentButton: UIButton = cell.viewWithTag(30) as! UIButton
+        let numComments = feedItems![indexPath.row]["comments"].int
+        //commentButton.setTitle("\(numComments)", forState: UIControlState.Normal);
         
         return cell
     }
