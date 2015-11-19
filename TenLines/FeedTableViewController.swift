@@ -56,6 +56,15 @@ class FeedTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feedItems != nil ? feedItems!.count : 0
     }
+    
+    func likecounter(sender: UIButton) {
+        var count = 0
+        if (sender.titleForState(UIControlState.Normal) != nil) {
+            count = Int(sender.titleForState(UIControlState.Normal)!)!
+        }
+        ++count
+        sender.setTitle(String(count), forState: UIControlState.Normal )
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
@@ -82,6 +91,7 @@ class FeedTableViewController: UITableViewController {
         // Upvote button.
         let upvoteButton: UIButton = cell.viewWithTag(20) as! UIButton
         let numUpvotes = feedItems![indexPath.row]["upvotes"].int
+        upvoteButton.addTarget(self, action:"likecounter:", forControlEvents: UIControlEvents.TouchUpInside);
         //upvoteButton.setTitle("\(numUpvotes)", forState: UIControlState.Normal)
         
         // Comments button.
