@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9527.1" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9525.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -143,7 +143,10 @@
                                             <rect key="frame" x="62" y="234" width="40" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal" backgroundImage="Comment_Icon.png"/>
+                                            <state key="normal" title="20" backgroundImage="Comment_Icon.png"/>
+                                            <connections>
+                                                <segue destination="MQK-6G-xpw" kind="push" id="leU-E0-3bV"/>
+                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ae2-ze-tFR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -169,6 +172,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SvV-2m-WV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="601" y="1138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="a4J-Jf-jwa">
+            <objects>
+                <viewController id="MQK-6G-xpw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2RA-xy-A6j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wiz-8Q-bqL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rku-Ik-6db" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="601" y="1838"/>
         </scene>
     </scenes>
     <resources>
