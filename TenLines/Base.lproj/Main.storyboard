@@ -124,7 +124,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="127"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                            <state key="normal" title="New sketch" image=" _New Sketch-Select Friends Button (profile pic goes over button).png"/>
+                            <state key="normal" title="New sketch" image="New Sketch-Select Friends Button (profile pic goes over button).png"/>
                             <connections>
                                 <segue destination="Dru-zX-6te" kind="show" id="8Vy-vf-A61"/>
                             </connections>
@@ -183,8 +183,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name=" _New Sketch-Select Friends Button (profile pic goes over button).png" width="489" height="211"/>
         <image name="Comment_Icon.png" width="329" height="252"/>
         <image name="Heart Icon.png" width="325" height="252"/>
+        <image name="New Sketch-Select Friends Button (profile pic goes over button).png" width="489" height="211"/>
     </resources>
 </document>
