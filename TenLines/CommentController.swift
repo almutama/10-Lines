@@ -55,6 +55,14 @@ class CommentController: UIViewController {
     }
     
     override func viewDidLoad() {
+        // Setup view.
+        self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
+        self.pictureImageView.layer.masksToBounds = false
+        self.pictureImageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
+        self.pictureImageView.layer.shadowOffset = CGSizeMake(0, 0)
+        self.pictureImageView.layer.shadowOpacity = 0.5
+        
+        // Load image.
         let request: NSURLRequest = NSURLRequest(URL: NSURL(string: pictureURL)!)
         let mainQueue = NSOperationQueue.mainQueue()
         NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in

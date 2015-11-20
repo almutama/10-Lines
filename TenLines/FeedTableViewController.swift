@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class FeedTableViewController: UITableViewController {
     
@@ -50,7 +51,7 @@ class FeedTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 300
+        return 320
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,10 +69,16 @@ class FeedTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        
+        // Configure cell.
         cell.backgroundColor = UIColor.clearColor()
-
-        // Configure the cell...
         let imageView: UIImageView = cell.viewWithTag(10) as! UIImageView
+        imageView.layer.masksToBounds = false
+        imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
+        imageView.layer.shadowOffset = CGSizeMake(0, 0)
+        imageView.layer.shadowOpacity = 0.5
+
+        // Load image.
         let imageURL: String = feedItems![indexPath.row]["url"].string!
         let request: NSURLRequest = NSURLRequest(URL: NSURL(string: imageURL)!)
         let mainQueue = NSOperationQueue.mainQueue()
