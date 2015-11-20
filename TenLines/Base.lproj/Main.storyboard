@@ -147,9 +147,6 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <state key="normal" title="20" backgroundImage="Comment_Icon.png"/>
-                                            <connections>
-                                                <segue destination="MQK-6G-xpw" kind="push" id="leU-E0-3bV"/>
-                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ae2-ze-tFR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -158,6 +155,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="MQK-6G-xpw" kind="push" identifier="showSketch" id="T54-3Q-xFu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -234,6 +234,7 @@
                     <navigationItem key="navigationItem" title="Comments" id="Wiz-8Q-bqL"/>
                     <connections>
                         <outlet property="commentField" destination="gix-YJ-tmP" id="45Z-g5-hUj"/>
+                        <outlet property="pictureImageView" destination="LLV-yt-APw" id="AKz-cO-dx4"/>
                         <outlet property="userTextField" destination="O4q-RH-CYP" id="ojQ-uL-hVx"/>
                     </connections>
                 </viewController>

@@ -108,5 +108,11 @@ class FeedTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "showSketch") {
+            let path = self.tableView.indexPathForSelectedRow
+            let imageURL: String = feedItems![path!.row]["url"].string!
+            let commentController = segue.destinationViewController as! CommentController
+            commentController.pictureURL = imageURL
+        }
     }
 }
