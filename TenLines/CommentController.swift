@@ -38,19 +38,20 @@ class CommentController: UIViewController {
     var pictureURL: String!
     
     @IBAction func sendComment(sender: AnyObject) {
-        commentField.text = "User Name" + "\n" + userTextField.text! + "\n\n" + commentField.text!
-        userTextField.text = ""
+        if userTextField.text != "" {
+            commentField.text = "User Name" + "\n" + userTextField.text! + "\n\n" + commentField.text!
+            userTextField.text = ""
         
-        if let myNumber = NSNumberFormatter().numberFromString(CommentCount.text!) {
-            var myInt = myNumber.integerValue
-            myInt = myInt + 1
-            let myString = String(myInt)
-            CommentCount.text = myString
-        } else {
-            print("error changing CommentCount to string")
+            if let myNumber = NSNumberFormatter().numberFromString(CommentCount.text!) {
+                var myInt = myNumber.integerValue
+                myInt = myInt + 1
+                let myString = String(myInt)
+                CommentCount.text = myString
+            } else {
+                print("error changing CommentCount to string")
+            }
         }
-        
-        
+
     }
     
     override func viewDidLoad() {
