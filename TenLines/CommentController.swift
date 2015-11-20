@@ -14,13 +14,43 @@ class CommentController: UIViewController {
     
     @IBOutlet weak var commentField: UITextView!
     
+    @IBOutlet weak var CommentCount: UILabel!
+    
     @IBOutlet weak var pictureImageView: UIImageView!
+    
+    @IBOutlet weak var upVoteCount: UILabel!
+    
+    @IBAction func upVoteButton(sender: AnyObject) {
+        if upVoteCount.text == "" {
+            upVoteCount.text = "1"
+        } else {
+            if let myNumber = NSNumberFormatter().numberFromString(upVoteCount.text!) {
+                var myInt = myNumber.integerValue
+                myInt = myInt + 1
+                let myString = String(myInt)
+                upVoteCount.text = myString
+            } else {
+                print("error changing upVoteCount to string")
+            }
+        }
+    }
     
     var pictureURL: String!
     
     @IBAction func sendComment(sender: AnyObject) {
-        commentField.text = commentField.text! + "\n" + "User Name" + "\n" + userTextField.text! + "\n"
+        commentField.text = "User Name" + "\n" + userTextField.text! + "\n\n" + commentField.text!
         userTextField.text = ""
+        
+        if let myNumber = NSNumberFormatter().numberFromString(CommentCount.text!) {
+            var myInt = myNumber.integerValue
+            myInt = myInt + 1
+            let myString = String(myInt)
+            CommentCount.text = myString
+        } else {
+            print("error changing CommentCount to string")
+        }
+        
+        
     }
     
     override func viewDidLoad() {
