@@ -19,7 +19,7 @@ class CommentController: UIViewController {
     var pictureURL: String!
     
     @IBAction func sendComment(sender: AnyObject) {
-        commentField.text = commentField.text! + "\n" + userTextField.text!
+        commentField.text = commentField.text! + "\n" + "User Name" + "\n" + userTextField.text! + "\n"
         userTextField.text = ""
     }
     
