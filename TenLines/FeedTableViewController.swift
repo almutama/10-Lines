@@ -24,7 +24,9 @@ class FeedTableViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
         // Load feed immediately.
-        self.refreshFeed(nil)
+        let path = NSBundle.mainBundle().pathForResource("feed", ofType: "json")
+        feedItems = JSON(data: NSData(contentsOfFile: path!)!)
+        self.tableView.reloadData();
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,12 +35,13 @@ class FeedTableViewController: UITableViewController {
     }
     
     func refreshFeed(sender: AnyObject?) {
-        self.tableView.reloadData()
-        
         // Temporary load feed data from a file. Eventually we want to get this
         // data by invoking a web service instead.
-        let path = NSBundle.mainBundle().pathForResource("feed", ofType: "json")
+        let path = NSBundle.mainBundle().pathForResource("feed2", ofType: "json")
         feedItems = JSON(data: NSData(contentsOfFile: path!)!)
+        
+        // Reload data.
+        self.tableView.reloadData()
         
         // Hide the loading indicator since we're done loading.
         self.refreshControl?.endRefreshing()
@@ -51,20 +54,20 @@ class FeedTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 320
+        return 350
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feedItems != nil ? feedItems!.count : 0
     }
     
-    func likecounter(sender: UIButton) {
+    func upvote(sender: UIButton) {
         var count = 0
         if (sender.titleForState(UIControlState.Normal) != nil) {
             count = Int(sender.titleForState(UIControlState.Normal)!)!
         }
         ++count
-        sender.setTitle(String(count), forState: UIControlState.Normal )
+        sender.setTitle(String(count), forState: UIControlState.Normal)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -76,7 +79,7 @@ class FeedTableViewController: UITableViewController {
         imageView.layer.masksToBounds = false
         imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
         imageView.layer.shadowOffset = CGSizeMake(0, 0)
-        imageView.layer.shadowOpacity = 0.5
+        imageView.layer.shadowOpacity = 0.3
 
         // Load image.
         let imageURL: String = feedItems![indexPath.row]["url"].string!
@@ -98,13 +101,21 @@ class FeedTableViewController: UITableViewController {
         // Upvote button.
         let upvoteButton: UIButton = cell.viewWithTag(20) as! UIButton
         let numUpvotes = feedItems![indexPath.row]["upvotes"].int
-        upvoteButton.addTarget(self, action:"likecounter:", forControlEvents: UIControlEvents.TouchUpInside);
-        //upvoteButton.setTitle("\(numUpvotes)", forState: UIControlState.Normal)
+        upvoteButton.addTarget(self, action:"upvote:", forControlEvents: UIControlEvents.TouchUpInside);
+        upvoteButton.setTitle(String(numUpvotes!), forState: UIControlState.Normal)
         
         // Comments button.
         let commentButton: UIButton = cell.viewWithTag(30) as! UIButton
         let numComments = feedItems![indexPath.row]["comments"].int
-        //commentButton.setTitle("\(numComments)", forState: UIControlState.Normal);
+        commentButton.setTitle(String(numComments!), forState: UIControlState.Normal);
+        
+        // Line count label.
+        let lineLabel: UILabel = cell.viewWithTag(40) as! UILabel
+        lineLabel.text = "\(feedItems![indexPath.row]["artists"].count) artists, \(feedItems![indexPath.row]["lines"].int!) lines"
+        
+        // Sketch title label.
+        let titleLabel: UILabel = cell.viewWithTag(50) as! UILabel
+        titleLabel.text = feedItems![indexPath.row]["title"].string!
         
         return cell
     }

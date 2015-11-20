@@ -1,5 +1,21 @@
 [
     {
+        "title": "Alps",
+        "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image1.jpg",
+        "artists": ["Sarah"],
+        "lines": 10,
+        "upvotes": 10,
+        "comments": 5
+    },
+    {
+        "title": "NEMOOOO",
+        "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image2.jpg",
+        "artists": ["Sarah", "Ben-han"],
+        "lines": 15,
+        "upvotes": 9,
+        "comments": 3
+    },
+    {
         "title": "Clouds",
         "url": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image3.jpg",
         "artists": ["Sarah", "Nyasha"],
