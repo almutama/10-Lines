@@ -11,6 +11,8 @@ import QuartzCore
 
 class FeedTableViewController: UITableViewController {
     
+    @IBOutlet weak var newSketchButton: UIButton!
+    
     // List of sketches currently displayed in feed.
     private var feedItems: Array<Sketch>?
     
@@ -23,6 +25,13 @@ class FeedTableViewController: UITableViewController {
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        // Programmatically create rounded corners for new sketch button.
+        newSketchButton.clipsToBounds = true;
+        newSketchButton.layer.cornerRadius = 65;
+        
+        // Center new sketch button.
+        newSketchButton.center = CGPoint.init(x: self.view.frame.width / 2, y: newSketchButton.center.y);
 
         // Load feed immediately.
         let path = NSBundle.mainBundle().pathForResource("feed", ofType: "json")
@@ -58,7 +67,7 @@ class FeedTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 350
+        return 325
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

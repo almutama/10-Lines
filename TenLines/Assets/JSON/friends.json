@@ -3,24 +3,24 @@
         "username": "sarah",
         "firstname": "Sarah",
         "lastname": "Wymer",
-        "icon": ""
+        "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/sarah.jpg"
     },
     {
         "username": "selina",
         "firstname": "Selina",
         "lastname": "Her",
-        "icon": ""
+        "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/selina.jpg"
     },
     {
         "username": "bhnascar",
         "firstname": "Ben-han",
         "lastname": "Sung",
-        "icon": ""
+        "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/ben-han.jpg"
     },
     {
         "username": "nyasha",
         "firstname": "Nyasha",
         "lastname": "Smith",
-        "icon": ""
+        "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/nyasha.jpg"
     }
 ]

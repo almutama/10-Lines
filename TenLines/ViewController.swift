@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var beginButton: UIButton!
     @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var handle: UIView!
     
     override func viewDidLoad() {
         

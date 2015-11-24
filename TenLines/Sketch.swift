@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class Sketch {
-    var title : String = ""
-    var url : String = ""
+    var title: String = ""
+    var url: String = ""
     var lines: Int = 0
     var upvotes: Int = 0
     var comments: Array<String> = Array<String>()
