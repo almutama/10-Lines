@@ -18,10 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Setup universal styles for navigation bar.
-        UINavigationBar.appearance().barTintColor = UIColor(red: 0.46, green: 0.43, blue: 0.81, alpha: 1.0);
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.46, green: 0.43, blue: 0.81, alpha: 1.0)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
-                                                            NSFontAttributeName : UIFont(name: "AmaticSC-Bold", size: 30)!];
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor();
+                                                            NSFontAttributeName : UIFont(name: "AmaticSC-Bold", size: 30)!]
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        // Setup universal styles for tool bar.
+        UIToolbar.appearance().barTintColor = UIColor(red: 0.46, green: 0.43, blue: 0.81, alpha: 1.0)
+        UIToolbar.appearance().tintColor = UIColor.whiteColor()
         
         return true
     }

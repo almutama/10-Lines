@@ -8,10 +8,9 @@
 
 import UIKit
 
-class CommentController: UIViewController {
+class CommentController: UITableViewController {
     
     @IBOutlet weak var userTextField: UITextField!
-    @IBOutlet weak var commentField: UITextView!
     
     /* References to UI elements. */
     @IBOutlet weak var titleLabel: UILabel!
@@ -36,13 +35,24 @@ class CommentController: UIViewController {
     
     /* Adds a comment to the currently displayed sketch. */
     @IBAction func sendComment(sender: AnyObject) {
+        // Disallow blank comments.
         if userTextField.text != "" {
-            let comment = "User Name" + "\n" + userTextField.text! + "\n\n"
-            commentField.text = comment + commentField.text!
+            let comment = Comment()
+            comment.username = "Test"
+            comment.text = userTextField.text!
+            
+            // Clear text field.
             userTextField.text = ""
             
+            // Add comment to data object.
             sketch.addComment(comment)
+            
+            // Update comment count.
             commentButton.setTitle(String(sketch.comments.count), forState: UIControlState.Normal);
+            
+            // Insert a new table row for the new comment.
+            let newPath = NSIndexPath(forRow: sketch.comments.count - 1, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
     
@@ -78,6 +88,30 @@ class CommentController: UIViewController {
         
         // Sketch title label.
         titleLabel.text = sketch.title
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.toolbar.hidden = false;
+    }
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sketch.comments.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)
+        
+        // Configure cell...
+        cell.textLabel?.text = sketch.comments[indexPath.row].username
+        cell.detailTextLabel?.text = sketch.comments[indexPath.row].text
+        
+        return cell
     }
 }
 

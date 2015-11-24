@@ -24,11 +24,8 @@ class Sketch {
     }
     
     /* Adds a comment to this sketch. */
-    func addComment(comment: String) {
-        let wrapper = Comment()
-        wrapper.username = "Test"
-        wrapper.text = comment
-        comments += [wrapper]
+    func addComment(comment: Comment) {
+        comments += [comment]
     }
     
     /* Loads this sketch's image, SYNCHRONOUSLY. */
