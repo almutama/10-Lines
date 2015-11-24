@@ -16,6 +16,8 @@
 		09719AF91BF7315C009BEE15 /* WhiteboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AF81BF7315C009BEE15 /* WhiteboardViewController.swift */; };
 		09719AFB1BF731C0009BEE15 /* SessionSetupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AFA1BF731C0009BEE15 /* SessionSetupTableViewController.swift */; };
 		09719B051BF74AA2009BEE15 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */; };
+		0974A8421C047FD700F1503E /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0974A8411C047FD700F1503E /* Sketch.swift */; };
+		0974A8451C04892900F1503E /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0974A8441C04892900F1503E /* Threading.swift */; };
 		09A4BB731BFE65570032DB59 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A4BB721BFE65570032DB59 /* QuartzCore.framework */; };
 		09C792F21BFFB58B009D2C96 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C792E61BFFB58B009D2C96 /* AmaticSC-Bold.ttf */; };
 		09C792F31BFFB58B009D2C96 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C792E71BFFB58B009D2C96 /* AmaticSC-Regular.ttf */; };
@@ -42,6 +44,8 @@
 		09719AF81BF7315C009BEE15 /* WhiteboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhiteboardViewController.swift; sourceTree = "<group>"; };
 		09719AFA1BF731C0009BEE15 /* SessionSetupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSetupTableViewController.swift; sourceTree = "<group>"; };
 		09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		0974A8411C047FD700F1503E /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
+		0974A8441C04892900F1503E /* Threading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
 		09A4BB721BFE65570032DB59 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		09C792E61BFFB58B009D2C96 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		09C792E71BFFB58B009D2C96 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			children = (
 				09C792E41BFFB58B009D2C96 /* Assets */,
 				09719B021BF74A8F009BEE15 /* Third party */,
+				0974A8401C047FB800F1503E /* Data classes */,
 				09719AFC1BF73E25009BEE15 /* View controllers */,
 				09719AE41BF72578009BEE15 /* AppDelegate.swift */,
 				09719AE81BF72578009BEE15 /* Main.storyboard */,
@@ -115,6 +120,7 @@
 		09719B021BF74A8F009BEE15 /* Third party */ = {
 			isa = PBXGroup;
 			children = (
+				0974A8431C04891A00F1503E /* SwiftThreading */,
 				09719B031BF74A9A009BEE15 /* SwiftyJSON */,
 			);
 			name = "Third party";
@@ -126,6 +132,22 @@
 				09719B041BF74AA2009BEE15 /* SwiftyJSON.swift */,
 			);
 			name = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		0974A8401C047FB800F1503E /* Data classes */ = {
+			isa = PBXGroup;
+			children = (
+				0974A8411C047FD700F1503E /* Sketch.swift */,
+			);
+			name = "Data classes";
+			sourceTree = "<group>";
+		};
+		0974A8431C04891A00F1503E /* SwiftThreading */ = {
+			isa = PBXGroup;
+			children = (
+				0974A8441C04892900F1503E /* Threading.swift */,
+			);
+			name = SwiftThreading;
 			sourceTree = "<group>";
 		};
 		09C792E41BFFB58B009D2C96 /* Assets */ = {
@@ -251,8 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				269896EB1BFE945100E7E6E9 /* CommentController.swift in Sources */,
+				0974A8421C047FD700F1503E /* Sketch.swift in Sources */,
 				09719AE71BF72578009BEE15 /* ViewController.swift in Sources */,
 				09719AFB1BF731C0009BEE15 /* SessionSetupTableViewController.swift in Sources */,
+				0974A8451C04892900F1503E /* Threading.swift in Sources */,
 				09719AF91BF7315C009BEE15 /* WhiteboardViewController.swift in Sources */,
 				09719B051BF74AA2009BEE15 /* SwiftyJSON.swift in Sources */,
 				09719AF71BF72ACC009BEE15 /* FeedTableViewController.swift in Sources */,
