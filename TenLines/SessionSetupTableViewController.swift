@@ -10,6 +10,8 @@ import UIKit
 
 class SessionSetupTableViewController: UITableViewController {
 
+    @IBOutlet weak var startButton: UIButton!
+    
     private var friends: Array<Artist>?
     
     override func viewDidLoad() {
@@ -21,6 +23,13 @@ class SessionSetupTableViewController: UITableViewController {
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        // Programmatically create rounded corners for start button.
+        startButton.clipsToBounds = true;
+        startButton.layer.cornerRadius = 65;
+        
+        // Center start button.
+        startButton.center = CGPoint.init(x: self.view.frame.width / 2, y: startButton.center.y);
         
         // Load friends right away.
         self.refreshFriends(nil)
