@@ -5,7 +5,7 @@
         "artists": ["Sarah"],
         "lines": 10,
         "upvotes": 10,
-        "comments": 5
+        "comments": []
     },
     {
         "title": "NEMOOOO",
@@ -13,7 +13,12 @@
         "artists": ["Sarah", "Ben-han"],
         "lines": 15,
         "upvotes": 9,
-        "comments": 3
+        "comments": [
+            {
+                "username": "bhnascar",
+                "text": "I can't wait for Finding Dory"
+            }
+        ]
     },
     {
         "title": "Clouds",
@@ -21,7 +26,16 @@
         "artists": ["Sarah", "Nyasha"],
         "lines": 14,
         "upvotes": 8,
-        "comments": 3
+        "comments": [
+            {
+                "username": "bhnascar",
+                "text": "Love this!"
+            },
+            {
+                "username": "nyasha",
+                "text": "Wow!"
+            }
+        ]
     },
     {
         "title": "Beach",
@@ -29,7 +43,12 @@
         "artists": ["Sarah"],
         "lines": 10,
         "upvotes": 7,
-        "comments": 6
+        "comments": [
+            {
+                "username": "bhnascar",
+                "text": "Where is this?"
+            }
+        ]
     },
     {
         "title": "Herp derp",
@@ -37,6 +56,6 @@
         "artists": ["Sarah"],
         "lines": 8,
         "upvotes": 6,
-        "comments": 1
+        "comments": []
     }
 ]

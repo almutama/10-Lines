@@ -14,7 +14,7 @@ class Sketch {
     var url: String = ""
     var lines: Int = 0
     var upvotes: Int = 0
-    var comments: Array<String> = Array<String>()
+    var comments: Array<Comment> = Array<Comment>()
     var artists: Array<String> = Array<String>()
     var image: UIImage?
     
@@ -25,7 +25,10 @@ class Sketch {
     
     /* Adds a comment to this sketch. */
     func addComment(comment: String) {
-        comments += [comment]
+        let wrapper = Comment()
+        wrapper.username = "Test"
+        wrapper.text = comment
+        comments += [wrapper]
     }
     
     /* Loads this sketch's image, SYNCHRONOUSLY. */
@@ -43,9 +46,7 @@ class Sketch {
         sketch.upvotes = object["upvotes"].int!
         
         // Aggregate comments
-        for (_, comment) in object["comments"] {
-            sketch.comments += [comment.string!]
-        }
+        sketch.comments = Comment.fromJSON(object["comments"])
         
         // Aggregate artists
         for (_, artist) in object["artists"] {
