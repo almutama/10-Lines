@@ -93,7 +93,7 @@ class FeedTableViewController: UITableViewController {
         imageView.layer.masksToBounds = false
         imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
         imageView.layer.shadowOffset = CGSizeMake(0, 0)
-        imageView.layer.shadowOpacity = 0.3
+        imageView.layer.shadowOpacity = 0.3 
 
         // Load image.
         if (feedItems![indexPath.row].image != nil) {

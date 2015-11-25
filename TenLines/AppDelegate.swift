@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIToolbar.appearance().barTintColor = UIColor(red: 0.46, green: 0.43, blue: 0.81, alpha: 1.0)
         UIToolbar.appearance().tintColor = UIColor.whiteColor()
         
+        // Keyboard manager setup.
+        IQKeyboardManager.sharedManager().enable = true
+        
         return true
     }
 
