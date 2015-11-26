@@ -554,12 +554,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="color_picker.png" width="32" height="32"/>
+        <image name="color_picker.png" width="22" height="22"/>
         <image name="comment_icon.png" width="329" height="252"/>
         <image name="heart_icon.png" width="325" height="252"/>
         <image name="logo.png" width="238" height="326"/>
         <image name="new_sketch.png" width="2890" height="1248"/>
-        <image name="pencil.png" width="32" height="32"/>
+        <image name="pencil.png" width="22" height="22"/>
         <image name="profile_placeholder.png" width="633" height="633"/>
     </resources>
 </document>

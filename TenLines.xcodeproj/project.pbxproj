@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0912CD9E1C06D5D700A0E0E0 /* color_picker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0912CD9C1C06D5D700A0E0E0 /* color_picker@2x.png */; };
 		0912CD9F1C06D5D700A0E0E0 /* pencil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0912CD9D1C06D5D700A0E0E0 /* pencil@2x.png */; };
+		0912CDA11C06E98C00A0E0E0 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912CDA01C06E98C00A0E0E0 /* ColorPickerViewController.swift */; };
 		09375C7A1C0531CA00436510 /* IQKeyboardManagerSwift in Resources */ = {isa = PBXBuildFile; fileRef = 09375C791C0531CA00436510 /* IQKeyboardManagerSwift */; };
 		09375C9C1C05324300436510 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C881C05324300436510 /* IQNSArray+Sort.swift */; };
 		09375C9D1C05324300436510 /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C891C05324300436510 /* IQUITextFieldView+Additions.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		0912CD9C1C06D5D700A0E0E0 /* color_picker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color_picker@2x.png"; sourceTree = "<group>"; };
 		0912CD9D1C06D5D700A0E0E0 /* pencil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil@2x.png"; sourceTree = "<group>"; };
+		0912CDA01C06E98C00A0E0E0 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		09375C791C0531CA00436510 /* IQKeyboardManagerSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IQKeyboardManagerSwift; path = "/Users/Ben-han/Documents/Developer/Apps/iOS/TenLines/TenLines/IQKeyboardManagerSwift"; sourceTree = "<absolute>"; };
 		09375C881C05324300436510 /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		09375C891C05324300436510 /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				09719AF81BF7315C009BEE15 /* WhiteboardViewController.swift */,
 				09719AFA1BF731C0009BEE15 /* SessionSetupTableViewController.swift */,
 				09719AF61BF72ACC009BEE15 /* FeedTableViewController.swift */,
+				0912CDA01C06E98C00A0E0E0 /* ColorPickerViewController.swift */,
 			);
 			name = "View controllers";
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0912CDA11C06E98C00A0E0E0 /* ColorPickerViewController.swift in Sources */,
 				269896EB1BFE945100E7E6E9 /* CommentController.swift in Sources */,
 				0974A8421C047FD700F1503E /* Sketch.swift in Sources */,
 				09375CA61C05324300436510 /* IQBarButtonItem.swift in Sources */,
