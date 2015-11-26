@@ -59,6 +59,10 @@ class FeedTableViewController: UITableViewController {
         // Hide the loading indicator since we're done loading.
         self.refreshControl?.endRefreshing()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: true);
+    }
 
     // MARK: - Table view data source
 

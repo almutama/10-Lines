@@ -91,7 +91,7 @@ class CommentController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.toolbar.hidden = false;
+        self.navigationController?.setToolbarHidden(false, animated: true);
     }
     
     // MARK: - Table view data source

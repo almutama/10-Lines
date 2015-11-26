@@ -55,6 +55,10 @@ class SessionSetupTableViewController: UITableViewController {
         self.refreshControl?.endRefreshing()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: true);
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

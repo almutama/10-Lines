@@ -121,7 +121,9 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Draw With..." id="xvK-mt-mzI"/>
+                    <navigationItem key="navigationItem" title="Draw With..." id="xvK-mt-mzI">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="l8b-FS-jBw"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="startButton" destination="AKv-Ha-dfc" id="84H-OK-czq"/>
                     </connections>
@@ -130,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="1020" y="1138"/>
         </scene>
-        <!--Draw-->
+        <!--Whiteboard View Controller-->
         <scene sceneID="X8h-O3-aqK">
             <objects>
                 <viewController id="PH3-JK-ANW" customClass="WhiteboardViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
@@ -139,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Draw" id="bbx-C3-1HW"/>
+                    <navigationItem key="navigationItem" id="bbx-C3-1HW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhu-ww-7Oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
