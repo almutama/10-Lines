@@ -14,6 +14,7 @@ class WhiteboardView: UIView {
     var lines: Array<Line> = Array<Line>()
     var currentLine: Line?
     
+    /* Called when the user touches the view. */
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         currentLine = Line()
         let touchPoint = touches.first?.locationInView(self)
@@ -21,38 +22,27 @@ class WhiteboardView: UIView {
         self.setNeedsDisplay()
     }
     
+    /* Called when the user drags their finger along the view. */
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touchPoint = touches.first?.locationInView(self)
         currentLine?.points += [touchPoint!]
         self.setNeedsDisplay()
     }
     
+    /* Called when the user lifts their finger. */
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         currentLine = nil
         self.setNeedsDisplay()
     }
     
+    /* Called when the user lifts their finger. */
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         lines += [currentLine!]
         currentLine = nil
         self.setNeedsDisplay()
     }
     
-    func drawLine(line: Line) {
-        // Build (graphical) line.
-        let path = UIBezierPath()
-        path.moveToPoint(line.points[0])
-        for point in line.points {
-            path.addLineToPoint(point)
-        }
-        
-        // Set stroke color to line color.
-        line.color.setStroke()
-        
-        // Draw line.
-        path.stroke()
-    }
-    
+    /* Drawing callback. This is where you implement how the view is drawn. */
     override func drawRect(rect: CGRect) {
         // Draw lines.
         for line in lines {
@@ -63,5 +53,22 @@ class WhiteboardView: UIView {
         if (self.currentLine != nil) {
             drawLine(self.currentLine!)
         }
+    }
+    
+    /* Helper method to draw a single line. */
+    func drawLine(line: Line) {
+        // Build (graphical) line.
+        let path = UIBezierPath()
+        path.lineWidth = line.width
+        path.moveToPoint(line.points[0])
+        for point in line.points {
+            path.addLineToPoint(point)
+        }
+        
+        // Set stroke color to line color.
+        line.color.setStroke()
+        
+        // Draw line.
+        path.stroke()
     }
 }

@@ -12,4 +12,5 @@ import UIKit
 class Line {
     var color: UIColor = UIColor.blackColor()
     var points: Array<CGPoint> = Array<CGPoint>()
+    var width: CGFloat = 3
 }
