@@ -40,6 +40,7 @@ class WhiteboardViewController: UIViewController, UIPopoverPresentationControlle
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "popoverSegue") {
             // NOT WORKING YET - trying to present view controller as popover instead of new view
+            // See http://richardallen.me/2014/11/28/popovers.html. Is this an iOS9 issue, maybe?
             let popoverViewController = segue.destinationViewController
             popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             popoverViewController.popoverPresentationController!.delegate = self
