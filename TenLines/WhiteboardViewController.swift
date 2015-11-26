@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import QuartzCore
 
 class WhiteboardViewController: UIViewController {
 
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var undoButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Programmatically set rounded corners on buttons.
+        submitButton.layer.masksToBounds = true
+        submitButton.layer.cornerRadius = 10
+        undoButton.layer.masksToBounds = true
+        undoButton.layer.cornerRadius = 10
     }
 
     override func didReceiveMemoryWarning() {
