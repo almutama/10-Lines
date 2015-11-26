@@ -62,7 +62,25 @@ class SessionSetupTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (section == 0) {
+            return "You recently sketched with..."
+        }
+        else {
+            return "All friends"
+        }
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor.darkGrayColor()
+        label.font = UIFont(name: "AmaticSC-Bold", size: 30)
+        label.text = self.tableView(tableView, titleForHeaderInSection: section)
+        return label
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
