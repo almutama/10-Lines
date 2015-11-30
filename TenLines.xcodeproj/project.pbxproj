@@ -11,6 +11,8 @@
 		0912CD9F1C06D5D700A0E0E0 /* pencil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0912CD9D1C06D5D700A0E0E0 /* pencil@2x.png */; };
 		0912CDA11C06E98C00A0E0E0 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912CDA01C06E98C00A0E0E0 /* ColorPickerViewController.swift */; };
 		092B446A1C0C32A400281D89 /* LineWidthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B44691C0C32A400281D89 /* LineWidthPickerViewController.swift */; };
+		092B446C1C0C433500281D89 /* FinishedSketchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B446B1C0C433500281D89 /* FinishedSketchViewController.swift */; };
+		092B446E1C0C46B400281D89 /* InvitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092B446D1C0C46B400281D89 /* InvitesViewController.swift */; };
 		09375C7A1C0531CA00436510 /* IQKeyboardManagerSwift in Resources */ = {isa = PBXBuildFile; fileRef = 09375C791C0531CA00436510 /* IQKeyboardManagerSwift */; };
 		09375C9C1C05324300436510 /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C881C05324300436510 /* IQNSArray+Sort.swift */; };
 		09375C9D1C05324300436510 /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C891C05324300436510 /* IQUITextFieldView+Additions.swift */; };
@@ -62,6 +64,8 @@
 		0912CD9D1C06D5D700A0E0E0 /* pencil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil@2x.png"; sourceTree = "<group>"; };
 		0912CDA01C06E98C00A0E0E0 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		092B44691C0C32A400281D89 /* LineWidthPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineWidthPickerViewController.swift; sourceTree = "<group>"; };
+		092B446B1C0C433500281D89 /* FinishedSketchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedSketchViewController.swift; sourceTree = "<group>"; };
+		092B446D1C0C46B400281D89 /* InvitesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitesViewController.swift; sourceTree = "<group>"; };
 		09375C791C0531CA00436510 /* IQKeyboardManagerSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IQKeyboardManagerSwift; path = "/Users/Ben-han/Documents/Developer/Apps/iOS/TenLines/TenLines/IQKeyboardManagerSwift"; sourceTree = "<absolute>"; };
 		09375C881C05324300436510 /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		09375C891C05324300436510 /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 				09719AF61BF72ACC009BEE15 /* FeedTableViewController.swift */,
 				0912CDA01C06E98C00A0E0E0 /* ColorPickerViewController.swift */,
 				092B44691C0C32A400281D89 /* LineWidthPickerViewController.swift */,
+				092B446B1C0C433500281D89 /* FinishedSketchViewController.swift */,
+				092B446D1C0C46B400281D89 /* InvitesViewController.swift */,
 			);
 			name = "View controllers";
 			sourceTree = "<group>";
@@ -421,12 +427,14 @@
 				09719AF91BF7315C009BEE15 /* WhiteboardViewController.swift in Sources */,
 				09719B051BF74AA2009BEE15 /* SwiftyJSON.swift in Sources */,
 				09375CA71C05324300436510 /* IQTitleBarButtonItem.swift in Sources */,
+				092B446C1C0C433500281D89 /* FinishedSketchViewController.swift in Sources */,
 				09375CA31C05324300436510 /* IQKeyboardManager.swift in Sources */,
 				09719AF71BF72ACC009BEE15 /* FeedTableViewController.swift in Sources */,
 				09375CA91C05324300436510 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				09375C9C1C05324300436510 /* IQNSArray+Sort.swift in Sources */,
 				09375CA11C05324300436510 /* IQKeyboardManagerConstants.swift in Sources */,
 				09375CA21C05324300436510 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				092B446E1C0C46B400281D89 /* InvitesViewController.swift in Sources */,
 				0974A8471C049DBB00F1503E /* Artist.swift in Sources */,
 				0974A8491C05074B00F1503E /* Comment.swift in Sources */,
 				09375C9F1C05324300436510 /* IQUIViewController+Additions.swift in Sources */,

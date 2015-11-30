@@ -10,6 +10,7 @@
             <string>AmaticSC-Bold</string>
             <string>AmaticSC-Bold</string>
             <string>AmaticSC-Bold</string>
+            <string>AmaticSC-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -164,6 +165,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="7Vv-XF-nlJ" kind="push" id="rcD-5p-WIb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uL9-5B-SrX">
                                 <rect key="frame" x="118" y="504" width="84" height="44"/>
@@ -243,6 +247,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zid-9f-qFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1844" y="954"/>
+        </scene>
+        <!--+1 sketch!-->
+        <scene sceneID="pfz-ED-qAT">
+            <objects>
+                <viewController id="7Vv-XF-nlJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YIO-Yk-M1R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="f1f-iG-27r">
+                                <rect key="frame" x="20" y="124" width="280" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.98951140534599491" blue="0.94194953398657721" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="preview"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sketch title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ejT-iB-8QZ">
+                                <rect key="frame" x="20" y="75" width="280" height="41"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.38431372549999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="+1 sketch!" id="Lv3-TO-yoJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ITH-oF-ezA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1435" y="1970"/>
         </scene>
         <!--Color Picker View Controller-->
         <scene sceneID="Tdx-wZ-Dbu">
@@ -420,6 +454,21 @@
             </objects>
             <point key="canvasLocation" x="790" y="1970"/>
         </scene>
+        <!--Invites-->
+        <scene sceneID="sSK-2o-fAq">
+            <objects>
+                <viewController id="kfV-He-g1y" customClass="InvitesViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WDN-CF-Gvq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Invites" id="eWd-2x-geI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acO-Bc-TG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18" y="1970"/>
+        </scene>
         <!--Home-->
         <scene sceneID="i8c-ax-cdp">
             <objects>
@@ -509,7 +558,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="nW7-te-Nin">
                         <barButtonItem key="backBarButtonItem" title="Home" id="mDk-GI-ugl"/>
-                        <barButtonItem key="leftBarButtonItem" title="Invites" id="kvd-fD-cs8"/>
+                        <barButtonItem key="leftBarButtonItem" title="Invites" id="kvd-fD-cs8">
+                            <connections>
+                                <segue destination="kfV-He-g1y" kind="push" id="2Mp-Gs-JN6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="cXL-tM-FhM">
                             <connections>
                                 <segue destination="Nph-kf-keS" kind="push" id="ChQ-lG-ZCK"/>
