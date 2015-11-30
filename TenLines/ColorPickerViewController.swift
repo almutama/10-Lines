@@ -26,11 +26,6 @@ class ColorPickerViewController: UICollectionViewController {
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - Collection view data source
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

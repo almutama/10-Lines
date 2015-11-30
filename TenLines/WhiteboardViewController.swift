@@ -45,11 +45,6 @@ class WhiteboardViewController: UIViewController, UIPopoverPresentationControlle
         // Reset undo
         resetUndoButton()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // Mark: - Color picker view controller delegate
     

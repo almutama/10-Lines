@@ -40,11 +40,6 @@ class FeedTableViewController: UITableViewController {
         
         self.tableView.reloadData();
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func refreshFeed(sender: AnyObject?) {
         // Temporary load feed data from a file. Eventually we want to get this
