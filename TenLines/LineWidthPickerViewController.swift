@@ -37,65 +37,40 @@ class LineWidthPickerViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("lineWidthCell", forIndexPath: indexPath)
 
         // Configure the cell...
+        if (cell.selectedBackgroundView == nil) {
+            cell.selectedBackgroundView = UIView(frame: cell.bounds)
+            cell.selectedBackgroundView!.backgroundColor = UIColor.clearColor()
+            cell.selectedBackgroundView!.layer.borderColor = UIColor(white: 0.0, alpha: 0.7).CGColor
+            cell.selectedBackgroundView!.layer.borderWidth = 4
+        }
+        
+        // Customize line-width preview.
+        let lineView = cell.viewWithTag(10)!
+        lineView.frame.size = CGSizeMake(lineView.frame.width, CGFloat(3 + 3 * indexPath.row))
+        lineView.center = CGPointMake(lineView.center.x, cell.bounds.size.height / 2 - lineView.frame.size.height / 2)
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (self.delegate != nil) {
-            let width = tableView.cellForRowAtIndexPath(indexPath)?.tag
-            self.delegate!.didPickLineWidth(width!)
+            let cell = tableView.cellForRowAtIndexPath(indexPath)!
+            let lineView = cell.viewWithTag(10)!
+            self.delegate!.didPickLineWidth(Int(lineView.frame.size.height))
         }
     }
 
