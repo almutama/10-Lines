@@ -13,25 +13,51 @@ class WhiteboardView: UIView {
     
     var lines: Array<Line> = Array<Line>()
     var currentLine: Line?
+    var currentColor: UIColor = UIColor.blackColor()
+    var currentLineWidth: Int = 3
+    
+    /* Call to undo last drawn line. There is no redo functionality so undos
+       are permanent. */
+    func undo() -> Bool {
+        if (lines.count > 0) {
+            lines.removeLast()
+            self.setNeedsDisplay()
+            return true
+        }
+        self.setNeedsDisplay()
+        return false
+    }
     
     /* Called when the user touches the view. */
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // Create a new line.
         currentLine = Line()
+        currentLine?.color = currentColor
+        currentLine?.width = CGFloat(currentLineWidth)
+        
+        // Add current touch point.
         let touchPoint = touches.first?.locationInView(self)
         currentLine?.points += [touchPoint!]
+        
+        // Force redraw.
         self.setNeedsDisplay()
     }
     
     /* Called when the user drags their finger along the view. */
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // Add current touch point.
         let touchPoint = touches.first?.locationInView(self)
         currentLine?.points += [touchPoint!]
+        
+        // Force redraw.
         self.setNeedsDisplay()
     }
     
     /* Called when the user lifts their finger. */
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         currentLine = nil
+        
+        // Force redraw.
         self.setNeedsDisplay()
     }
     
@@ -39,6 +65,8 @@ class WhiteboardView: UIView {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         lines += [currentLine!]
         currentLine = nil
+        
+        // Force redraw.
         self.setNeedsDisplay()
     }
     

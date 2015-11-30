@@ -116,6 +116,15 @@ class SessionSetupTableViewController: UITableViewController {
         else {
             { artist.loadIcon() } ~> { iconImageView.image = artist.icon }
         }
+        
+        // Set acessory view based on selection state.
+        let selectedRows = tableView.indexPathsForSelectedRows
+        if (selectedRows != nil && selectedRows!.contains(indexPath)) {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+        else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
 
         return cell
     }

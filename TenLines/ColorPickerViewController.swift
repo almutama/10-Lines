@@ -9,7 +9,15 @@
 import UIKit
 import QuartzCore
 
+protocol ColorPickerViewControllerDelegate {
+    /* Called when the user has selected a color using a color picker. */
+    func didPickColor(color: UIColor)
+}
+
 class ColorPickerViewController: UICollectionViewController {
+    
+    /* Delegate to inform of color picking events. */
+    var delegate: ColorPickerViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,5 +61,12 @@ class ColorPickerViewController: UICollectionViewController {
         cell.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
         
         return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if (self.delegate != nil) {
+            let color = collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor
+            self.delegate?.didPickColor(color!)
+        }
     }
 }

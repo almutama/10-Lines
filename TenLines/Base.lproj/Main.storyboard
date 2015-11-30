@@ -101,7 +101,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" rowHeight="120" id="shH-yQ-QHe">
-                                <rect key="frame" x="0.0" y="250" width="320" height="120"/>
+                                <rect key="frame" x="0.0" y="314" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="shH-yQ-QHe" id="fR4-Gg-SBO">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
@@ -172,6 +172,9 @@
                                 <state key="normal" title="Undo (3)">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="undo:" destination="PH3-JK-ANW" eventType="touchUpInside" id="zn9-eA-YDb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,10 +183,18 @@
                         <rightBarButtonItems>
                             <barButtonItem image="color_picker.png" id="wr1-aG-5mG" userLabel="Color Picker Button">
                                 <connections>
-                                    <segue destination="hUz-4u-ENI" kind="push" identifier="popoverSegue" id="Pd1-0S-l7N"/>
+                                    <segue destination="hUz-4u-ENI" kind="popover" identifier="showColorPicker" popoverAnchorBarButtonItem="wr1-aG-5mG" id="Pd1-0S-l7N">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="pencil.png" id="TlN-sc-16U" userLabel="Line Width Button"/>
+                            <barButtonItem image="pencil.png" id="TlN-sc-16U" userLabel="Line Width Button">
+                                <connections>
+                                    <segue destination="o50-EP-egZ" kind="popover" identifier="showLineWidthPicker" popoverAnchorBarButtonItem="TlN-sc-16U" id="BNI-3t-yJN">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -195,6 +206,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhu-ww-7Oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1435" y="1138"/>
+        </scene>
+        <!--Line Width Picker View Controller-->
+        <scene sceneID="fmB-Zw-J8r">
+            <objects>
+                <viewController id="o50-EP-egZ" customClass="LineWidthPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aax-uV-zYv">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="8IW-M2-bzc"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="150" height="200"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="150" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zid-9f-qFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1844" y="954"/>
         </scene>
         <!--Color Picker View Controller-->
         <scene sceneID="Tdx-wZ-Dbu">
@@ -212,7 +242,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="ibf-rb-BUN">
-                                <rect key="frame" x="0.0" y="44" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -231,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhe-Bq-ioY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="1138"/>
+            <point key="canvasLocation" x="1844" y="1289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VdU-NQ-e0Q">
@@ -411,7 +441,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="rK6-pU-Jzw">
-                                <rect key="frame" x="0.0" y="188" width="320" height="300"/>
+                                <rect key="frame" x="0.0" y="252" width="320" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="50" verticalCompressionResistancePriority="50" tableViewCell="rK6-pU-Jzw" id="4tr-Sw-HQn">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
