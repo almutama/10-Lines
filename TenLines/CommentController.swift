@@ -8,75 +8,110 @@
 
 import UIKit
 
-class CommentController: UIViewController {
+class CommentController: UITableViewController {
     
     @IBOutlet weak var userTextField: UITextField!
     
-    @IBOutlet weak var commentField: UITextView!
+    /* References to UI elements. */
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var upvoteButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var CommentCount: UILabel!
+    /* The sketch shown by this comment controller. This is set by the
+     * previously visible controller upone a segue. */
+    var sketch: Sketch!
     
-    @IBOutlet weak var pictureImageView: UIImageView!
-    
-    @IBOutlet weak var upVoteCount: UILabel!
-    
-    @IBAction func upVoteButton(sender: AnyObject) {
-        if upVoteCount.text == "" {
-            upVoteCount.text = "1"
-        } else {
-            if let myNumber = NSNumberFormatter().numberFromString(upVoteCount.text!) {
-                var myInt = myNumber.integerValue
-                myInt = myInt + 1
-                let myString = String(myInt)
-                upVoteCount.text = myString
-            } else {
-                print("error changing upVoteCount to string")
-            }
+    /* Upvotes the currently displayed sketch. */
+    @IBAction func upvote(sender: AnyObject) {
+        var count = 0
+        if (sender.titleForState(UIControlState.Normal) != nil) {
+            count = Int(sender.titleForState(UIControlState.Normal)!)!
         }
+        ++count
+        sender.setTitle(String(count), forState: UIControlState.Normal)
     }
     
-    var pictureURL: String!
-    
+    /* Adds a comment to the currently displayed sketch. */
     @IBAction func sendComment(sender: AnyObject) {
+        // Disallow blank comments.
         if userTextField.text != "" {
-            commentField.text = "User Name" + "\n" + userTextField.text! + "\n\n" + commentField.text!
+            let comment = Comment()
+            comment.username = "anonymous aardvark"
+            comment.text = userTextField.text!
+            
+            // Clear text field.
             userTextField.text = ""
-        
-            if let myNumber = NSNumberFormatter().numberFromString(CommentCount.text!) {
-                var myInt = myNumber.integerValue
-                myInt = myInt + 1
-                let myString = String(myInt)
-                CommentCount.text = myString
-            } else {
-                print("error changing CommentCount to string")
-            }
+            
+            // Add comment to data object.
+            sketch.addComment(comment)
+            
+            // Update comment count.
+            commentButton.setTitle(String(sketch.comments.count), forState: UIControlState.Normal);
+            
+            // Insert a new table row for the new comment.
+            let newPath = NSIndexPath(forRow: sketch.comments.count - 1, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
-
     }
     
+    /* Callback function for setup after the view loads. */
     override func viewDidLoad() {
         // Setup view.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
-        self.pictureImageView.layer.masksToBounds = false
-        self.pictureImageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
-        self.pictureImageView.layer.shadowOffset = CGSizeMake(0, 0)
-        self.pictureImageView.layer.shadowOpacity = 0.5
+        self.imageView.layer.masksToBounds = false
+        self.imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
+        self.imageView.layer.shadowOffset = CGSizeMake(0, 0)
+        self.imageView.layer.shadowOpacity = 0.5
         
         // Load image.
-        let request: NSURLRequest = NSURLRequest(URL: NSURL(string: pictureURL)!)
-        let mainQueue = NSOperationQueue.mainQueue()
-        NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
-            if error == nil {
-                // Convert the downloaded data in to a UIImage object.
-                let image = UIImage(data: data!)
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.pictureImageView.image = image
-                })
-            }
-            else {
-                print("Error: \(error!.localizedDescription)")
-            }
-        })
+        if (sketch.image != nil) {
+            self.imageView.image = sketch.image
+        }
+        else {
+            // Load image asynchronously if it's not available.
+            // The first block here denotes something done on a background thread.
+            // The second block denotes something to do after the first block completes.
+            // See Threading.swift for details on how this works.
+            { self.sketch.loadImage() } ~> { self.imageView.image = self.sketch.image }
+        }
+        
+        // Upvote button.
+        upvoteButton.setTitle(String(sketch.upvotes), forState: UIControlState.Normal)
+        
+        // Line count label.
+        captionLabel.text = "\(sketch.artists.count) artists, \(sketch.lines) lines"
+        
+        // Comments button.
+        commentButton.setTitle(String(sketch.comments.count), forState: UIControlState.Normal);
+        
+        // Sketch title label.
+        titleLabel.text = sketch.title
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(false, animated: true);
+    }
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sketch.comments.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)
+        
+        // Configure cell...
+        cell.textLabel?.text = sketch.comments[indexPath.row].username
+        cell.detailTextLabel?.text = sketch.comments[indexPath.row].text
+        
+        return cell
     }
 }
 

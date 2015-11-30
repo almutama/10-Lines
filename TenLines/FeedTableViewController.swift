@@ -11,7 +11,10 @@ import QuartzCore
 
 class FeedTableViewController: UITableViewController {
     
-    private var feedItems: JSON?
+    @IBOutlet weak var newSketchButton: UIButton!
+    
+    // List of sketches currently displayed in feed.
+    private var feedItems: Array<Sketch>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,29 +25,38 @@ class FeedTableViewController: UITableViewController {
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        // Programmatically create rounded corners for new sketch button.
+        newSketchButton.clipsToBounds = true;
+        newSketchButton.layer.cornerRadius = 65;
+        
+        // Center new sketch button.
+        newSketchButton.center = CGPoint.init(x: self.view.frame.width / 2, y: newSketchButton.center.y);
 
         // Load feed immediately.
         let path = NSBundle.mainBundle().pathForResource("feed", ofType: "json")
-        feedItems = JSON(data: NSData(contentsOfFile: path!)!)
+        let data = JSON(data: NSData(contentsOfFile: path!)!)
+        feedItems = Sketch.fromJSON(data)
+        
         self.tableView.reloadData();
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func refreshFeed(sender: AnyObject?) {
         // Temporary load feed data from a file. Eventually we want to get this
         // data by invoking a web service instead.
         let path = NSBundle.mainBundle().pathForResource("feed2", ofType: "json")
-        feedItems = JSON(data: NSData(contentsOfFile: path!)!)
+        let data = JSON(data: NSData(contentsOfFile: path!)!)
+        feedItems = Sketch.fromJSON(data)
         
         // Reload data.
         self.tableView.reloadData()
         
         // Hide the loading indicator since we're done loading.
         self.refreshControl?.endRefreshing()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: true);
     }
 
     // MARK: - Table view data source
@@ -54,7 +66,7 @@ class FeedTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 350
+        return 325
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,50 +84,46 @@ class FeedTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let sketch = feedItems![indexPath.row]
         
-        // Configure cell.
+        // Configure cell. Some custom visual things, like a subtle drop shadow.
         cell.backgroundColor = UIColor.clearColor()
         let imageView: UIImageView = cell.viewWithTag(10) as! UIImageView
         imageView.layer.masksToBounds = false
         imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
         imageView.layer.shadowOffset = CGSizeMake(0, 0)
-        imageView.layer.shadowOpacity = 0.3
+        imageView.layer.shadowOpacity = 0.3 
 
         // Load image.
-        let imageURL: String = feedItems![indexPath.row]["url"].string!
-        let request: NSURLRequest = NSURLRequest(URL: NSURL(string: imageURL)!)
-        let mainQueue = NSOperationQueue.mainQueue()
-        NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
-            if error == nil {
-                // Convert the downloaded data in to a UIImage object.
-                let image = UIImage(data: data!)
-                dispatch_async(dispatch_get_main_queue(), {
-                    imageView.image = image
-                })
-            }
-            else {
-                print("Error: \(error!.localizedDescription)")
-            }
-        })
+        if (feedItems![indexPath.row].image != nil) {
+            imageView.image = sketch.image
+        }
+        else {
+            // Fetch the image on a background thread, then show it.
+            // The first block here denotes something done on a background thread.
+            // The second block denotes something to do after the first block completes.
+            // See Threading.swift for details on how this works.
+            { sketch.loadImage() } ~> { imageView.image = sketch.image }
+        }
         
         // Upvote button.
         let upvoteButton: UIButton = cell.viewWithTag(20) as! UIButton
-        let numUpvotes = feedItems![indexPath.row]["upvotes"].int
+        let numUpvotes = sketch.upvotes
         upvoteButton.addTarget(self, action:"upvote:", forControlEvents: UIControlEvents.TouchUpInside);
-        upvoteButton.setTitle(String(numUpvotes!), forState: UIControlState.Normal)
+        upvoteButton.setTitle(String(numUpvotes), forState: UIControlState.Normal)
         
         // Comments button.
         let commentButton: UIButton = cell.viewWithTag(30) as! UIButton
-        let numComments = feedItems![indexPath.row]["comments"].int
-        commentButton.setTitle(String(numComments!), forState: UIControlState.Normal);
+        let numComments = sketch.comments.count
+        commentButton.setTitle(String(numComments), forState: UIControlState.Normal);
         
         // Line count label.
         let lineLabel: UILabel = cell.viewWithTag(40) as! UILabel
-        lineLabel.text = "\(feedItems![indexPath.row]["artists"].count) artists, \(feedItems![indexPath.row]["lines"].int!) lines"
+        lineLabel.text = "\(sketch.artists.count) artists, \(sketch.lines) lines"
         
         // Sketch title label.
         let titleLabel: UILabel = cell.viewWithTag(50) as! UILabel
-        titleLabel.text = feedItems![indexPath.row]["title"].string!
+        titleLabel.text = sketch.title
         
         return cell
     }
@@ -128,9 +136,8 @@ class FeedTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "showSketch") {
             let path = self.tableView.indexPathForSelectedRow
-            let imageURL: String = feedItems![path!.row]["url"].string!
             let commentController = segue.destinationViewController as! CommentController
-            commentController.pictureURL = imageURL
+            commentController.sketch = feedItems![path!.row]
         }
     }
 }
