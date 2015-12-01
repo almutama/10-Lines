@@ -54,6 +54,48 @@ class SessionSetupTableViewController: UITableViewController {
         self.navigationController?.setToolbarHidden(true, animated: true);
     }
     
+    func addCheckMarkToCell(cell: UITableViewCell, animated: Bool) {
+        let iconImageView: UIImageView = cell.viewWithTag(20) as! UIImageView
+        
+        // Add overlay.
+        let overlayView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        overlayView.center = CGPoint(x: iconImageView.frame.size.width / 2, y: iconImageView.frame.size.height / 2)
+        overlayView.backgroundColor = UIColor(red: 0.15, green: 0.23, blue: 0.21, alpha: 0.5)
+        overlayView.layer.cornerRadius = 50
+        overlayView.tag = 100001
+        iconImageView.addSubview(overlayView)
+        
+        // Add check mark.
+        let checkmark = UIImageView(image: UIImage(named: "checkmark.png"))
+        checkmark.frame = overlayView.bounds
+        checkmark.contentMode = UIViewContentMode.Center
+        overlayView.addSubview(checkmark)
+        
+        let duration = (animated) ? 0.3 : 0.0
+        UIView.animateWithDuration(duration) {
+            overlayView.center = CGPoint(x: iconImageView.frame.size.width / 2, y: iconImageView.frame.size.height / 2)
+            overlayView.frame = iconImageView.bounds
+            checkmark.frame = overlayView.bounds
+        }
+    }
+    
+    func removeCheckMarkFromCell(cell: UITableViewCell, animated: Bool) {
+        let iconImageView: UIImageView = cell.viewWithTag(20) as! UIImageView
+        let overlayView = iconImageView.viewWithTag(100001)
+        // let center = CGPoint(x: iconImageView.frame.size.width / 2, y: iconImageView.frame.size.height / 2)
+        
+        // Remove checkmark, if it exists.
+        if (overlayView != nil) {
+            let duration = (animated) ? 0.3 : 0.0
+            UIView.animateWithDuration(duration, animations: {
+                // TODO
+            }, completion: {
+                (value: Bool) in
+                let _ = iconImageView.subviews.map({subview in subview.removeFromSuperview()})
+            })
+        }
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -115,10 +157,10 @@ class SessionSetupTableViewController: UITableViewController {
         // Set acessory view based on selection state.
         let selectedRows = tableView.indexPathsForSelectedRows
         if (selectedRows != nil && selectedRows!.contains(indexPath)) {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            addCheckMarkToCell(cell, animated: false)
         }
         else {
-            cell.accessoryType = UITableViewCellAccessoryType.None
+            removeCheckMarkFromCell(cell, animated: false)
         }
 
         return cell
@@ -128,12 +170,12 @@ class SessionSetupTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        addCheckMarkToCell(cell!, animated: true)
     }
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell?.accessoryType = UITableViewCellAccessoryType.None
+        removeCheckMarkFromCell(cell!, animated: true)
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

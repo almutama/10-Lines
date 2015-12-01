@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9527.1" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -106,7 +106,6 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="shH-yQ-QHe" id="fR4-Gg-SBO">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
-
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="nuO-OL-RGc" userLabel="Handle">
@@ -188,16 +187,12 @@
                         <rightBarButtonItems>
                             <barButtonItem image="color_picker.png" id="wr1-aG-5mG" userLabel="Color Picker Button">
                                 <connections>
-                                    <segue destination="hUz-4u-ENI" kind="popover" identifier="showColorPicker" popoverAnchorBarButtonItem="wr1-aG-5mG" id="Pd1-0S-l7N">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="hUz-4u-ENI" kind="push" identifier="showColorPicker" id="Pd1-0S-l7N"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="pencil.png" id="TlN-sc-16U" userLabel="Line Width Button">
                                 <connections>
-                                    <segue destination="o50-EP-egZ" kind="popover" identifier="showLineWidthPicker" popoverAnchorBarButtonItem="TlN-sc-16U" id="BNI-3t-yJN">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="o50-EP-egZ" kind="push" identifier="showLineWidthPicker" id="BNI-3t-yJN"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -222,7 +217,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lineWidthCell" id="E7o-HJ-bre">
-                                <rect key="frame" x="0.0" y="28" width="150" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="150" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E7o-HJ-bre" id="9LW-Ym-fc9">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="43"/>
@@ -295,7 +290,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="ibf-rb-BUN">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -512,7 +507,7 @@
                                 <rect key="frame" x="0.0" y="252" width="320" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="50" verticalCompressionResistancePriority="50" tableViewCell="rK6-pU-Jzw" id="4tr-Sw-HQn">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="299.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="50" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sketch title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IEp-gT-F9H">
