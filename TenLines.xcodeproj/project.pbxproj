@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090094291C0E359800F4523B /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 090094281C0E359800F4523B /* checkmark@2x.png */; };
 		0912CD9E1C06D5D700A0E0E0 /* color_picker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0912CD9C1C06D5D700A0E0E0 /* color_picker@2x.png */; };
 		0912CD9F1C06D5D700A0E0E0 /* pencil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0912CD9D1C06D5D700A0E0E0 /* pencil@2x.png */; };
 		0912CDA11C06E98C00A0E0E0 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0912CDA01C06E98C00A0E0E0 /* ColorPickerViewController.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090094281C0E359800F4523B /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
 		0912CD9C1C06D5D700A0E0E0 /* color_picker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color_picker@2x.png"; sourceTree = "<group>"; };
 		0912CD9D1C06D5D700A0E0E0 /* pencil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil@2x.png"; sourceTree = "<group>"; };
 		0912CDA01C06E98C00A0E0E0 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 		09C792E81BFFB58B009D2C96 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				090094281C0E359800F4523B /* checkmark@2x.png */,
 				0912CD9C1C06D5D700A0E0E0 /* color_picker@2x.png */,
 				0912CD9D1C06D5D700A0E0E0 /* pencil@2x.png */,
 				09C792E91BFFB58B009D2C96 /* comment_icon.png */,
@@ -410,6 +413,7 @@
 				09719AEC1BF72578009BEE15 /* Assets.xcassets in Resources */,
 				09C792F41BFFB58B009D2C96 /* comment_icon.png in Resources */,
 				09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */,
+				090094291C0E359800F4523B /* checkmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
