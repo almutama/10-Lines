@@ -46,6 +46,10 @@ class WhiteboardViewController: UIViewController, UIPopoverPresentationControlle
         resetUndoButton()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: true);
+    }
+    
     // Mark: - Color picker view controller delegate
     
     func didPickColor(color: UIColor) {
