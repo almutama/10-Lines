@@ -1,0 +1,26 @@
+[
+    {
+        "username": "sarah",
+        "firstname": "Sarah",
+        "lastname": "Wymer",
+        "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image1.jpg"
+    },
+    {
+        "username": "selina",
+        "firstname": "Selina",
+        "lastname": "Her",
+        "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image3.jpg"
+    },
+    {
+        "username": "bhnascar",
+        "firstname": "Ben-han",
+        "lastname": "Sung",
+        "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image2.jpg"
+    },
+    {
+        "username": "nyasha",
+        "firstname": "Nyasha",
+        "lastname": "Smith",
+        "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image4.jpg"
+    }
+]
