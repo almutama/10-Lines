@@ -9,12 +9,18 @@
 import Foundation
 import UIKit
 
+protocol WhiteboardViewDelegate {
+    func didDrawLine(line: Line)
+}
+
 class WhiteboardView: UIView {
     
     var lines: Array<Line> = Array<Line>()
     var currentLine: Line?
     var currentColor: UIColor = UIColor.blackColor()
     var currentLineWidth: Int = 3
+    
+    var delegate: WhiteboardViewDelegate?
     
     /* Call to undo last drawn line. There is no redo functionality so undos
        are permanent. */
@@ -63,7 +69,13 @@ class WhiteboardView: UIView {
     
     /* Called when the user lifts their finger. */
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // Save line.
         lines += [currentLine!]
+        
+        // Notify delegate of new line.
+        if (delegate != nil) {
+            delegate!.didDrawLine(currentLine!)
+        }
         currentLine = nil
         
         // Force redraw.

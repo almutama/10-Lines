@@ -9,8 +9,9 @@
 import UIKit
 import QuartzCore
 
-class WhiteboardViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerViewControllerDelegate, LineWidthPickerViewControllerDelegate {
+class WhiteboardViewController: UIViewController, UIPopoverPresentationControllerDelegate, WhiteboardViewDelegate, ColorPickerViewControllerDelegate, LineWidthPickerViewControllerDelegate {
 
+    @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var undoButton: UIButton!
     
@@ -36,6 +37,10 @@ class WhiteboardViewController: UIViewController, UIPopoverPresentationControlle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set whiteboard delegate.
+        let whiteboard = view as! WhiteboardView
+        whiteboard.delegate = self
+        
         // Programmatically set rounded corners on buttons.
         submitButton.layer.masksToBounds = true
         submitButton.layer.cornerRadius = 10
@@ -48,6 +53,14 @@ class WhiteboardViewController: UIViewController, UIPopoverPresentationControlle
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setToolbarHidden(true, animated: true);
+    }
+    
+    // Mark: - Whiteboard view delegate
+    
+    func didDrawLine(line: Line) {
+        let whiteboard = view as! WhiteboardView
+        let lineCount = max(0, 10 - whiteboard.lines.count)
+        instructionLabel.text = "\(lineCount) lines left. your turn!"
     }
     
     // Mark: - Color picker view controller delegate
