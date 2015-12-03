@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class WhiteboardViewController: UIViewController, UIPopoverPresentationControllerDelegate, WhiteboardViewDelegate, ColorPickerViewControllerDelegate, LineWidthPickerViewControllerDelegate {
+class WhiteboardViewController: UIViewController, UIAdaptivePresentationControllerDelegate, UIPopoverPresentationControllerDelegate, WhiteboardViewDelegate, ColorPickerViewControllerDelegate, LineWidthPickerViewControllerDelegate {
 
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
@@ -76,12 +76,28 @@ class WhiteboardViewController: UIViewController, UIPopoverPresentationControlle
         let whiteboard = view as! WhiteboardView
         whiteboard.currentLineWidth = width
     }
-
-    // MARK: - Navigation
+    
+    // MARK: - UIPopoverPresentationControllerDelegate
+    
+    func prepareForPopoverPresentation(popoverPresentationController: UIPopoverPresentationController) {
+        print("Foo")
+    }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
+    func presentationController(presentationController: UIPresentationController,
+        willPresentWithAdaptiveStyle style: UIModalPresentationStyle,
+        transitionCoordinator: UIViewControllerTransitionCoordinator?) {
+        print("Foo")
+    }
+    
+    // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

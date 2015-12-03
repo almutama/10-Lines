@@ -9,7 +9,10 @@
 import UIKit
 
 class InvitesViewController: UITableViewController {
-    private var invites: Array<Artist>?
+    
+    /* List of invites you've received. */
+    private var invites: Array<Invite>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +25,6 @@ class InvitesViewController: UITableViewController {
 
         // Load friends right away.
         self.refreshInvites(nil)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     func refreshInvites(sender: AnyObject?) {
@@ -35,7 +32,7 @@ class InvitesViewController: UITableViewController {
         // data by invoking a web service instead.
         let path = NSBundle.mainBundle().pathForResource("invites", ofType: "json")
         let data = JSON(data: NSData(contentsOfFile: path!)!)
-        invites = Artist.fromJSON(data)
+        invites = Invite.fromJSON(data)
         
         // Reload data.
         self.tableView.reloadData()
@@ -65,19 +62,19 @@ class InvitesViewController: UITableViewController {
         iconImageView.layer.borderWidth = 4
         iconImageView.layer.borderColor = UIColor(red: 0.6, green: 0.93, blue: 0.85, alpha: 1.0).CGColor
         
-        // Get artist.
-        let artist = invites![indexPath.row]
+        // Get invite.
+        let invite = invites![indexPath.row]
         
         // Name label.
         let nameLabel: UILabel = cell.viewWithTag(11) as! UILabel
-        nameLabel.text = artist.firstname + " invited you!"
+        nameLabel.text = invite.firstname + " invited you!"
         
-        // Profile picture.
-        if (artist.icon != nil) {
-            iconImageView.image = artist.icon
+        // Preview picture.
+        if (invite.preview != nil) {
+            iconImageView.image = invite.preview
         }
         else {
-            { artist.loadIcon() } ~> { iconImageView.image = artist.icon }
+            { invite.loadPreview() } ~> { iconImageView.image = invite.preview }
         }
         
         // Set acessory view based on selection state.

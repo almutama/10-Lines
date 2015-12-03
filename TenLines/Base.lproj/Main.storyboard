@@ -66,7 +66,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" id="Yov-Nm-fbC">
-                                <rect key="frame" x="0.0" y="114" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yov-Nm-fbC" id="Wt9-HO-VtV">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -83,7 +83,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" rowHeight="120" id="shH-yQ-QHe">
-                                <rect key="frame" x="0.0" y="158" width="320" height="120"/>
+                                <rect key="frame" x="0.0" y="94" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="shH-yQ-QHe" id="fR4-Gg-SBO">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
@@ -178,12 +178,16 @@
                         <rightBarButtonItems>
                             <barButtonItem image="color_picker.png" id="wr1-aG-5mG" userLabel="Color Picker Button">
                                 <connections>
-                                    <segue destination="hUz-4u-ENI" kind="push" identifier="showColorPicker" id="Pd1-0S-l7N"/>
+                                    <segue destination="hUz-4u-ENI" kind="popover" identifier="showColorPicker" popoverAnchorBarButtonItem="wr1-aG-5mG" id="Pd1-0S-l7N">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="pencil.png" id="TlN-sc-16U" userLabel="Line Width Button">
                                 <connections>
-                                    <segue destination="o50-EP-egZ" kind="push" identifier="showLineWidthPicker" id="BNI-3t-yJN"/>
+                                    <segue destination="o50-EP-egZ" kind="popover" identifier="showLineWidthPicker" popoverAnchorBarButtonItem="TlN-sc-16U" id="BNI-3t-yJN">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -202,14 +206,14 @@
         <!--Line Width Picker View Controller-->
         <scene sceneID="fmB-Zw-J8r">
             <objects>
-                <viewController id="o50-EP-egZ" customClass="LineWidthPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="pageSheet" id="o50-EP-egZ" customClass="LineWidthPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aax-uV-zYv">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lineWidthCell" id="E7o-HJ-bre">
-                                <rect key="frame" x="0.0" y="72" width="150" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="150" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E7o-HJ-bre" id="9LW-Ym-fc9">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="43"/>
@@ -269,7 +273,7 @@
         <!--Color Picker View Controller-->
         <scene sceneID="Tdx-wZ-Dbu">
             <objects>
-                <viewController id="hUz-4u-ENI" customClass="ColorPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="pageSheet" id="hUz-4u-ENI" customClass="ColorPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" id="tNv-su-wPe">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,7 +286,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="ibf-rb-BUN">
-                                <rect key="frame" x="0.0" y="44" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -467,7 +471,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="116" id="HqX-Bi-LVj">
-                                <rect key="frame" x="0.0" y="147" width="320" height="116"/>
+                                <rect key="frame" x="0.0" y="83" width="320" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="10" contentMode="center" tableViewCell="HqX-Bi-LVj" id="1Yh-Cy-BJ3">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
@@ -547,7 +551,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="rK6-pU-Jzw">
-                                <rect key="frame" x="0.0" y="252" width="320" height="300"/>
+                                <rect key="frame" x="0.0" y="188" width="320" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalHuggingPriority="100" verticalHuggingPriority="100" horizontalCompressionResistancePriority="50" verticalCompressionResistancePriority="50" tableViewCell="rK6-pU-Jzw" id="4tr-Sw-HQn">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
