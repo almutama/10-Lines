@@ -59,6 +59,7 @@ class LineWidthPickerViewController: UITableViewController {
             let lineView = cell.viewWithTag(10)!
             self.delegate!.didPickLineWidth(Int(lineView.frame.size.height))
         }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

@@ -63,5 +63,6 @@ class ColorPickerViewController: UICollectionViewController {
             let color = collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor
             self.delegate?.didPickColor(color!)
         }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

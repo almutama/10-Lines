@@ -17,6 +17,8 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var undoButton: UIButton!
     
+    weak var presentingBarButtonItem: UIBarButtonItem?
+    
     var remainingUndoCount: Int = 3
     
     @IBAction func undo(sender: AnyObject) {
@@ -83,8 +85,7 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
     
     func prepareForPopoverPresentation(popoverPresentationController: UIPopoverPresentationController) {
         popoverPresentationController.permittedArrowDirections = .Any
-        popoverPresentationController.delegate = self
-        popoverPresentationController.barButtonItem = lineWidthButton
+        popoverPresentationController.barButtonItem = presentingBarButtonItem
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -99,6 +100,7 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         lineWidthPickerViewController.popoverPresentationController!.delegate = self
         lineWidthPickerViewController.delegate = self
         
+        self.presentingBarButtonItem = lineWidthButton
         self.presentViewController(
             lineWidthPickerViewController,
             animated: true,
@@ -113,35 +115,10 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         colorPickerViewController.popoverPresentationController!.delegate = self
         colorPickerViewController.delegate = self
         
+        self.presentingBarButtonItem = colorPickerButton
         self.presentViewController(
             colorPickerViewController,
             animated: true,
             completion: nil)
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "showColorPicker") {
-            // NOT WORKING YET - trying to present view controller as popover instead of new view
-            // See http://richardallen.me/2014/11/28/popovers.html. Is this an iOS9 issue, maybe?
-            let popoverViewController = segue.destinationViewController
-            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-            popoverViewController.popoverPresentationController!.delegate = self
-            
-            // Set color picking callback delegate.
-            let colorPickerViewController = popoverViewController as! ColorPickerViewController
-            colorPickerViewController.delegate = self
-        }
-        else if (segue.identifier == "showLineWidthPicker") {
-            let popoverViewController = segue.destinationViewController
-            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-            popoverViewController.popoverPresentationController!.delegate = self
-            
-            // Set color picking callback delegate.
-            let lineWidthPickerViewController = popoverViewController as! LineWidthPickerViewController
-            lineWidthPickerViewController.delegate = self
-        }
     }
 }
