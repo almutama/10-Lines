@@ -44,6 +44,7 @@
 		0974A8471C049DBB00F1503E /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0974A8461C049DBB00F1503E /* Artist.swift */; };
 		0974A8491C05074B00F1503E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0974A8481C05074B00F1503E /* Comment.swift */; };
 		098371571C100D5B00FB8679 /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098371561C100D5B00FB8679 /* Invite.swift */; };
+		098377A01C106C1B00FE2249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983779F1C106C1B00FE2249 /* AccountManager.swift */; };
 		09A4BB731BFE65570032DB59 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A4BB721BFE65570032DB59 /* QuartzCore.framework */; };
 		09C792F21BFFB58B009D2C96 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C792E61BFFB58B009D2C96 /* AmaticSC-Bold.ttf */; };
 		09C792F31BFFB58B009D2C96 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C792E71BFFB58B009D2C96 /* AmaticSC-Regular.ttf */; };
@@ -102,6 +103,7 @@
 		0974A8461C049DBB00F1503E /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		0974A8481C05074B00F1503E /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		098371561C100D5B00FB8679 /* Invite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
+		0983779F1C106C1B00FE2249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		09A4BB721BFE65570032DB59 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		09C792E61BFFB58B009D2C96 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		09C792E71BFFB58B009D2C96 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				098371561C100D5B00FB8679 /* Invite.swift */,
 				0974A8481C05074B00F1503E /* Comment.swift */,
 				09F92C8E1C07C1FB00E420D1 /* Line.swift */,
+				0983779F1C106C1B00FE2249 /* AccountManager.swift */,
 			);
 			name = "Data classes";
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				09375C9D1C05324300436510 /* IQUITextFieldView+Additions.swift in Sources */,
 				09375CA01C05324300436510 /* IQUIWindow+Hierarchy.swift in Sources */,
 				09375CA51C05324300436510 /* IQTextView.swift in Sources */,
+				098377A01C106C1B00FE2249 /* AccountManager.swift in Sources */,
 				09375CA81C05324300436510 /* IQToolbar.swift in Sources */,
 				09F92C8D1C07C19500E420D1 /* WhiteboardView.swift in Sources */,
 			);

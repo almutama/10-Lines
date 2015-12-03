@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Sketch {
+    var id: Int?
     var title: String = ""
     var url: String = ""
     var lines: Int = 0

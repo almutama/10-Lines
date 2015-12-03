@@ -55,6 +55,15 @@ class FeedTableViewController: UITableViewController {
         self.refreshControl?.endRefreshing()
     }
     
+    func upvote(sender: UIButton) {
+        var count = 0
+        if (sender.titleForState(UIControlState.Normal) != nil) {
+            count = Int(sender.titleForState(UIControlState.Normal)!)!
+        }
+        ++count
+        sender.setTitle(String(count), forState: UIControlState.Normal)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setToolbarHidden(true, animated: true);
     }
@@ -71,15 +80,6 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feedItems != nil ? feedItems!.count : 0
-    }
-    
-    func upvote(sender: UIButton) {
-        var count = 0
-        if (sender.titleForState(UIControlState.Normal) != nil) {
-            count = Int(sender.titleForState(UIControlState.Normal)!)!
-        }
-        ++count
-        sender.setTitle(String(count), forState: UIControlState.Normal)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -126,6 +126,10 @@ class FeedTableViewController: UITableViewController {
         titleLabel.text = sketch.title
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
     // MARK: - Navigation
