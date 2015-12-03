@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
+        <development version="6300" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -178,23 +179,21 @@
                         <rightBarButtonItems>
                             <barButtonItem image="color_picker.png" id="wr1-aG-5mG" userLabel="Color Picker Button">
                                 <connections>
-                                    <segue destination="hUz-4u-ENI" kind="popover" identifier="showColorPicker" popoverAnchorBarButtonItem="wr1-aG-5mG" id="Pd1-0S-l7N">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="presentColorPicker:" destination="PH3-JK-ANW" id="Nwg-HV-XpE"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="pencil.png" id="TlN-sc-16U" userLabel="Line Width Button">
                                 <connections>
-                                    <segue destination="o50-EP-egZ" kind="popover" identifier="showLineWidthPicker" popoverAnchorBarButtonItem="TlN-sc-16U" id="BNI-3t-yJN">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="presentLineWidthPicker:" destination="PH3-JK-ANW" id="xwo-sa-3Bb"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="colorPickerButton" destination="wr1-aG-5mG" id="eL9-af-fQe"/>
                         <outlet property="instructionLabel" destination="Rlz-Us-LQm" id="UfZ-hh-XOJ"/>
+                        <outlet property="lineWidthButton" destination="TlN-sc-16U" id="3yv-9L-pXa"/>
                         <outlet property="submitButton" destination="Q1r-AL-W2V" id="LsA-UO-XWB"/>
                         <outlet property="undoButton" destination="uL9-5B-SrX" id="69q-Lc-fUe"/>
                     </connections>
@@ -206,7 +205,7 @@
         <!--Line Width Picker View Controller-->
         <scene sceneID="fmB-Zw-J8r">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="o50-EP-egZ" customClass="LineWidthPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="lineWidthPicker" modalPresentationStyle="pageSheet" id="o50-EP-egZ" customClass="LineWidthPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aax-uV-zYv">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,7 +230,7 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" id="8IW-M2-bzc"/>
-                    <value key="contentSizeForViewInPopover" type="size" width="150" height="200"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="150" height="150"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="150" height="200"/>
@@ -273,20 +272,20 @@
         <!--Color Picker View Controller-->
         <scene sceneID="Tdx-wZ-Dbu">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="hUz-4u-ENI" customClass="ColorPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="colorPicker" modalPresentationStyle="pageSheet" id="hUz-4u-ENI" customClass="ColorPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" id="tNv-su-wPe">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="190" height="490"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tf5-IC-d3O">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="ibf-rb-BUN">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -298,14 +297,14 @@
                         </cells>
                     </collectionView>
                     <navigationItem key="navigationItem" id="aUg-up-oBb"/>
-                    <value key="contentSizeForViewInPopover" type="size" width="150" height="200"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="190" height="490"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="150" height="200"/>
+                    <size key="freeformSize" width="190" height="490"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhe-Bq-ioY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="1289"/>
+            <point key="canvasLocation" x="1824" y="1364"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VdU-NQ-e0Q">

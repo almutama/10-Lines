@@ -33,7 +33,7 @@ class ColorPickerViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 25
+        return 24
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -49,7 +49,7 @@ class ColorPickerViewController: UICollectionViewController {
         }
         
         // Set cell background color by iterating through rainbow.
-        let offset = Double(indexPath.row) / 25.0 * 2 * M_PI
+        let offset = Double(indexPath.row) / 24.0 * 2 * M_PI
         let red: CGFloat = CGFloat(sin(offset) * 0.5 + 0.5)
         let green: CGFloat = CGFloat(sin(offset + 2) * 0.5 + 0.5)
         let blue: CGFloat = CGFloat(sin(offset + 4) * 0.5 + 0.5)

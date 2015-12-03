@@ -11,6 +11,8 @@ import QuartzCore
 
 class WhiteboardViewController: UIViewController, UIAdaptivePresentationControllerDelegate, UIPopoverPresentationControllerDelegate, WhiteboardViewDelegate, ColorPickerViewControllerDelegate, LineWidthPickerViewControllerDelegate {
 
+    @IBOutlet weak var colorPickerButton: UIBarButtonItem!
+    @IBOutlet weak var lineWidthButton: UIBarButtonItem!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var undoButton: UIButton!
@@ -80,21 +82,41 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
     // MARK: - UIPopoverPresentationControllerDelegate
     
     func prepareForPopoverPresentation(popoverPresentationController: UIPopoverPresentationController) {
-        print("Foo")
+        popoverPresentationController.permittedArrowDirections = .Any
+        popoverPresentationController.delegate = self
+        popoverPresentationController.barButtonItem = lineWidthButton
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
+    @IBAction func presentLineWidthPicker(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let lineWidthPickerViewController = storyboard.instantiateViewControllerWithIdentifier("lineWidthPicker") as! LineWidthPickerViewController
+        
+        lineWidthPickerViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        lineWidthPickerViewController.popoverPresentationController!.delegate = self
+        lineWidthPickerViewController.delegate = self
+        
+        self.presentViewController(
+            lineWidthPickerViewController,
+            animated: true,
+            completion: nil)
     }
     
-    func presentationController(presentationController: UIPresentationController,
-        willPresentWithAdaptiveStyle style: UIModalPresentationStyle,
-        transitionCoordinator: UIViewControllerTransitionCoordinator?) {
-        print("Foo")
+    @IBAction func presentColorPicker(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let colorPickerViewController = storyboard.instantiateViewControllerWithIdentifier("colorPicker") as! ColorPickerViewController
+        
+        colorPickerViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        colorPickerViewController.popoverPresentationController!.delegate = self
+        colorPickerViewController.delegate = self
+        
+        self.presentViewController(
+            colorPickerViewController,
+            animated: true,
+            completion: nil)
     }
     
     // MARK: - Navigation
