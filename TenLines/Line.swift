@@ -17,12 +17,11 @@ class Line {
     /* Creates a Line object from a corresponding JSON fragment. */
     static func fromJSONFragment(object: JSON) -> Line {
         let line: Line = Line()
-        line.color = UIColor.blackColor() // TODO: Serialize UIColor!
-        line.width = CGFloat(object["width"].int!)
         
-        // Deserialize points.
-        let data: NSData = object["lines"].string!.dataUsingEncoding(NSUTF8StringEncoding)!
-        line.points = Line.swiftArrayFromJSONArray(JSON(data: data).array!)
+        // Deserialize line.
+        line.points = Line.deserializePoints(object["lines"].string!)
+        line.color = Line.deserializeColor(object["color"].string!)
+        line.width = CGFloat(object["width"].float!)
         
         return line
     }
@@ -36,9 +35,37 @@ class Line {
         return lines
     }
     
-    /* Converts an array of CGPoints into an NSArray of NSArrays. For use with
-     * JSON serialization. */
-    static func cocoaArrayFromSwiftArray(points: Array<CGPoint>) -> NSArray {
+    /* Serializes a UIColor to a JSON string. */
+    static func serializeColor(color: UIColor) throws -> NSString? {
+        // Get color components
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        // Convert to JSON string.
+        let output = NSMutableDictionary()
+        output.setValue(Float(red), forKey: "red")
+        output.setValue(Float(green), forKey: "green")
+        output.setValue(Float(blue), forKey: "blue")
+        output.setValue(Float(alpha), forKey: "alpha")
+        let data = try NSJSONSerialization.dataWithJSONObject(output, options: NSJSONWritingOptions(rawValue: 0))
+        return NSString(data: data, encoding: NSUTF8StringEncoding)
+    }
+    
+    /* Deserializes a UIColor from JSON. */
+    static func deserializeColor(color: String) -> UIColor {
+        let data: JSON = JSON(data: color.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+        let red = CGFloat(data["red"].float!)
+        let green = CGFloat(data["green"].float!)
+        let blue = CGFloat(data["blue"].float!)
+        let alpha = CGFloat(data["alpha"].float!)
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    /* Serializes points to a JSON string. */
+    static func serializePoints(points: Array<CGPoint>) throws -> NSString? {
         let output = NSMutableArray()
         for point in points {
             let temp = NSMutableArray()
@@ -46,14 +73,15 @@ class Line {
             temp.addObject(Float(point.y))
             output.addObject(temp)
         }
-        return output
+        let data = try NSJSONSerialization.dataWithJSONObject(output, options: NSJSONWritingOptions(rawValue: 0))
+        return NSString(data: data, encoding: NSUTF8StringEncoding)
     }
     
-    /* Converts an array of JSON entities into a Swift Array of CGPoints. For 
-     * use with JSON deserialization. */
-    static func swiftArrayFromJSONArray(points: [JSON]) -> Array<CGPoint> {
+    /* Deserializes points from JSON. */
+    static func deserializePoints(points: String) -> Array<CGPoint> {
+        let data: JSON = JSON(data: points.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
         var output = Array<CGPoint>()
-        for point in points {
+        for (_, point) in data {
             let x: CGFloat = CGFloat(point[0].floatValue)
             let y: CGFloat = CGFloat(point[1].floatValue)
             output += [CGPoint(x: x, y: y)]

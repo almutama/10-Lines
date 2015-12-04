@@ -15,6 +15,7 @@ class Invite {
     var lastname: String = ""
     var previewUrl: String = ""
     var preview: UIImage?
+    var sketchId: Int = 0
     
     /* Loads this invite's preview, SYNCHRONOUSLY. */
     func loadPreview() {
@@ -29,6 +30,7 @@ class Invite {
         invite.firstname = object["firstname"].string!
         invite.lastname = object["lastname"].string!
         invite.previewUrl = object["preview"].string!
+        invite.sketchId = object["sketch_id"].int!
         return invite
     }
     

@@ -11,7 +11,7 @@ import UIKit
 class InvitesViewController: UITableViewController {
     
     /* List of invites you've received. */
-    private var invites: Array<Invite>?
+    private var invites: Array<Sketch>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,22 +23,29 @@ class InvitesViewController: UITableViewController {
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
-        // Load friends right away.
+        // Test account manager.
+        ({ AccountManager.sharedManager.getSketches() } ~> {})
+        
+        // Load invites right away.
         self.refreshInvites(nil)
     }
     
     func refreshInvites(sender: AnyObject?) {
         // Temporary load feed data from a file. Eventually we want to get this
         // data by invoking a web service instead.
+        /*
         let path = NSBundle.mainBundle().pathForResource("invites", ofType: "json")
         let data = JSON(data: NSData(contentsOfFile: path!)!)
         invites = Invite.fromJSON(data)
+        */
         
-        // Reload data.
-        self.tableView.reloadData()
-        
-        // Hide the loading indicator since we're done loading.
-        self.refreshControl?.endRefreshing()
+        ({ self.invites = AccountManager.sharedManager.getInvites() }
+        ~>
+        {
+            // Hide the loading indicator since we're done loading.
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        })
     }
 
     // MARK: - Table view data source
@@ -48,7 +55,10 @@ class InvitesViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return invites!.count
+        if (invites != nil) {
+            return invites!.count
+        }
+        return 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -67,14 +77,14 @@ class InvitesViewController: UITableViewController {
         
         // Name label.
         let nameLabel: UILabel = cell.viewWithTag(11) as! UILabel
-        nameLabel.text = invite.firstname + " invited you!"
+        nameLabel.text = invite.creator! + " invited you!"
         
         // Preview picture.
-        if (invite.preview != nil) {
-            iconImageView.image = invite.preview
+        if (invite.image != nil) {
+            iconImageView.image = invite.image
         }
         else {
-            { invite.loadPreview() } ~> { iconImageView.image = invite.preview }
+            { invite.loadImage() } ~> { if (invite.image != nil) { iconImageView.image = invite.image } }
         }
         
         // Set acessory view based on selection state.
@@ -87,5 +97,25 @@ class InvitesViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "loadSketch") {
+            let path = self.tableView.indexPathForSelectedRow
+            
+            // Load sketch.
+            let invite = invites![path!.row]
+            let whiteboardController = segue.destinationViewController as! WhiteboardViewController
+            whiteboardController.sketch = invite
+        }
     }
 }

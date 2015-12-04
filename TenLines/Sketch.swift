@@ -11,45 +11,57 @@ import UIKit
 
 class Sketch {
     var id: Int?
-    var title: String = ""
-    var url: String = ""
-    var lines: Int = 0
-    var upvotes: Int = 0
-    var comments: Array<Comment> = Array<Comment>()
-    var artists: Array<String> = Array<String>()
+    var title: String?
+    var url: String?
+    var lines: Int?
+    var upvotes: Int?
+    var comments: Int?
+    var artists: Int?
+    var creator: String?
+    var lineData: Array<Line> = Array<Line>()
     var image: UIImage?
+    
+    /* Default initializer. */
+    init() {
+        
+    }
+    
+    /* Init with sketch id. */
+    init(id: Int) {
+        self.id = id
+    }
     
     /* Upvotes this sketch. */
     func upvote(sender: AnyObject) {
-        upvotes++
+        upvotes!++
     }
     
     /* Adds a comment to this sketch. */
     func addComment(comment: Comment) {
-        comments += [comment]
+        //comments += [comment]
     }
     
     /* Loads this sketch's image, SYNCHRONOUSLY. */
     func loadImage() {
-        let data: NSData? = NSData(contentsOfURL: NSURL(string: url)!)
-        self.image = UIImage(data: data!)
+        if (url != nil) {
+            let data: NSData? = NSData(base64EncodedString: url!, options: NSDataBase64DecodingOptions(rawValue: 0))
+            if (data != nil) {
+                self.image = UIImage(data: data!)
+            }
+        }
     }
     
     /* Creates a Sketch object from a corresponding JSON fragment. */
     static func fromJSONFragment(object: JSON) -> Sketch {
         let sketch : Sketch = Sketch()
-        sketch.title = object["title"].string!
-        sketch.url = object["url"].string!
-        sketch.lines = object["lines"].int!
-        sketch.upvotes = object["upvotes"].int!
-        
-        // Aggregate comments
-        sketch.comments = Comment.fromJSON(object["comments"])
-        
-        // Aggregate artists
-        for (_, artist) in object["artists"] {
-            sketch.artists += [artist.string!]
-        }
+        sketch.id = object["id"].int
+        sketch.title = object["title"].string
+        sketch.url = object["url"].string
+        sketch.lines = object["lines"].int
+        sketch.upvotes = object["upvotes"].int
+        sketch.comments = object["comments"].int
+        sketch.creator = object["creator"].string
+        sketch.artists = object["artists"].int
         
         return sketch
     }

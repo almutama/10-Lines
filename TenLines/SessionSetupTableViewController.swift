@@ -29,16 +29,21 @@ class SessionSetupTableViewController: UITableViewController {
     }
     
     func refreshFriends(sender: AnyObject?) {
-        self.tableView.reloadData()
-        
         // Temporary load feed data from a file. Eventually we want to get this
         // data by invoking a web service instead.
+        /*
         let path = NSBundle.mainBundle().pathForResource("friends", ofType: "json")
         let data = JSON(data: NSData(contentsOfFile: path!)!)
         friends = Artist.fromJSON(data)
+        */
         
-        // Hide the loading indicator since we're done loading.
-        self.refreshControl?.endRefreshing()
+        ({ self.friends = AccountManager.sharedManager.getUsers() }
+        ~>
+        {
+            // Hide the loading indicator since we're done loading.
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        })
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,14 +73,14 @@ class SessionSetupTableViewController: UITableViewController {
         
         // Name label.
         let nameLabel: UILabel = cell.viewWithTag(10) as! UILabel
-        nameLabel.text = artist.firstname
+        nameLabel.text = (artist.firstname == nil) ? artist.username : artist.firstname
         
         // Profile picture.
         if (artist.icon != nil) {
             iconImageView.image = artist.icon
         }
         else {
-            { artist.loadIcon() } ~> { iconImageView.image = artist.icon }
+            { artist.loadIcon() } ~> { if (artist.icon != nil) { iconImageView.image = artist.icon } }
         }
         
         // Set acessory view based on selection state.
@@ -201,6 +206,27 @@ class SessionSetupTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "newSketch") {
+            // Fetch sketch title.
+            let titleCell = self.tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+            let titleLabel = titleCell.viewWithTag(10) as! UITextField
+            
+            // Load sketch.
+            var sketch: Sketch?
+            ({ sketch = AccountManager.sharedManager.createSketchWithTitle(titleLabel.text!) }
+            ~>
+            {
+                let whiteboardController = segue.destinationViewController as! WhiteboardViewController
+                whiteboardController.sketch = sketch!
+                
+                // Invite selected friends.
+                let paths = self.tableView.indexPathsForSelectedRows!
+                for path in paths {
+                    let friend = self.friends![path.row]
+                    ({ AccountManager.sharedManager.inviteUser(friend.id!, toSketch: sketch!) } ~> {})
+                }
+            })
+        }
     }
 
 }

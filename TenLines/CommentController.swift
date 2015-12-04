@@ -48,11 +48,11 @@ class CommentController: UITableViewController {
             sketch.addComment(comment)
             
             // Update comment count.
-            commentButton.setTitle(String(sketch.comments.count), forState: UIControlState.Normal);
+            commentButton.setTitle(String(sketch.comments), forState: UIControlState.Normal);
             
             // Insert a new table row for the new comment.
-            let newPath = NSIndexPath(forRow: sketch.comments.count - 1, inSection: 0)
-            self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            //let newPath = NSIndexPath(forRow: sketch.comments - 1, inSection: 0)
+            //self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
     
@@ -74,18 +74,18 @@ class CommentController: UITableViewController {
             // The first block here denotes something done on a background thread.
             // The second block denotes something to do after the first block completes.
             // See Threading.swift for details on how this works.
-            { self.sketch.loadImage() } ~> { self.imageView.image = self.sketch.image }
+            { self.sketch.loadImage() } ~> { if (self.sketch.image != nil) { self.imageView.image = self.sketch.image } }
         }
         
         // Upvote button.
         upvoteButton.setTitle(String(sketch.upvotes), forState: UIControlState.Normal)
         
         // Line count label.
-        captionLabel.text = "\(sketch.artists.count) artists, \(sketch.lines) lines"
+        /*captionLabel.text = "\(sketch.artists.count) artists, \(sketch.lines) lines"
         
         // Comments button.
         commentButton.setTitle(String(sketch.comments.count), forState: UIControlState.Normal);
-        
+        */
         // Sketch title label.
         titleLabel.text = sketch.title
     }
@@ -101,15 +101,17 @@ class CommentController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sketch.comments.count
+        return sketch.comments!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)
         
         // Configure cell...
+        /*
         cell.textLabel?.text = sketch.comments[indexPath.row].username
         cell.detailTextLabel?.text = sketch.comments[indexPath.row].text
+        */
         
         return cell
     }

@@ -3,24 +3,28 @@
         "username": "sarah",
         "firstname": "Sarah",
         "lastname": "Wymer",
-        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image1.jpg"
+        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image1.jpg",
+        "sketch_id": 10
     },
     {
         "username": "selina",
         "firstname": "Selina",
         "lastname": "Her",
-        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image3.jpg"
+        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image3.jpg",
+        "sketch_id": 6
     },
     {
         "username": "bhnascar",
         "firstname": "Ben-han",
         "lastname": "Sung",
-        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image2.jpg"
+        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image2.jpg",
+        "sketch_id": 7
     },
     {
         "username": "nyasha",
         "firstname": "Nyasha",
         "lastname": "Smith",
-        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image4.jpg"
+        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image4.jpg",
+        "sketch_id": 8
     }
 ]

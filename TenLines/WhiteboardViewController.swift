@@ -21,6 +21,16 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
     
     var remainingUndoCount: Int = 3
     
+    /* Short poll timer. */
+    var timer: NSTimer?
+    
+    /* The sketch currently being modified/created by this controller. */
+    var sketch: Sketch?
+    
+    deinit {
+        timer?.invalidate()
+    }
+    
     @IBAction func undo(sender: AnyObject) {
         // Perform undo
         let whiteboard = view as! WhiteboardView
@@ -45,6 +55,15 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         let whiteboard = view as! WhiteboardView
         whiteboard.delegate = self
         
+        // Create the sketch if it wasn't set by the segue.
+        /*
+        if (self.sketch == nil) {
+            ({ self.sketch = AccountManager.sharedManager.createSketchWithTitle("Untitled") } ~> {})
+        }*/
+        
+        // Start short polling
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "shortPoll:", userInfo: nil, repeats: true)
+        
         // Programmatically set rounded corners on buttons.
         submitButton.layer.masksToBounds = true
         submitButton.layer.cornerRadius = 10
@@ -59,12 +78,38 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         self.navigationController?.setToolbarHidden(true, animated: true);
     }
     
+    /* Short polling for more lines. LOLZ. Beause not enough time to 
+     * implement web sockets. */
+    func shortPoll(sender: AnyObject?) {
+        ({ AccountManager.sharedManager.syncLinesForSketch(self.sketch!) }
+        ~>
+        {
+            // Update whiteboard if we received new lines.
+            let whiteboard = self.view as! WhiteboardView
+            if (self.sketch!.lineData.count > whiteboard.lines.count) {
+                whiteboard.lines = self.sketch!.lineData
+                whiteboard.setNeedsDisplay()
+            }
+        })
+    }
+    
     // Mark: - Whiteboard view delegate
     
     func didDrawLine(line: Line) {
         let whiteboard = view as! WhiteboardView
         let lineCount = max(0, 10 - whiteboard.lines.count)
         instructionLabel.text = "\(lineCount) lines left. your turn!"
+        
+        // Notify other participants of new line.
+        ({ AccountManager.sharedManager.addlineToSketch(line, sketch: self.sketch!) } ~> {})
+        
+        // Update screenshot.
+        ({
+            let screenshot: UIImage = whiteboard.getScreenshot()!
+            AccountManager.sharedManager.addScreenshotForSketch(screenshot, sketch: self.sketch!)
+        }
+        ~>
+        {})
     }
     
     // Mark: - Color picker view controller delegate

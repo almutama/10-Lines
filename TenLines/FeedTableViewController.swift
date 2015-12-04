@@ -34,14 +34,11 @@ class FeedTableViewController: UITableViewController {
         newSketchButton.center = CGPoint.init(x: self.view.frame.width / 2, y: newSketchButton.center.y);
 
         // Load feed immediately.
-        let path = NSBundle.mainBundle().pathForResource("feed", ofType: "json")
-        let data = JSON(data: NSData(contentsOfFile: path!)!)
-        feedItems = Sketch.fromJSON(data)
-        
-        self.tableView.reloadData();
+        self.refreshFeed(nil)
     }
     
     func refreshFeed(sender: AnyObject?) {
+        /*
         // Temporary load feed data from a file. Eventually we want to get this
         // data by invoking a web service instead.
         let path = NSBundle.mainBundle().pathForResource("feed2", ofType: "json")
@@ -53,6 +50,15 @@ class FeedTableViewController: UITableViewController {
         
         // Hide the loading indicator since we're done loading.
         self.refreshControl?.endRefreshing()
+        */
+        
+        ({ self.feedItems = AccountManager.sharedManager.getAllSketches() }
+        ~>
+        {
+            // Hide the loading indicator since we're done loading.
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        })
     }
     
     func upvote(sender: UIButton) {
@@ -103,23 +109,21 @@ class FeedTableViewController: UITableViewController {
             // The first block here denotes something done on a background thread.
             // The second block denotes something to do after the first block completes.
             // See Threading.swift for details on how this works.
-            { sketch.loadImage() } ~> { imageView.image = sketch.image }
+            { sketch.loadImage() } ~> { if (sketch.image != nil) { imageView.image = sketch.image } }
         }
         
         // Upvote button.
         let upvoteButton: UIButton = cell.viewWithTag(20) as! UIButton
-        let numUpvotes = sketch.upvotes
         upvoteButton.addTarget(self, action:"upvote:", forControlEvents: UIControlEvents.TouchUpInside);
-        upvoteButton.setTitle(String(numUpvotes), forState: UIControlState.Normal)
+        upvoteButton.setTitle(String(sketch.upvotes!), forState: UIControlState.Normal)
         
         // Comments button.
         let commentButton: UIButton = cell.viewWithTag(30) as! UIButton
-        let numComments = sketch.comments.count
-        commentButton.setTitle(String(numComments), forState: UIControlState.Normal);
+        commentButton.setTitle(String(sketch.comments!), forState: UIControlState.Normal);
         
         // Line count label.
         let lineLabel: UILabel = cell.viewWithTag(40) as! UILabel
-        lineLabel.text = "\(sketch.artists.count) artists, \(sketch.lines) lines"
+        lineLabel.text = "\(sketch.artists!) artists, \(sketch.lines!) lines"
         
         // Sketch title label.
         let titleLabel: UILabel = cell.viewWithTag(50) as! UILabel

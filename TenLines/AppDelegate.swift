@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Register default settings.
+        var defaultSettings = Dictionary<String, AnyObject>()
+        defaultSettings["server_ip"] = "localhost"
+        NSUserDefaults.standardUserDefaults().registerDefaults(defaultSettings)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
         // Setup universal styles for navigation bar.
         UINavigationBar.appearance().barTintColor = UIColor(red: 0.46, green: 0.43, blue: 0.81, alpha: 1.0)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(),
@@ -31,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         
         // Login.
-        AccountManager.sharedManager.login("bhnascar", password: "foobar")
+        ({ AccountManager.sharedManager.login("bhnascar", password: "foobar") } ~> {})
         
         return true
     }

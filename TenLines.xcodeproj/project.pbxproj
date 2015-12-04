@@ -30,6 +30,7 @@
 		09375CA91C05324300436510 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C981C05324300436510 /* IQUIView+IQKeyboardToolbar.swift */; };
 		09375CAA1C05324300436510 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9A1C05324300436510 /* Info.plist */; };
 		09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9B1C05324300436510 /* IQKeyboardManager.bundle */; };
+		09507A731C1197F900328589 /* sketch_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09507A721C1197F900328589 /* sketch_placeholder@2x.png */; };
 		09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE41BF72578009BEE15 /* AppDelegate.swift */; };
 		09719AE71BF72578009BEE15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE61BF72578009BEE15 /* ViewController.swift */; };
 		09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09719AE81BF72578009BEE15 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		0974A8491C05074B00F1503E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0974A8481C05074B00F1503E /* Comment.swift */; };
 		098371571C100D5B00FB8679 /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098371561C100D5B00FB8679 /* Invite.swift */; };
 		098377A01C106C1B00FE2249 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983779F1C106C1B00FE2249 /* AccountManager.swift */; };
+		098527AB1C1112FF008A725E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 098527AA1C1112FF008A725E /* Settings.bundle */; };
 		09A4BB731BFE65570032DB59 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A4BB721BFE65570032DB59 /* QuartzCore.framework */; };
 		09C792F21BFFB58B009D2C96 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C792E61BFFB58B009D2C96 /* AmaticSC-Bold.ttf */; };
 		09C792F31BFFB58B009D2C96 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09C792E71BFFB58B009D2C96 /* AmaticSC-Regular.ttf */; };
@@ -52,7 +54,7 @@
 		09C792F51BFFB58B009D2C96 /* heart_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C792EA1BFFB58B009D2C96 /* heart_icon.png */; };
 		09C792F61BFFB58B009D2C96 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C792EB1BFFB58B009D2C96 /* logo.png */; };
 		09C792F71BFFB58B009D2C96 /* new_sketch.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C792EC1BFFB58B009D2C96 /* new_sketch.png */; };
-		09C792F81BFFB58B009D2C96 /* profile_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C792ED1BFFB58B009D2C96 /* profile_placeholder.png */; };
+		09C792F81BFFB58B009D2C96 /* profile_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C792ED1BFFB58B009D2C96 /* profile_placeholder@2x.png */; };
 		09C792F91BFFB58B009D2C96 /* feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 09C792EF1BFFB58B009D2C96 /* feed.json */; };
 		09C792FA1BFFB58B009D2C96 /* feed2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09C792F01BFFB58B009D2C96 /* feed2.json */; };
 		09C792FB1BFFB58B009D2C96 /* friends.json in Resources */ = {isa = PBXBuildFile; fileRef = 09C792F11BFFB58B009D2C96 /* friends.json */; };
@@ -87,6 +89,7 @@
 		09375C981C05324300436510 /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		09375C9A1C05324300436510 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09375C9B1C05324300436510 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		09507A721C1197F900328589 /* sketch_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sketch_placeholder@2x.png"; sourceTree = "<group>"; };
 		09719AE11BF72578009BEE15 /* TenLines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenLines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09719AE41BF72578009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09719AE61BF72578009BEE15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 		0974A8481C05074B00F1503E /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		098371561C100D5B00FB8679 /* Invite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
 		0983779F1C106C1B00FE2249 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		098527AA1C1112FF008A725E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		09A4BB721BFE65570032DB59 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		09C792E61BFFB58B009D2C96 /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		09C792E71BFFB58B009D2C96 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
@@ -111,7 +115,7 @@
 		09C792EA1BFFB58B009D2C96 /* heart_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_icon.png; sourceTree = "<group>"; };
 		09C792EB1BFFB58B009D2C96 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		09C792EC1BFFB58B009D2C96 /* new_sketch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_sketch.png; sourceTree = "<group>"; };
-		09C792ED1BFFB58B009D2C96 /* profile_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_placeholder.png; sourceTree = "<group>"; };
+		09C792ED1BFFB58B009D2C96 /* profile_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_placeholder@2x.png"; sourceTree = "<group>"; };
 		09C792EF1BFFB58B009D2C96 /* feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feed.json; sourceTree = "<group>"; };
 		09C792F01BFFB58B009D2C96 /* feed2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feed2.json; sourceTree = "<group>"; };
 		09C792F11BFFB58B009D2C96 /* friends.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends.json; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 				09719AEB1BF72578009BEE15 /* Assets.xcassets */,
 				09719AED1BF72578009BEE15 /* LaunchScreen.storyboard */,
 				09719AF01BF72578009BEE15 /* Info.plist */,
+				098527AA1C1112FF008A725E /* Settings.bundle */,
 			);
 			path = TenLines;
 			sourceTree = "<group>";
@@ -316,7 +321,8 @@
 				09C792EA1BFFB58B009D2C96 /* heart_icon.png */,
 				09C792EB1BFFB58B009D2C96 /* logo.png */,
 				09C792EC1BFFB58B009D2C96 /* new_sketch.png */,
-				09C792ED1BFFB58B009D2C96 /* profile_placeholder.png */,
+				09507A721C1197F900328589 /* sketch_placeholder@2x.png */,
+				09C792ED1BFFB58B009D2C96 /* profile_placeholder@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				TargetAttributes = {
 					09719AE01BF72578009BEE15 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = Q56GNZ4PUG;
 					};
 				};
 			};
@@ -409,10 +416,12 @@
 				09C792FB1BFFB58B009D2C96 /* friends.json in Resources */,
 				0912CD9F1C06D5D700A0E0E0 /* pencil@2x.png in Resources */,
 				09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */,
-				09C792F81BFFB58B009D2C96 /* profile_placeholder.png in Resources */,
+				09507A731C1197F900328589 /* sketch_placeholder@2x.png in Resources */,
+				09C792F81BFFB58B009D2C96 /* profile_placeholder@2x.png in Resources */,
 				09375CAA1C05324300436510 /* Info.plist in Resources */,
 				09719AEF1BF72578009BEE15 /* LaunchScreen.storyboard in Resources */,
 				09C792F51BFFB58B009D2C96 /* heart_icon.png in Resources */,
+				098527AB1C1112FF008A725E /* Settings.bundle in Resources */,
 				77E1F8AA1C0E701B00AEDF3E /* invites.json in Resources */,
 				09C792F61BFFB58B009D2C96 /* logo.png in Resources */,
 				0912CD9E1C06D5D700A0E0E0 /* color_picker@2x.png in Resources */,
@@ -576,11 +585,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TenLines/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = art.attack.TenLines;
+				PRODUCT_BUNDLE_IDENTIFIER = "art.attack-personal.TenLines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -588,11 +600,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TenLines/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = art.attack.TenLines;
+				PRODUCT_BUNDLE_IDENTIFIER = "art.attack-personal.TenLines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

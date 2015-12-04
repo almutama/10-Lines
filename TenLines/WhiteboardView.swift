@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import QuartzCore
 import UIKit
 
 protocol WhiteboardViewDelegate {
+    /* Callback method to inform delegates that a new line has been drawn. */
     func didDrawLine(line: Line)
 }
 
@@ -110,5 +112,14 @@ class WhiteboardView: UIView {
         
         // Draw line.
         path.stroke()
+    }
+    
+    /* Returns a screenshot of the drawing. */
+    func getScreenshot() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0)
+        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image
     }
 }
