@@ -28,7 +28,10 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
     var sketch: Sketch?
     
     deinit {
-        timer?.invalidate()
+        if (self.timer != nil) {
+            self.timer?.invalidate()
+            self.timer = nil
+        }
     }
     
     @IBAction func undo(sender: AnyObject) {
@@ -61,8 +64,7 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
             ({ self.sketch = AccountManager.sharedManager.createSketchWithTitle("Untitled") } ~> {})
         }*/
         
-        // Start short polling
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "shortPoll:", userInfo: nil, repeats: true)
+
         
         // Programmatically set rounded corners on buttons.
         submitButton.layer.masksToBounds = true
@@ -74,23 +76,36 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         resetUndoButton()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if (self.timer != nil) {
+            self.timer?.invalidate()
+            self.timer = nil
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setToolbarHidden(true, animated: true);
+        if (self.timer == nil) {
+            // Start short polling
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "shortPoll:", userInfo: nil, repeats: true)
+        }
     }
     
     /* Short polling for more lines. LOLZ. Beause not enough time to 
      * implement web sockets. */
     func shortPoll(sender: AnyObject?) {
-        ({ AccountManager.sharedManager.syncLinesForSketch(self.sketch!) }
-        ~>
-        {
-            // Update whiteboard if we received new lines.
-            let whiteboard = self.view as! WhiteboardView
-            if (self.sketch!.lineData.count > whiteboard.lines.count) {
-                whiteboard.lines = self.sketch!.lineData
-                whiteboard.setNeedsDisplay()
-            }
-        })
+        if (self.sketch != nil) {
+            ({ AccountManager.sharedManager.syncLinesForSketch(self.sketch!) }
+            ~>
+            {
+                // Update whiteboard if we received new lines.
+                let whiteboard = self.view as! WhiteboardView
+                if (self.sketch!.lineData.count > whiteboard.lines.count) {
+                    whiteboard.lines = self.sketch!.lineData
+                    whiteboard.setNeedsDisplay()
+                }
+            })
+        }
     }
     
     // Mark: - Whiteboard view delegate

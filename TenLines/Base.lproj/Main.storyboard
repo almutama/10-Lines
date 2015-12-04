@@ -19,7 +19,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -27,30 +27,39 @@
                                 <rect key="frame" x="65" y="99" width="191" height="262"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="4ae-b5-fRU">
-                                <rect key="frame" x="-77" y="491" width="240" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jgU-P0-iif">
-                                <rect key="frame" x="85" y="418" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <state key="normal" title="Tap to begin">
-                                    <color key="titleColor" red="0.48114296244656213" green="0.74120107323232332" blue="0.6786970896388137" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" id="ScY-RF-6Lp">
+                                <rect key="frame" x="65" y="449" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZlE-gF-4cQ"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" id="COi-OF-9yz">
+                                <rect key="frame" x="65" y="411" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nu6-KY-CEf">
+                                <rect key="frame" x="65" y="488" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Not registered?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1vD-31-xvv" kind="modal" id="30I-9d-OIs"/>
+                                    <action selector="registerNewUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yhE-1O-zvE"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.60392156862745094" green="0.92941176470588238" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="beginButton" destination="jgU-P0-iif" id="q8Y-DE-reu"/>
-                        <outlet property="handle" destination="4ae-b5-fRU" id="j4D-1S-CtM"/>
                         <outlet property="logoImageView" destination="1d1-2i-YBh" id="br5-Qn-Y5c"/>
+                        <outlet property="passwordTextField" destination="ScY-RF-6Lp" id="mWJ-RH-akp"/>
+                        <outlet property="usernameTextField" destination="COi-OF-9yz" id="2HC-pr-fMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -309,7 +318,8 @@
         <!--Navigation Controller-->
         <scene sceneID="VdU-NQ-e0Q">
             <objects>
-                <navigationController hidesBottomBarWhenPushed="YES" toolbarHidden="NO" id="1vD-31-xvv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavigationController" hidesBottomBarWhenPushed="YES" toolbarHidden="NO" id="1vD-31-xvv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lml-EG-bzC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="csP-Fx-xDb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -470,7 +480,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="116" id="HqX-Bi-LVj">
-                                <rect key="frame" x="0.0" y="66" width="320" height="116"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="10" contentMode="center" tableViewCell="HqX-Bi-LVj" id="1Yh-Cy-BJ3">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="115"/>
@@ -739,9 +749,9 @@
     </scenes>
     <resources>
         <image name="color_picker.png" width="22" height="22"/>
-        <image name="comment_icon.png" width="329" height="252"/>
-        <image name="heart_icon.png" width="325" height="252"/>
-        <image name="logo.png" width="238" height="326"/>
+        <image name="comment_icon.png" width="164" height="126"/>
+        <image name="heart_icon.png" width="162" height="126"/>
+        <image name="logo.png" width="119" height="163"/>
         <image name="new_sketch.png" width="2890" height="1248"/>
         <image name="pencil.png" width="22" height="22"/>
         <image name="profile_placeholder.png" width="316" height="316"/>

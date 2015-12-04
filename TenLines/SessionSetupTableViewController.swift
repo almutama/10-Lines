@@ -205,7 +205,16 @@ class SessionSetupTableViewController: UITableViewController {
             
             // Load sketch.
             var sketch: Sketch?
-            ({ sketch = AccountManager.sharedManager.createSketchWithTitle(titleLabel.text!) }
+            ({
+                var title: String?
+                if (titleLabel.text == nil || titleLabel.text == "") {
+                    title = "Untitled"
+                }
+                else {
+                    title = titleLabel.text!
+                }
+                sketch = AccountManager.sharedManager.createSketchWithTitle(title!)
+            }
             ~>
             {
                 let whiteboardController = segue.destinationViewController as! WhiteboardViewController

@@ -41,7 +41,7 @@ class CommentController: UITableViewController {
         // Disallow blank comments.
         if userTextField.text != "" {
             let comment = Comment()
-            comment.username = "anonymous aardvark"
+            comment.username = AccountManager.sharedManager.username
             comment.text = userTextField.text!
             
             // Clear text field.

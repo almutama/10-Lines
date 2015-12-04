@@ -15,7 +15,9 @@ class AccountManager {
     
     /* Webservice URLs. */
     private static let baseIpAddress: String = NSUserDefaults.standardUserDefaults().stringForKey("server_ip")!
+    
     private static let loginUrl: String = "http://\(baseIpAddress):3000/login/login"
+    private static let registerUrl: String = "http://\(baseIpAddress):3000/login/create"
     
     private static let addSketchUrl: String = "http://\(baseIpAddress):3000/data/add_sketch"
     private static let addLineUrl: String = "http://\(baseIpAddress):3000/data/add_line"
@@ -32,9 +34,12 @@ class AccountManager {
     
     /* User ID of the currently logged-in user. Nil if not logged in. */
     private var userId: Int?
+    var username: String?
+    var firstname: String?
+    var lastname: String?
     
     /* Logs the user with the given username and password in. */
-    func login(username: String, password: String) {
+    func login(username: String, password: String) -> Bool {
         // Make a login attempt and set the user id if sucessful.
         let params = "username=\(username)&password=\(password)"
         let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.loginUrl)!)
@@ -48,6 +53,10 @@ class AccountManager {
                 let parsedResult: JSON =  JSON(data: result!)
                 if (parsedResult["result"] == "Success") {
                     self.userId = parsedResult["user_id"].int
+                    self.username = parsedResult["username"].string
+                    self.firstname = parsedResult["firstname"].string
+                    self.lastname = parsedResult["lastname"].string
+                    return true
                 }
             }
         }
@@ -55,6 +64,33 @@ class AccountManager {
             // Log warning.
             print("Failed to login.")
         }
+        return false
+    }
+    
+    /* Registers the user with the given username and password. */
+    func register(username: String, password: String) -> Bool {
+        // Make a registration attempt and set the user id if sucessful.
+        let params = "username=\(username)&password=\(password)"
+        let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.registerUrl)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
+        do {
+            let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            let resultString: String = String(data: result!, encoding: NSUTF8StringEncoding)!
+            print("login: \(resultString)")
+            if (result != nil) {
+                let parsedResult: JSON =  JSON(data: result!)
+                if (parsedResult["result"] == "Success") {
+                    self.userId = parsedResult["user_id"].int
+                    return true
+                }
+            }
+        }
+        catch {
+            // Log warning.
+            print("Failed to login.")
+        }
+        return false
     }
     
     /* Creates a sketch with the given title for the currently logged-in user. */
@@ -316,8 +352,11 @@ class AccountManager {
     func getUsers() -> Array<Artist> {
         var users: Array<Artist> = Array<Artist>()
         
-        // Make an asynchronous request to invite another user by ID.
+        // Make an asynchronous request to get all other users.
+        let params = "user_id=\(self.userId!)"
         let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.getUsersUrl)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
         do {
             let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
             let resultString: String = String(data: result!, encoding: NSUTF8StringEncoding)!
