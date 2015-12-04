@@ -16,13 +16,18 @@ class AccountManager {
     /* Webservice URLs. */
     private static let baseIpAddress: String = NSUserDefaults.standardUserDefaults().stringForKey("server_ip")!
     private static let loginUrl: String = "http://\(baseIpAddress):3000/login/login"
+    
     private static let addSketchUrl: String = "http://\(baseIpAddress):3000/data/add_sketch"
     private static let addLineUrl: String = "http://\(baseIpAddress):3000/data/add_line"
+    private static let addCommentUrl: String = "http://\(baseIpAddress):3000/data/add_comment"
     private static let addScreenshotUrl: String = "http://\(baseIpAddress):3000/data/add_screenshot"
-    private static let syncLinesUrl: String = "http://\(baseIpAddress):3000/data/get_lines"
+    
     private static let getSketchesUrl: String = "http://\(baseIpAddress):3000/data/get_sketches"
     private static let getInvitesUrl: String = "http://\(baseIpAddress):3000/data/get_invites"
+    private static let getCommentsUrl: String = "http://\(baseIpAddress):3000/data/get_comments"
     private static let getUsersUrl: String = "http://\(baseIpAddress):3000/data/get_users"
+    
+    private static let syncLinesUrl: String = "http://\(baseIpAddress):3000/data/get_lines"
     private static let inviteUrl: String = "http://\(baseIpAddress):3000/data/invite"
     
     /* User ID of the currently logged-in user. Nil if not logged in. */
@@ -114,6 +119,51 @@ class AccountManager {
         }
     }
     
+    /* Adds a comment to a sketch. */
+    func addCommentForSketch(comment: String, sketch: Sketch) {
+        // Make a request to create line.
+        let comment: String? = comment.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        let params = "user_id=\(self.userId!)&sketch_id=\(sketch.id!)&comment=\(comment!)"
+        let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.addCommentUrl)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
+        do {
+            let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            let resultString: String = String(data: result!, encoding: NSUTF8StringEncoding)!
+            print("addCommentForSketch: \(resultString)")
+        }
+        catch {
+            // Log warning.
+            print("Failed to add comment to sketch.")
+        }
+    }
+    
+    /* Gets existing comments for a sketch. */
+    func getCommentsForSketch(sketch: Sketch) -> Array<Comment> {
+        var comments: Array<Comment> = Array<Comment>()
+        
+        // Make a request to create line.
+        let params = "user_id=\(self.userId!)&sketch_id=\(sketch.id!)"
+        let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.getCommentsUrl)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
+        do {
+            let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            let resultString: String = String(data: result!, encoding: NSUTF8StringEncoding)!
+            print("getCommentsForSketch: \(resultString)")
+            if (result != nil) {
+                let parsedResult: JSON =  JSON(data: result!)
+                comments = Comment.fromJSON(parsedResult)
+            }
+        }
+        catch {
+            // Log warning.
+            print("Failed to get comments for sketch.")
+        }
+        
+        return comments
+    }
+    
     /* Adds a screenshot of an existing sketch to the server. */
     func addScreenshotForSketch(screenshot: UIImage, sketch: Sketch) {
         // Serialize image.
@@ -136,7 +186,7 @@ class AccountManager {
         }
         catch {
             // Log warning.
-            print("Failed to submit screenshot.")
+            print("Failed to submit screenshot for sketch.")
         }
     }
     

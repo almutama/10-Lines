@@ -31,14 +31,6 @@ class InvitesViewController: UITableViewController {
     }
     
     func refreshInvites(sender: AnyObject?) {
-        // Temporary load feed data from a file. Eventually we want to get this
-        // data by invoking a web service instead.
-        /*
-        let path = NSBundle.mainBundle().pathForResource("invites", ofType: "json")
-        let data = JSON(data: NSData(contentsOfFile: path!)!)
-        invites = Invite.fromJSON(data)
-        */
-        
         ({ self.invites = AccountManager.sharedManager.getInvites() }
         ~>
         {

@@ -29,7 +29,6 @@
 		09375CA81C05324300436510 /* IQToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C971C05324300436510 /* IQToolbar.swift */; };
 		09375CA91C05324300436510 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C981C05324300436510 /* IQUIView+IQKeyboardToolbar.swift */; };
 		09375CAA1C05324300436510 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9A1C05324300436510 /* Info.plist */; };
-		09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9B1C05324300436510 /* IQKeyboardManager.bundle */; };
 		09507A731C1197F900328589 /* sketch_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09507A721C1197F900328589 /* sketch_placeholder@2x.png */; };
 		09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE41BF72578009BEE15 /* AppDelegate.swift */; };
 		09719AE71BF72578009BEE15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE61BF72578009BEE15 /* ViewController.swift */; };
@@ -61,7 +60,6 @@
 		09F92C8D1C07C19500E420D1 /* WhiteboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F92C8C1C07C19500E420D1 /* WhiteboardView.swift */; };
 		09F92C8F1C07C1FB00E420D1 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F92C8E1C07C1FB00E420D1 /* Line.swift */; };
 		269896EB1BFE945100E7E6E9 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269896EA1BFE945100E7E6E9 /* CommentController.swift */; };
-		77E1F8A81C0D507300AEDF3E /* IQKeyboardManager.bundle in Sources */ = {isa = PBXBuildFile; fileRef = 77E1F8A71C0D507300AEDF3E /* IQKeyboardManager.bundle */; };
 		77E1F8AA1C0E701B00AEDF3E /* invites.json in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F8A91C0E701B00AEDF3E /* invites.json */; };
 /* End PBXBuildFile section */
 
@@ -415,7 +413,6 @@
 				09C792F71BFFB58B009D2C96 /* new_sketch.png in Resources */,
 				09C792FB1BFFB58B009D2C96 /* friends.json in Resources */,
 				0912CD9F1C06D5D700A0E0E0 /* pencil@2x.png in Resources */,
-				09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */,
 				09507A731C1197F900328589 /* sketch_placeholder@2x.png in Resources */,
 				09C792F81BFFB58B009D2C96 /* profile_placeholder@2x.png in Resources */,
 				09375CAA1C05324300436510 /* Info.plist in Resources */,
@@ -439,7 +436,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77E1F8A81C0D507300AEDF3E /* IQKeyboardManager.bundle in Sources */,
 				0912CDA11C06E98C00A0E0E0 /* ColorPickerViewController.swift in Sources */,
 				269896EB1BFE945100E7E6E9 /* CommentController.swift in Sources */,
 				0974A8421C047FD700F1503E /* Sketch.swift in Sources */,

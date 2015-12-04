@@ -9,14 +9,18 @@
 import Foundation
 
 class Comment {
-    var username: String = ""
-    var text: String = ""
+    var username: String?
+    var firstname: String?
+    var lastname: String?
+    var text: String?
     
     /* Creates a comment from a corresponding JSON fragment. */
     static func fromJSONFragment(object: JSON) -> Comment {
         let comment = Comment()
-        comment.username = object["username"].string!
-        comment.text = object["text"].string!
+        comment.username = object["username"].string
+        comment.firstname = object["firstname"].string
+        comment.lastname = object["lastname"].string
+        comment.text = object["text"].string
         return comment
     }
     

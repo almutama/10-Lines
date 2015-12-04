@@ -38,20 +38,6 @@ class FeedTableViewController: UITableViewController {
     }
     
     func refreshFeed(sender: AnyObject?) {
-        /*
-        // Temporary load feed data from a file. Eventually we want to get this
-        // data by invoking a web service instead.
-        let path = NSBundle.mainBundle().pathForResource("feed2", ofType: "json")
-        let data = JSON(data: NSData(contentsOfFile: path!)!)
-        feedItems = Sketch.fromJSON(data)
-        
-        // Reload data.
-        self.tableView.reloadData()
-        
-        // Hide the loading indicator since we're done loading.
-        self.refreshControl?.endRefreshing()
-        */
-        
         ({ self.feedItems = AccountManager.sharedManager.getAllSketches() }
         ~>
         {

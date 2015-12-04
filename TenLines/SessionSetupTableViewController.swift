@@ -29,14 +29,6 @@ class SessionSetupTableViewController: UITableViewController {
     }
     
     func refreshFriends(sender: AnyObject?) {
-        // Temporary load feed data from a file. Eventually we want to get this
-        // data by invoking a web service instead.
-        /*
-        let path = NSBundle.mainBundle().pathForResource("friends", ofType: "json")
-        let data = JSON(data: NSData(contentsOfFile: path!)!)
-        friends = Artist.fromJSON(data)
-        */
-        
         ({ self.friends = AccountManager.sharedManager.getUsers() }
         ~>
         {

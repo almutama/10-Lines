@@ -23,6 +23,9 @@ class CommentController: UITableViewController {
      * previously visible controller upone a segue. */
     var sketch: Sketch!
     
+    /* Comments for this sketch. */
+    var comments: Array<Comment>?
+    
     /* Upvotes the currently displayed sketch. */
     @IBAction func upvote(sender: AnyObject) {
         var count = 0
@@ -45,14 +48,17 @@ class CommentController: UITableViewController {
             userTextField.text = ""
             
             // Add comment to data object.
-            sketch.addComment(comment)
+            self.comments! += [comment]
             
             // Update comment count.
-            commentButton.setTitle(String(sketch.comments), forState: UIControlState.Normal);
+            commentButton.setTitle(String(sketch.comments!), forState: UIControlState.Normal);
             
             // Insert a new table row for the new comment.
-            //let newPath = NSIndexPath(forRow: sketch.comments - 1, inSection: 0)
-            //self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            let newPath = NSIndexPath(forRow: self.comments!.count - 1, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([newPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+            // Notify remote.
+            ({ AccountManager.sharedManager.addCommentForSketch(comment.text!, sketch: self.sketch)} ~> {})
         }
     }
     
@@ -77,15 +83,20 @@ class CommentController: UITableViewController {
             { self.sketch.loadImage() } ~> { if (self.sketch.image != nil) { self.imageView.image = self.sketch.image } }
         }
         
+        // Load comments.
+        ({ self.comments = AccountManager.sharedManager.getCommentsForSketch(self.sketch) }
+        ~>
+        {
+            self.tableView.reloadData()
+            self.commentButton.setTitle(String(self.comments!.count), forState: UIControlState.Normal);
+        })
+        
         // Upvote button.
-        upvoteButton.setTitle(String(sketch.upvotes), forState: UIControlState.Normal)
+        upvoteButton.setTitle(String(sketch.upvotes!), forState: UIControlState.Normal)
         
         // Line count label.
-        /*captionLabel.text = "\(sketch.artists.count) artists, \(sketch.lines) lines"
-        
-        // Comments button.
-        commentButton.setTitle(String(sketch.comments.count), forState: UIControlState.Normal);
-        */
+        captionLabel.text = "\(sketch.artists!) artists, \(sketch.lines!) lines"
+
         // Sketch title label.
         titleLabel.text = sketch.title
     }
@@ -101,17 +112,18 @@ class CommentController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sketch.comments!
+        if (self.comments != nil) {
+            return self.comments!.count
+        }
+        return 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)
         
         // Configure cell...
-        /*
-        cell.textLabel?.text = sketch.comments[indexPath.row].username
-        cell.detailTextLabel?.text = sketch.comments[indexPath.row].text
-        */
+        cell.textLabel?.text = self.comments?[indexPath.row].username
+        cell.detailTextLabel?.text = self.comments?[indexPath.row].text
         
         return cell
     }
