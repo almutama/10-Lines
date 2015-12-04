@@ -49,6 +49,8 @@ class SessionSetupTableViewController: UITableViewController {
     
     func textCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("textCell", forIndexPath: indexPath)
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.selectedBackgroundView = nil
         return cell
     }
     
@@ -139,7 +141,7 @@ class SessionSetupTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
-            return "Describe your sketch"
+            return "Add title"
         }
         else {
             return "Invite some friends"

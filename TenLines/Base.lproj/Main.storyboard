@@ -12,7 +12,6 @@
             <string>AmaticSC-Bold</string>
             <string>AmaticSC-Bold</string>
             <string>AmaticSC-Bold</string>
-            <string>AmaticSC-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -181,7 +180,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gbS-D5-rzq" kind="push" id="bWf-S5-WOI"/>
+                                    <action selector="finished:" destination="PH3-JK-ANW" eventType="touchUpInside" id="Ipy-7a-Zf9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uL9-5B-SrX">
@@ -266,34 +265,39 @@
         <!--+1 sketch!-->
         <scene sceneID="8tQ-BW-wJ1">
             <objects>
-                <tableViewController id="gbS-D5-rzq" customClass="FinishedSketchViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="finishedViewController" id="gbS-D5-rzq" customClass="FinishedSketchViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4ac-nS-r7a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="FnV-Uj-GEg">
-                            <rect key="frame" x="0.0" y="64" width="320" height="284"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="OlI-HB-d5s">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="386"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="f1f-iG-27r">
-                                    <rect key="frame" x="20" y="64" width="280" height="200"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ViM-pD-gmq">
+                                    <rect key="frame" x="20" y="194" width="280" height="175"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <accessibility key="accessibilityConfiguration" label="preview"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sketch title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ejT-iB-8QZ">
-                                    <rect key="frame" x="20" y="15" width="280" height="41"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <view contentMode="scaleToFill" id="LV3-fP-Htf">
+                                    <rect key="frame" x="-80" y="85" width="240" height="4"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.60392156860000001" green="0.92941176469999998" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mcU-Rz-cCU">
+                                    <rect key="frame" x="95" y="22" width="130" height="130"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.60392156860000001" green="0.92941176469999998" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                    <state key="normal" title="Go home">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" id="8yg-3N-AQp">
-                                <rect key="frame" x="0.0" y="398" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8yg-3N-AQp" id="tDR-C4-wAu">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -310,7 +314,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendCell" rowHeight="120" id="W1E-3m-GO5">
-                                <rect key="frame" x="0.0" y="442" width="320" height="120"/>
+                                <rect key="frame" x="0.0" y="480" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W1E-3m-GO5" id="Ohz-LU-Bx5">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
@@ -345,6 +349,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="+1 sketch!" id="3pr-6d-qDR"/>
+                    <connections>
+                        <outlet property="homeButton" destination="mcU-Rz-cCU" id="SVF-Ex-lTw"/>
+                        <outlet property="imageView" destination="ViM-pD-gmq" id="7Qn-F8-ia1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxb-qD-AVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

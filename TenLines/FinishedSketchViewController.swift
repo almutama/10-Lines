@@ -9,13 +9,29 @@
 import UIKit
 
 class FinishedSketchViewController: UITableViewController {
-
+    
     /* List of artists you drew with. */
     var artists: Array<Artist>?
+    
+    /* Button that takes user back to home feed. */
+    @IBOutlet weak var homeButton: UIButton!
+    
+    /* Image view displaying the completed sketch. */
+    @IBOutlet weak var imageView: UIImageView!
+    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.imageView.layer.masksToBounds = true
+        self.imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
+        self.imageView.layer.shadowOffset = CGSizeMake(0, 0)
+        self.imageView.layer.shadowOpacity = 0.5
+        self.imageView.image = self.image
+        
+        // Center new sketch button.
+        self.homeButton.center = CGPoint.init(x: self.view.frame.width / 2, y: homeButton.center.y);
+        
         // Temporary load feed data from a file. Eventually we want to get this
         // data by invoking a web service instead.
         let path = NSBundle.mainBundle().pathForResource("friends2", ofType: "json")
@@ -30,6 +46,8 @@ class FinishedSketchViewController: UITableViewController {
     
     func textCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("textCell", forIndexPath: indexPath)
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.selectedBackgroundView = nil
         return cell
     }
     
@@ -115,7 +133,7 @@ class FinishedSketchViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
-            return "Update description"
+            return "Update title"
         }
         else {
             return "Add new friends"

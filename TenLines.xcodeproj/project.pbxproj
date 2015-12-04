@@ -32,6 +32,7 @@
 		09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9B1C05324300436510 /* IQKeyboardManager.bundle */; };
 		09507A751C1238EE00328589 /* invites2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A741C1238EE00328589 /* invites2.json */; };
 		09507A771C1245FF00328589 /* friends2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A761C1245FF00328589 /* friends2.json */; };
+		09507A791C12505C00328589 /* ReplacementSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09507A781C12505C00328589 /* ReplacementSegue.swift */; };
 		09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE41BF72578009BEE15 /* AppDelegate.swift */; };
 		09719AE71BF72578009BEE15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE61BF72578009BEE15 /* ViewController.swift */; };
 		09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09719AE81BF72578009BEE15 /* Main.storyboard */; };
@@ -92,6 +93,7 @@
 		09375C9B1C05324300436510 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		09507A741C1238EE00328589 /* invites2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invites2.json; sourceTree = "<group>"; };
 		09507A761C1245FF00328589 /* friends2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends2.json; sourceTree = "<group>"; };
+		09507A781C12505C00328589 /* ReplacementSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacementSegue.swift; sourceTree = "<group>"; };
 		09719AE11BF72578009BEE15 /* TenLines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenLines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09719AE41BF72578009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09719AE61BF72578009BEE15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 		09F92C8B1C07C17C00E420D1 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
+				09507A781C12505C00328589 /* ReplacementSegue.swift */,
 				09F92C8C1C07C19500E420D1 /* WhiteboardView.swift */,
 			);
 			name = "Custom views";
@@ -384,6 +387,7 @@
 				TargetAttributes = {
 					09719AE01BF72578009BEE15 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = Q56GNZ4PUG;
 					};
 				};
 			};
@@ -467,6 +471,7 @@
 				0974A8471C049DBB00F1503E /* Artist.swift in Sources */,
 				77E1F8AC1C12266600AEDF3E /* ProfileViewController.swift in Sources */,
 				0974A8491C05074B00F1503E /* Comment.swift in Sources */,
+				09507A791C12505C00328589 /* ReplacementSegue.swift in Sources */,
 				09375C9F1C05324300436510 /* IQUIViewController+Additions.swift in Sources */,
 				098371571C100D5B00FB8679 /* Invite.swift in Sources */,
 				09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */,
@@ -588,10 +593,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TenLines/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = art.attack.TenLines;
+				PRODUCT_BUNDLE_IDENTIFIER = "art.attack.TenLines-custom";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -600,10 +606,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TenLines/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = art.attack.TenLines;
+				PRODUCT_BUNDLE_IDENTIFIER = "art.attack.TenLines-custom";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
