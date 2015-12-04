@@ -18,7 +18,7 @@ class FinishedSketchViewController: UITableViewController {
 
         // Temporary load feed data from a file. Eventually we want to get this
         // data by invoking a web service instead.
-        let path = NSBundle.mainBundle().pathForResource("friends", ofType: "json")
+        let path = NSBundle.mainBundle().pathForResource("friends2", ofType: "json")
         let data = JSON(data: NSData(contentsOfFile: path!)!)
         artists = Artist.fromJSON(data)
     }
@@ -160,9 +160,6 @@ class FinishedSketchViewController: UITableViewController {
         if (indexPath.section == 1) {
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             addCheckMarkToCell(cell!, animated: true)
-            
-            // Show start button once at least 1 friend has been invited.
-            self.navigationController?.setToolbarHidden(false, animated: true);
         }
     }
     
@@ -170,11 +167,6 @@ class FinishedSketchViewController: UITableViewController {
         if (indexPath.section == 1) {
             let cell = tableView.cellForRowAtIndexPath(indexPath)
             removeCheckMarkFromCell(cell!, animated: true)
-            
-            // Hide start button if no friends are selected.
-            if (tableView.indexPathsForSelectedRows == nil) {
-                self.navigationController?.setToolbarHidden(true, animated: true);
-            }
         }
     }
 

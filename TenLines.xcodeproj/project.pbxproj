@@ -31,6 +31,7 @@
 		09375CAA1C05324300436510 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9A1C05324300436510 /* Info.plist */; };
 		09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9B1C05324300436510 /* IQKeyboardManager.bundle */; };
 		09507A751C1238EE00328589 /* invites2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A741C1238EE00328589 /* invites2.json */; };
+		09507A771C1245FF00328589 /* friends2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A761C1245FF00328589 /* friends2.json */; };
 		09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE41BF72578009BEE15 /* AppDelegate.swift */; };
 		09719AE71BF72578009BEE15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE61BF72578009BEE15 /* ViewController.swift */; };
 		09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09719AE81BF72578009BEE15 /* Main.storyboard */; };
@@ -90,6 +91,7 @@
 		09375C9A1C05324300436510 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09375C9B1C05324300436510 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		09507A741C1238EE00328589 /* invites2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invites2.json; sourceTree = "<group>"; };
+		09507A761C1245FF00328589 /* friends2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends2.json; sourceTree = "<group>"; };
 		09719AE11BF72578009BEE15 /* TenLines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenLines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09719AE41BF72578009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09719AE61BF72578009BEE15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				09C792EF1BFFB58B009D2C96 /* feed.json */,
 				09C792F01BFFB58B009D2C96 /* feed2.json */,
 				09C792F11BFFB58B009D2C96 /* friends.json */,
+				09507A761C1245FF00328589 /* friends2.json */,
 				77E1F8A91C0E701B00AEDF3E /* invites.json */,
 				09507A741C1238EE00328589 /* invites2.json */,
 			);
@@ -407,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09507A771C1245FF00328589 /* friends2.json in Resources */,
 				09C792FA1BFFB58B009D2C96 /* feed2.json in Resources */,
 				09C792F31BFFB58B009D2C96 /* AmaticSC-Regular.ttf in Resources */,
 				09C792F91BFFB58B009D2C96 /* feed.json in Resources */,

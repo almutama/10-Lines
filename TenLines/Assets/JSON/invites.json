@@ -11,10 +11,10 @@
         "lastname": "Her",
         "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image3.jpg"
     },
-     {
-         "username": "selina",
-         "firstname": "Selina",
-         "lastname": "Her",
-         "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image5.jpg"
-     }
+    {
+        "username": "selina",
+        "firstname": "Selina",
+        "lastname": "Her",
+        "preview": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/art/image5.jpg"
+    }
 ]
