@@ -116,10 +116,16 @@ class WhiteboardView: UIView {
     
     /* Returns a screenshot of the drawing. */
     func getScreenshot() -> UIImage? {
+        for view in subviews {
+            view.hidden = true
+        }
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0)
         self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
+        for view in subviews {
+            view.hidden = false
+        }
         return image
     }
 }

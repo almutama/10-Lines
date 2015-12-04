@@ -118,7 +118,11 @@ class AccountManager {
     func addScreenshotForSketch(screenshot: UIImage, sketch: Sketch) {
         // Serialize image.
         let data: NSData? = UIImagePNGRepresentation(screenshot)
-        let base64ImgString: String? = data?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithCarriageReturn)
+        var base64ImgString: String? = data?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: .allZeros))
+        
+        // Hacky custom URL-encode
+        base64ImgString = base64ImgString?.stringByReplacingOccurrencesOfString("/", withString: "_")
+        base64ImgString = base64ImgString?.stringByReplacingOccurrencesOfString("+", withString: "-")
  
         // Make a request to submit screenshot.
         let params = "user_id=\(self.userId!)&sketch_id=\(sketch.id!)&screenshot=\(base64ImgString!)"

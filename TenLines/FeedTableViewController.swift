@@ -95,10 +95,10 @@ class FeedTableViewController: UITableViewController {
         // Configure cell. Some custom visual things, like a subtle drop shadow.
         cell.backgroundColor = UIColor.clearColor()
         let imageView: UIImageView = cell.viewWithTag(10) as! UIImageView
-        imageView.layer.masksToBounds = false
-        imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
-        imageView.layer.shadowOffset = CGSizeMake(0, 0)
-        imageView.layer.shadowOpacity = 0.3 
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 1.0
+        imageView.layer.borderColor = UIColor(white: 0.0, alpha: 0.1).CGColor
+        imageView.image = UIImage(named: "sketch_placeholder.png")
 
         // Load image.
         if (feedItems![indexPath.row].image != nil) {

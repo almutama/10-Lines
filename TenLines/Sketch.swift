@@ -44,7 +44,11 @@ class Sketch {
     /* Loads this sketch's image, SYNCHRONOUSLY. */
     func loadImage() {
         if (url != nil) {
-            let data: NSData? = NSData(base64EncodedString: url!, options: NSDataBase64DecodingOptions(rawValue: 0))
+            // Hacky custom URL-decode
+            var urlDecodedString = url?.stringByReplacingOccurrencesOfString("_", withString: "/")
+            urlDecodedString = urlDecodedString?.stringByReplacingOccurrencesOfString("-", withString: "+")
+            let data: NSData? = NSData(base64EncodedString: urlDecodedString!, options: NSDataBase64DecodingOptions(rawValue: 0))
+            
             if (data != nil) {
                 self.image = UIImage(data: data!)
             }
