@@ -33,6 +33,12 @@ class CommentController: UITableViewController {
         sender.setTitle(String(count), forState: UIControlState.Normal)
     }
     
+    
+    /* Pulls up the keyboard for adding a comment. */
+    @IBAction func openCommentBar(sender: AnyObject) {
+        self.userTextField.becomeFirstResponder()
+    }
+    
     /* Adds a comment to the currently displayed sketch. */
     @IBAction func sendComment(sender: AnyObject) {
         // Disallow blank comments.

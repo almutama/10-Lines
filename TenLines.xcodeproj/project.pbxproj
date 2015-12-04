@@ -30,6 +30,7 @@
 		09375CA91C05324300436510 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C981C05324300436510 /* IQUIView+IQKeyboardToolbar.swift */; };
 		09375CAA1C05324300436510 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9A1C05324300436510 /* Info.plist */; };
 		09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9B1C05324300436510 /* IQKeyboardManager.bundle */; };
+		09507A751C1238EE00328589 /* invites2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A741C1238EE00328589 /* invites2.json */; };
 		09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE41BF72578009BEE15 /* AppDelegate.swift */; };
 		09719AE71BF72578009BEE15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE61BF72578009BEE15 /* ViewController.swift */; };
 		09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09719AE81BF72578009BEE15 /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		269896EB1BFE945100E7E6E9 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269896EA1BFE945100E7E6E9 /* CommentController.swift */; };
 		77E1F8A81C0D507300AEDF3E /* IQKeyboardManager.bundle in Sources */ = {isa = PBXBuildFile; fileRef = 77E1F8A71C0D507300AEDF3E /* IQKeyboardManager.bundle */; };
 		77E1F8AA1C0E701B00AEDF3E /* invites.json in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F8A91C0E701B00AEDF3E /* invites.json */; };
+		77E1F8AC1C12266600AEDF3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1F8AB1C12266600AEDF3E /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,7 @@
 		09375C981C05324300436510 /* IQUIView+IQKeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+IQKeyboardToolbar.swift"; sourceTree = "<group>"; };
 		09375C9A1C05324300436510 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09375C9B1C05324300436510 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		09507A741C1238EE00328589 /* invites2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invites2.json; sourceTree = "<group>"; };
 		09719AE11BF72578009BEE15 /* TenLines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenLines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09719AE41BF72578009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09719AE61BF72578009BEE15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 		269896EA1BFE945100E7E6E9 /* CommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		77E1F8A71C0D507300AEDF3E /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = TenLines/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		77E1F8A91C0E701B00AEDF3E /* invites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invites.json; sourceTree = "<group>"; };
+		77E1F8AB1C12266600AEDF3E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +248,7 @@
 				092B44691C0C32A400281D89 /* LineWidthPickerViewController.swift */,
 				092B446B1C0C433500281D89 /* FinishedSketchViewController.swift */,
 				092B446D1C0C46B400281D89 /* InvitesViewController.swift */,
+				77E1F8AB1C12266600AEDF3E /* ProfileViewController.swift */,
 			);
 			name = "View controllers";
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				09C792F01BFFB58B009D2C96 /* feed2.json */,
 				09C792F11BFFB58B009D2C96 /* friends.json */,
 				77E1F8A91C0E701B00AEDF3E /* invites.json */,
+				09507A741C1238EE00328589 /* invites2.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				09C792F21BFFB58B009D2C96 /* AmaticSC-Bold.ttf in Resources */,
 				09C792F71BFFB58B009D2C96 /* new_sketch.png in Resources */,
 				09C792FB1BFFB58B009D2C96 /* friends.json in Resources */,
+				09507A751C1238EE00328589 /* invites2.json in Resources */,
 				0912CD9F1C06D5D700A0E0E0 /* pencil@2x.png in Resources */,
 				09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */,
 				09C792F81BFFB58B009D2C96 /* profile_placeholder.png in Resources */,
@@ -454,6 +461,7 @@
 				09375CA21C05324300436510 /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				092B446E1C0C46B400281D89 /* InvitesViewController.swift in Sources */,
 				0974A8471C049DBB00F1503E /* Artist.swift in Sources */,
+				77E1F8AC1C12266600AEDF3E /* ProfileViewController.swift in Sources */,
 				0974A8491C05074B00F1503E /* Comment.swift in Sources */,
 				09375C9F1C05324300436510 /* IQUIViewController+Additions.swift in Sources */,
 				098371571C100D5B00FB8679 /* Invite.swift in Sources */,
