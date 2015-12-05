@@ -152,6 +152,29 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         return UIModalPresentationStyle.None
     }
     
+    @IBAction func finished(sender: AnyObject) {
+        let alert = UIAlertController(title: "Heads up!", message: "Are you sure you're done?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Yep!", style: UIAlertActionStyle.Default, handler: {
+            (alert: UIAlertAction!) in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destinationViewController = storyboard.instantiateViewControllerWithIdentifier("finishedViewController")
+            
+            UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0.0);
+            let context = UIGraphicsGetCurrentContext()
+            self.view.layer.renderInContext(context!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            let finishedViewController = destinationViewController as! FinishedSketchViewController
+            finishedViewController.image = image
+            
+            self.navigationController?.pushViewController(destinationViewController, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Nope!", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func presentLineWidthPicker(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let lineWidthPickerViewController = storyboard.instantiateViewControllerWithIdentifier("lineWidthPicker") as! LineWidthPickerViewController
@@ -181,4 +204,12 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
             animated: true,
             completion: nil)
     }
+    
+    /*
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 }

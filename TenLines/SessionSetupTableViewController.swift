@@ -46,6 +46,13 @@ class SessionSetupTableViewController: UITableViewController {
     
     func textCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("textCell", forIndexPath: indexPath)
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.selectedBackgroundView = nil
+        return cell
+    }
+    
+    func switchCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("switchCell", forIndexPath: indexPath)
         return cell
     }
     
@@ -131,7 +138,7 @@ class SessionSetupTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
-            return "Describe your sketch"
+            return "Add title"
         }
         else {
             return "Invite some friends"
@@ -149,21 +156,31 @@ class SessionSetupTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if (indexPath.section == 0) {
-            return 75
+            if (indexPath.row == 0) {
+                return 75
+            }
+            else {
+                return 50
+            }
         }
         return 120
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
-            return 1
+            return 2
         }
         return friends != nil ? friends!.count : 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
-            return textCellForIndexPath(indexPath)
+            if (indexPath.row == 0) {
+                return textCellForIndexPath(indexPath)
+            }
+            else {
+                return switchCellForIndexPath(indexPath)
+            }
         }
         else {
             return friendCellForIndexPath(indexPath)
@@ -178,7 +195,7 @@ class SessionSetupTableViewController: UITableViewController {
             addCheckMarkToCell(cell!, animated: true)
             
             // Show start button once at least 1 friend has been invited.
-            self.navigationController?.setToolbarHidden(false, animated: true);
+            self.navigationController?.setToolbarHidden(false, animated: true)
         }
     }
     

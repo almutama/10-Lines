@@ -13,6 +13,16 @@ class InvitesViewController: UITableViewController {
     /* List of invites you've received. */
     private var invites: Array<Sketch>?
     
+    /* List of public drawings to join */
+    private var anonymous: Array<Sketch>?
+    
+    /* Switch for displaying invites vs public drawings. */
+    @IBOutlet weak var inviteSwitch: UISegmentedControl!
+    
+    @IBAction func onSwitchSelected(sender: AnyObject) {
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +41,10 @@ class InvitesViewController: UITableViewController {
     }
     
     func refreshInvites(sender: AnyObject?) {
-        ({ self.invites = AccountManager.sharedManager.getInvites() }
+        ({
+            self.invites = AccountManager.sharedManager.getInvites()
+            self.anonymous = self.invites
+        }
         ~>
         {
             // Hide the loading indicator since we're done loading.
@@ -47,10 +60,31 @@ class InvitesViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (invites != nil) {
-            return invites!.count
+        if (inviteSwitch.selectedSegmentIndex == 0) {
+            return (invites == nil) ? 0 : invites!.count
         }
-        return 0
+        else {
+            return (anonymous == nil) ? 0 : anonymous!.count
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (inviteSwitch.selectedSegmentIndex == 0) {
+            return "Sketch with friends!"
+        }
+        else {
+            return "Sketch with the public!"
+        }
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label: UILabel = UILabel()
+        label.backgroundColor = UIColor.clearColor()
+        label.textAlignment = NSTextAlignment.Center
+        label.font = UIFont(name: "Avenir Book", size: 17)
+        label.textColor = UIColor.lightGrayColor()
+        label.text = self.tableView(self.tableView, titleForHeaderInSection: section)
+        return label
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -65,11 +99,22 @@ class InvitesViewController: UITableViewController {
         iconImageView.layer.borderColor = UIColor(red: 0.6, green: 0.93, blue: 0.85, alpha: 1.0).CGColor
         
         // Get invite.
-        let invite = invites![indexPath.row]
+        var invite: Sketch = invites![indexPath.row]
+        if (inviteSwitch.selectedSegmentIndex == 0) {
+            invite = invites![indexPath.row]
+        }
+        else {
+            invite = anonymous![indexPath.row]
+        }
         
         // Name label.
         let nameLabel: UILabel = cell.viewWithTag(11) as! UILabel
-        nameLabel.text = invite.creator! + " invited you!"
+        if (inviteSwitch.selectedSegmentIndex == 0) {
+            nameLabel.text = invite.creator! + " invited you!"
+        }
+        else {
+            nameLabel.text = "Created by " + invite.creator!
+        }
         
         // Preview picture.
         if (invite.image != nil) {
