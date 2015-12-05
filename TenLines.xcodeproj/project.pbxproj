@@ -30,7 +30,6 @@
 		09375CA91C05324300436510 /* IQUIView+IQKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09375C981C05324300436510 /* IQUIView+IQKeyboardToolbar.swift */; };
 		09375CAA1C05324300436510 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9A1C05324300436510 /* Info.plist */; };
 		09507A731C1197F900328589 /* sketch_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09507A721C1197F900328589 /* sketch_placeholder@2x.png */; };
-		09375CAB1C05324300436510 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 09375C9B1C05324300436510 /* IQKeyboardManager.bundle */; };
 		09507A751C1238EE00328589 /* invites2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A741C1238EE00328589 /* invites2.json */; };
 		09507A771C1245FF00328589 /* friends2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A761C1245FF00328589 /* friends2.json */; };
 		09507A791C12505C00328589 /* ReplacementSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09507A781C12505C00328589 /* ReplacementSegue.swift */; };

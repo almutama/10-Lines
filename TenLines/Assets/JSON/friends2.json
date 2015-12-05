@@ -1,11 +1,13 @@
 [
     {
+        "id": 1,
         "username": "bhnascar",
         "firstname": "Ben-han",
         "lastname": "Sung",
         "icon": "http://web.stanford.edu/class/cs147/projects/creation/Art_Attack/images/ben-han_thumb.jpg"
     },
     {
+        "id": 2,
         "username": "nyasha",
         "firstname": "Nyasha",
         "lastname": "Smith",

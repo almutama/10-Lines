@@ -12,7 +12,6 @@ import UIKit
 class Sketch {
     var id: Int?
     var title: String?
-    var url: String?
     var lines: Int?
     var upvotes: Int?
     var comments: Int?
@@ -36,16 +35,14 @@ class Sketch {
         upvotes!++
     }
     
-    /* Adds a comment to this sketch. */
-    func addComment(comment: Comment) {
-        //comments += [comment]
-    }
-    
     /* Loads this sketch's image, SYNCHRONOUSLY. */
     func loadImage() {
-        if (url != nil) {
-            // Hacky custom URL-decode
-            var urlDecodedString = url?.stringByReplacingOccurrencesOfString("_", withString: "/")
+        // Fetch sketch data as base64 string.
+        let dataString: String? = AccountManager.sharedManager.getSketch(self.id!)
+        
+        // Hacky custom URL-decode
+        if (dataString != nil) {
+            var urlDecodedString = dataString?.stringByReplacingOccurrencesOfString("_", withString: "/")
             urlDecodedString = urlDecodedString?.stringByReplacingOccurrencesOfString("-", withString: "+")
             let data: NSData? = NSData(base64EncodedString: urlDecodedString!, options: NSDataBase64DecodingOptions(rawValue: 0))
             
@@ -60,7 +57,6 @@ class Sketch {
         let sketch : Sketch = Sketch()
         sketch.id = object["id"].int
         sketch.title = object["title"].string
-        sketch.url = object["url"].string
         sketch.lines = object["lines"].int
         sketch.upvotes = object["upvotes"].int
         sketch.comments = object["comments"].int

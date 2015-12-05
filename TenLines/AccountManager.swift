@@ -24,6 +24,7 @@ class AccountManager {
     private static let addCommentUrl: String = "http://\(baseIpAddress):3000/data/add_comment"
     private static let addScreenshotUrl: String = "http://\(baseIpAddress):3000/data/add_screenshot"
     
+    private static let getSketchUrl: String = "http://\(baseIpAddress):3000/data/get_sketch"
     private static let getSketchesUrl: String = "http://\(baseIpAddress):3000/data/get_sketches"
     private static let getInvitesUrl: String = "http://\(baseIpAddress):3000/data/get_invites"
     private static let getCommentsUrl: String = "http://\(baseIpAddress):3000/data/get_comments"
@@ -250,6 +251,30 @@ class AccountManager {
             // Log warning.
             print("Failed to sync sketch lines.")
         }
+    }
+    
+    /* Gets the image data for a single sketch, as a base64 string. */
+    func getSketch(sketchId: Int) -> String? {
+        var sketch: String?
+        
+        // Make an asynchronous request to get sketches.
+        let params = "sketch_id=\(sketchId)"
+        let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.getSketchUrl)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
+        do {
+            let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            if (result != nil) {
+                let parsedResult: JSON =  JSON(data: result!)
+                sketch = parsedResult[0].string
+            }
+        }
+        catch {
+            // Log warning.
+            print("Failed to get user sketches.")
+        }
+        
+        return sketch
     }
     
     /* Gets all sketches belonging to the current user. */

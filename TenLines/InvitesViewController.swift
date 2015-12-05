@@ -27,6 +27,7 @@ class InvitesViewController: UITableViewController {
         super.viewDidLoad()
         
         // Setup refresh callback.
+        self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: "refreshInvites:", forControlEvents: UIControlEvents.ValueChanged)
         
         // Setup background color.

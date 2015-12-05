@@ -39,7 +39,7 @@ class FinishedSketchViewController: UITableViewController {
         // data by invoking a web service instead.
         let path = NSBundle.mainBundle().pathForResource("friends2", ofType: "json")
         let data = JSON(data: NSData(contentsOfFile: path!)!)
-        artists = Artist.fromJSON(data)
+        self.artists = Artist.fromJSON(data)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,7 +70,7 @@ class FinishedSketchViewController: UITableViewController {
         iconImageView.layer.borderColor = UIColor(red: 0.6, green: 0.93, blue: 0.85, alpha: 1.0).CGColor
         
         // Get artist.
-        let artist = artists![indexPath.row]
+        let artist = self.artists![indexPath.row]
         
         // Name label.
         let nameLabel: UILabel = cell.viewWithTag(10) as! UILabel
