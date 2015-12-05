@@ -66,10 +66,9 @@ class CommentController: UITableViewController {
     override func viewDidLoad() {
         // Setup view.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
-        self.imageView.layer.masksToBounds = false
-        self.imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
-        self.imageView.layer.shadowOffset = CGSizeMake(0, 0)
-        self.imageView.layer.shadowOpacity = 0.5
+        self.imageView.layer.masksToBounds = true
+        self.imageView.layer.borderColor = UIColor(white: 0.0, alpha: 0.1).CGColor
+        self.imageView.layer.borderWidth = 1
         
         // Load image.
         if (sketch.image != nil) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class FinishedSketchViewController: UITableViewController {
     
@@ -23,13 +24,15 @@ class FinishedSketchViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.imageView.layer.masksToBounds = true
-        self.imageView.layer.shadowColor = UIColor(white: 0.7, alpha: 1.0).CGColor
-        self.imageView.layer.shadowOffset = CGSizeMake(0, 0)
-        self.imageView.layer.shadowOpacity = 0.5
+        // Load image.
         self.imageView.image = self.image
+        self.imageView.layer.masksToBounds = true
+        self.imageView.layer.borderColor = UIColor(white: 0.0, alpha: 0.1).CGColor
+        self.imageView.layer.borderWidth = 1
         
         // Center new sketch button.
+        self.homeButton.clipsToBounds = true;
+        self.homeButton.layer.cornerRadius = 65;
         self.homeButton.center = CGPoint.init(x: self.view.frame.width / 2, y: homeButton.center.y);
         
         // Temporary load feed data from a file. Eventually we want to get this
@@ -42,6 +45,10 @@ class FinishedSketchViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func goHome(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func textCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
@@ -136,7 +143,7 @@ class FinishedSketchViewController: UITableViewController {
             return "Update title"
         }
         else {
-            return "Add new friends"
+            return "Add sketch buddies to friends"
         }
     }
     

@@ -198,8 +198,9 @@ class SessionSetupTableViewController: UITableViewController {
             addCheckMarkToCell(cell!, animated: true)
             
             // Show start button once at least 1 friend has been invited.
-            self.navigationController?.setToolbarHidden(false, animated: true);
+            self.navigationController?.setToolbarHidden(false, animated: true)
         }
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {

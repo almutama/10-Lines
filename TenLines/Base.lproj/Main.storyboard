@@ -274,10 +274,6 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="386"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ViM-pD-gmq">
-                                    <rect key="frame" x="20" y="194" width="280" height="175"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                </imageView>
                                 <view contentMode="scaleToFill" id="LV3-fP-Htf">
                                     <rect key="frame" x="-80" y="85" width="240" height="4"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -291,9 +287,16 @@
                                     <state key="normal" title="Go home">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="goHome:" destination="gbS-D5-rzq" eventType="touchUpInside" id="sU0-vs-0WI"/>
+                                    </connections>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ViM-pD-gmq">
+                                    <rect key="frame" x="20" y="178" width="280" height="200"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" id="8yg-3N-AQp">
@@ -616,7 +619,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="116" id="HqX-Bi-LVj">
-                                <rect key="frame" x="0.0" y="136" width="320" height="116"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="10" contentMode="center" tableViewCell="HqX-Bi-LVj" id="1Yh-Cy-BJ3">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
