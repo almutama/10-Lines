@@ -77,11 +77,12 @@ class FinishedSketchViewController: UITableViewController {
         nameLabel.text = artist.firstname
         
         // Profile picture.
+        iconImageView.image = UIImage(named: "profile_placeholder.png")
         if (artist.icon != nil) {
             iconImageView.image = artist.icon
         }
         else {
-            { artist.loadIcon() } ~> { iconImageView.image = artist.icon }
+            { artist.loadIcon() } ~> { if (artist.icon != nil) { iconImageView.image = artist.icon } }
         }
         
         // Set acessory view based on selection state.

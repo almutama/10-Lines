@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIToolbar.appearance().barTintColor = UIColor(red: 0.46, green: 0.43, blue: 0.81, alpha: 1.0)
         UIToolbar.appearance().tintColor = UIColor.whiteColor()
         
+        // Setup universal tyles for bar button items.
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "Avenir Book", size: 17)!], forState: UIControlState.Normal)
+        
         // Keyboard manager setup.
         IQKeyboardManager.sharedManager().enable = true
         

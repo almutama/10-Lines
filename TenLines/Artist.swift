@@ -19,9 +19,18 @@ class Artist {
     
     /* Loads this artist's icon, SYNCHRONOUSLY. */
     func loadIcon() {
-        if (iconUrl != nil) {
-            let data = NSData(contentsOfURL: NSURL(string: iconUrl!)!)
-            icon = UIImage(data: data!)
+        // Fetch sketch data as base64 string.
+        let dataString: String? = AccountManager.sharedManager.getUserPic(self.id!)
+        
+        // Hacky custom URL-decode
+        if (dataString != nil) {
+            var urlDecodedString = dataString?.stringByReplacingOccurrencesOfString("_", withString: "/")
+            urlDecodedString = urlDecodedString?.stringByReplacingOccurrencesOfString("-", withString: "+")
+            let data: NSData? = NSData(base64EncodedString: urlDecodedString!, options: NSDataBase64DecodingOptions(rawValue: 0))
+            
+            if (data != nil) {
+                self.icon = UIImage(data: data!)
+            }
         }
     }
     

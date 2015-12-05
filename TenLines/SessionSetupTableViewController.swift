@@ -79,6 +79,7 @@ class SessionSetupTableViewController: UITableViewController {
         nameLabel.text = (artist.firstname == nil) ? artist.username : artist.firstname
         
         // Profile picture.
+        iconImageView.image = UIImage(named: "profile_placeholder.png")
         if (artist.icon != nil) {
             iconImageView.image = artist.icon
         }

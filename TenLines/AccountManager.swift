@@ -24,6 +24,7 @@ class AccountManager {
     private static let addCommentUrl: String = "http://\(baseIpAddress):3000/data/add_comment"
     private static let addScreenshotUrl: String = "http://\(baseIpAddress):3000/data/add_screenshot"
     
+    private static let getUserPicUrl: String = "http://\(baseIpAddress):3000/data/get_user_pic"
     private static let getSketchUrl: String = "http://\(baseIpAddress):3000/data/get_sketch"
     private static let getSketchesUrl: String = "http://\(baseIpAddress):3000/data/get_sketches"
     private static let getInvitesUrl: String = "http://\(baseIpAddress):3000/data/get_invites"
@@ -69,9 +70,17 @@ class AccountManager {
     }
     
     /* Registers the user with the given username and password. */
-    func register(username: String, password: String) -> Bool {
+    func register(username: String, password: String, image: UIImage?) -> Bool {
+        // Serialize image.
+        let data: NSData? = UIImagePNGRepresentation(image!)
+        var base64ImgString: String? = data?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: .allZeros))
+        
+        // Hacky custom URL-encode
+        base64ImgString = base64ImgString?.stringByReplacingOccurrencesOfString("/", withString: "_")
+        base64ImgString = base64ImgString?.stringByReplacingOccurrencesOfString("+", withString: "-")
+        
         // Make a registration attempt and set the user id if sucessful.
-        let params = "username=\(username)&password=\(password)"
+        let params = "username=\(username)&password=\(password)&image=\(base64ImgString!)"
         let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.registerUrl)!)
         request.HTTPMethod = "POST"
         request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
@@ -260,6 +269,30 @@ class AccountManager {
         // Make an asynchronous request to get sketches.
         let params = "sketch_id=\(sketchId)"
         let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.getSketchUrl)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
+        do {
+            let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            if (result != nil) {
+                let parsedResult: JSON =  JSON(data: result!)
+                sketch = parsedResult[0].string
+            }
+        }
+        catch {
+            // Log warning.
+            print("Failed to get user sketches.")
+        }
+        
+        return sketch
+    }
+    
+    /* Gets the image data for a user pic, as a base64 string. */
+    func getUserPic(userId: Int) -> String? {
+        var sketch: String?
+        
+        // Make an asynchronous request to get sketches.
+        let params = "user_id=\(userId)"
+        let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.getUserPicUrl)!)
         request.HTTPMethod = "POST"
         request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
         do {

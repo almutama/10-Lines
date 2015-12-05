@@ -29,24 +29,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func registerNewUser(sender: AnyObject) {
-        if (self.usernameTextField.text != nil && self.passwordTextField.text != nil &&
-            self.usernameTextField.text != "") {
-            let username = self.usernameTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            let password = self.passwordTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            var success: Bool = false
-            ({ success = AccountManager.sharedManager.register(username, password: password) }
-            ~>
-            {
-                if (success) {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainNavigationController = storyboard.instantiateViewControllerWithIdentifier("mainNavigationController")
-                    self.presentViewController(mainNavigationController, animated: true, completion: nil)
-                }
-            })
-        }
-    }
-    
     // Mark: - Text field delegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

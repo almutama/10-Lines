@@ -118,6 +118,7 @@ class InvitesViewController: UITableViewController {
         }
         
         // Preview picture.
+        iconImageView.image = UIImage(named: "sketch_placeholder.png")
         if (invite.image != nil) {
             iconImageView.image = invite.image
         }

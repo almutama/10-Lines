@@ -33,6 +33,7 @@
 		09507A751C1238EE00328589 /* invites2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A741C1238EE00328589 /* invites2.json */; };
 		09507A771C1245FF00328589 /* friends2.json in Resources */ = {isa = PBXBuildFile; fileRef = 09507A761C1245FF00328589 /* friends2.json */; };
 		09507A791C12505C00328589 /* ReplacementSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09507A781C12505C00328589 /* ReplacementSegue.swift */; };
+		09573F9D1C12E6310051C6CF /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09573F9C1C12E6310051C6CF /* RegistrationViewController.swift */; };
 		09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE41BF72578009BEE15 /* AppDelegate.swift */; };
 		09719AE71BF72578009BEE15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09719AE61BF72578009BEE15 /* ViewController.swift */; };
 		09719AEA1BF72578009BEE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09719AE81BF72578009BEE15 /* Main.storyboard */; };
@@ -95,6 +96,7 @@
 		09507A741C1238EE00328589 /* invites2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invites2.json; sourceTree = "<group>"; };
 		09507A761C1245FF00328589 /* friends2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friends2.json; sourceTree = "<group>"; };
 		09507A781C12505C00328589 /* ReplacementSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplacementSegue.swift; sourceTree = "<group>"; };
+		09573F9C1C12E6310051C6CF /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		09719AE11BF72578009BEE15 /* TenLines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenLines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09719AE41BF72578009BEE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09719AE61BF72578009BEE15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				092B446B1C0C433500281D89 /* FinishedSketchViewController.swift */,
 				092B446D1C0C46B400281D89 /* InvitesViewController.swift */,
 				77E1F8AB1C12266600AEDF3E /* ProfileViewController.swift */,
+				09573F9C1C12E6310051C6CF /* RegistrationViewController.swift */,
 			);
 			name = "View controllers";
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				098371571C100D5B00FB8679 /* Invite.swift in Sources */,
 				09719AE51BF72578009BEE15 /* AppDelegate.swift in Sources */,
 				09375C9D1C05324300436510 /* IQUITextFieldView+Additions.swift in Sources */,
+				09573F9D1C12E6310051C6CF /* RegistrationViewController.swift in Sources */,
 				09375CA01C05324300436510 /* IQUIWindow+Hierarchy.swift in Sources */,
 				09375CA51C05324300436510 /* IQTextView.swift in Sources */,
 				098377A01C106C1B00FE2249 /* AccountManager.swift in Sources */,

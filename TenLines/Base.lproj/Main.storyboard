@@ -12,6 +12,8 @@
             <string>AmaticSC-Bold</string>
             <string>AmaticSC-Bold</string>
             <string>AmaticSC-Bold</string>
+            <string>AmaticSC-Bold</string>
+            <string>AmaticSC-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -43,14 +45,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nu6-KY-CEf">
-                                <rect key="frame" x="65" y="488" width="191" height="30"/>
+                                <rect key="frame" x="65" y="486" width="191" height="33"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                <state key="normal" title="New user? Tap to register.">
+                                <state key="normal" title="New user?">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="registerNewUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yhE-1O-zvE"/>
+                                    <segue destination="ugk-OS-InK" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ZU0-Mh-hwa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -148,7 +150,7 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="sWH-q9-4U7"/>
-                        <barButtonItem title="Tap to get started!" id="7yB-J7-pMc">
+                        <barButtonItem title="Tap here to get started!" id="7yB-J7-pMc">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="PH3-JK-ANW" kind="push" identifier="newSketch" id="GOj-IP-HwZ"/>
@@ -673,6 +675,90 @@
             </objects>
             <point key="canvasLocation" x="18" y="1970"/>
         </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="hmQ-dR-MTz">
+            <objects>
+                <viewController id="ugk-OS-InK" customClass="RegistrationViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c7E-zo-xYo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" id="OPi-be-n37">
+                                <rect key="frame" x="65" y="420" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4eN-ly-NXa"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" id="fSv-AS-XRG">
+                                <rect key="frame" x="65" y="382" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8r0-yW-IhX">
+                                <rect key="frame" x="65" y="121" width="191" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="profile_placeholder.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickProfilePicture:" destination="ugk-OS-InK" eventType="touchUpInside" id="xdl-wv-sXd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take a profile picture!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N1O-Ot-yNg">
+                                <rect key="frame" x="65" y="74" width="191" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your login info!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9tM-ek-px6">
+                                <rect key="frame" x="64" y="335" width="191" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AmaticSC-Bold" family="Amatic SC" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9VB-0i-yib">
+                                <rect key="frame" x="67" y="467" width="191" height="33"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Tap to register!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerNewUser:" destination="ugk-OS-InK" eventType="touchUpInside" id="WV6-8d-BrT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pcW-NN-Ha3">
+                                <rect key="frame" x="67" y="505" width="191" height="33"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="ugk-OS-InK" eventType="touchUpInside" id="Sso-SC-BOe"/>
+                                    <action selector="registerNewUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ymX-m6-Ec8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.60392156860000001" green="0.92941176469999998" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ShA-Xt-4Rv"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="OPi-be-n37" id="uCC-HA-z0h"/>
+                        <outlet property="profilePictureButton" destination="8r0-yW-IhX" id="U5g-Tf-bdm"/>
+                        <outlet property="usernameTextField" destination="fSv-AS-XRG" id="TMT-94-Jx4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQe-vc-86Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162" y="1129"/>
+        </scene>
         <!--10lines-->
         <scene sceneID="i8c-ax-cdp">
             <objects>
@@ -901,19 +987,6 @@
             </objects>
             <point key="canvasLocation" x="411" y="1970"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Z6C-oX-8ae">
-            <objects>
-                <viewController id="1Dt-n6-uB3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MvP-U0-Ty8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ffU-mQ-i9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="color_picker.png" width="22" height="22"/>
@@ -925,6 +998,6 @@
         <image name="sketch_placeholder.png" width="400" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CD7-R7-fUe"/>
+        <segue reference="GOj-IP-HwZ"/>
     </inferredMetricsTieBreakers>
 </document>
