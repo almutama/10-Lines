@@ -390,7 +390,7 @@
 				TargetAttributes = {
 					09719AE01BF72578009BEE15 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = Q56GNZ4PUG;
+						DevelopmentTeam = 8YJ2342CPM;
 					};
 				};
 			};
@@ -601,8 +601,9 @@
 				INFOPLIST_FILE = TenLines/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "art.attack.TenLines-custom";
+				PRODUCT_BUNDLE_IDENTIFIER = art.attack.TenLines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -614,8 +615,9 @@
 				INFOPLIST_FILE = TenLines/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "art.attack.TenLines-custom";
+				PRODUCT_BUNDLE_IDENTIFIER = art.attack.TenLines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
