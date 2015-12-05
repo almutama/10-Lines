@@ -43,7 +43,7 @@ class InvitesViewController: UITableViewController {
     func refreshInvites(sender: AnyObject?) {
         ({
             self.invites = AccountManager.sharedManager.getInvites()
-            self.anonymous = self.invites
+            self.anonymous = AccountManager.sharedManager.getPublicSketches()
         }
         ~>
         {

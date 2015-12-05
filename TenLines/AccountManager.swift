@@ -94,11 +94,14 @@ class AccountManager {
     }
     
     /* Creates a sketch with the given title for the currently logged-in user. */
-    func createSketchWithTitle(title: String) -> Sketch {
+    func createSketchWithTitle(title: String, ispublic: Bool) -> Sketch {
         let sketch = Sketch()
         
         // Make a request to create sketch.
-        let params = "user_id=\(self.userId!)&title=\(title)"
+        var params = "user_id=\(self.userId!)&title=\(title)"
+        if (ispublic) {
+            params += "&public=\(true)"
+        }
         let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.addSketchUrl)!)
         request.HTTPMethod = "POST"
         request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
@@ -276,6 +279,32 @@ class AccountManager {
     }
     
     /* Gets all public sketches. */
+    func getPublicSketches() -> Array<Sketch>  {
+        var sketches: Array<Sketch> = Array<Sketch>()
+        
+        // Make an asynchronous request to get sketches.
+        let params = "public=\(true)"
+        let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.getSketchesUrl)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
+        do {
+            let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            let resultString: String = String(data: result!, encoding: NSUTF8StringEncoding)!
+            print("getPublicSketches: \(resultString)")
+            if (result != nil) {
+                let parsedResult: JSON =  JSON(data: result!)
+                sketches = Sketch.fromJSON(parsedResult)
+            }
+        }
+        catch {
+            // Log warning.
+            print("Failed to get public sketches.")
+        }
+        
+        return sketches
+    }
+    
+    /* Gets all sketches. */
     func getAllSketches() -> Array<Sketch>  {
         var sketches: Array<Sketch> = Array<Sketch>()
         

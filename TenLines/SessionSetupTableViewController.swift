@@ -11,6 +11,8 @@ import UIKit
 class SessionSetupTableViewController: UITableViewController {
     
     private var friends: Array<Artist>?
+    private var titleCell: UITableViewCell?
+    private var switchCell: UITableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +50,13 @@ class SessionSetupTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("textCell", forIndexPath: indexPath)
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.selectedBackgroundView = nil
+        titleCell = cell
         return cell
     }
     
     func switchCellForIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("switchCell", forIndexPath: indexPath)
+        switchCell = cell
         return cell
     }
     
@@ -217,12 +221,13 @@ class SessionSetupTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "newSketch") {
             // Fetch sketch title.
-            let titleCell = self.tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
-            let titleLabel = titleCell.viewWithTag(10) as! UITextField
+            let titleLabel = titleCell?.viewWithTag(10) as! UITextField
+            let publicSwitch = switchCell?.viewWithTag(20) as! UISwitch
             
             // Load sketch.
             var sketch: Sketch?
             ({
+                // Get title.
                 var title: String?
                 if (titleLabel.text == nil || titleLabel.text == "") {
                     title = "Untitled"
@@ -230,7 +235,8 @@ class SessionSetupTableViewController: UITableViewController {
                 else {
                     title = titleLabel.text!
                 }
-                sketch = AccountManager.sharedManager.createSketchWithTitle(title!)
+                
+                sketch = AccountManager.sharedManager.createSketchWithTitle(title!, ispublic: publicSwitch.on)
             }
             ~>
             {
