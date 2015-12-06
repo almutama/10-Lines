@@ -366,7 +366,7 @@
             <objects>
                 <viewController storyboardIdentifier="colorPicker" modalPresentationStyle="pageSheet" id="hUz-4u-ENI" customClass="ColorPickerViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" dataMode="prototypes" id="tNv-su-wPe">
-                        <rect key="frame" x="0.0" y="0.0" width="190" height="490"/>
+                        <rect key="frame" x="0.0" y="0.0" width="190" height="430"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tf5-IC-d3O">
@@ -389,10 +389,10 @@
                         </cells>
                     </collectionView>
                     <navigationItem key="navigationItem" id="aUg-up-oBb"/>
-                    <value key="contentSizeForViewInPopover" type="size" width="190" height="490"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="190" height="430"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="190" height="490"/>
+                    <size key="freeformSize" width="190" height="430"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhe-Bq-ioY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -424,7 +424,7 @@
         <scene sceneID="eYi-eW-o4F">
             <objects>
                 <tableViewController id="Ade-Sx-2O8" customClass="ProfileViewController" customModule="TenLines" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="VrV-w6-cjT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="VrV-w6-cjT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

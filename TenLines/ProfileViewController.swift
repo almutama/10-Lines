@@ -69,8 +69,11 @@ class ProfileViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
         
         // Configure the cell...
-        let iconImageView: UIImageView = cell.viewWithTag(20) as! UIImageView
         cell.backgroundColor = UIColor.clearColor()
+        cell.selectedBackgroundView = nil
+        
+        // Configure image view...
+        let iconImageView: UIImageView = cell.viewWithTag(20) as! UIImageView
         iconImageView.clipsToBounds = true
         iconImageView.layer.cornerRadius = 50
         iconImageView.layer.borderWidth = 4

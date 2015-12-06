@@ -30,9 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Keyboard manager setup.
         IQKeyboardManager.sharedManager().enable = true
         
-        // Login.
-        AccountManager.sharedManager.login("bhnascar", password: "foobar")
-        
         return true
     }
 
