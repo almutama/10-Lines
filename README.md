@@ -1,5 +1,7 @@
 # 10-Lines
-Group project for CS147. For a detailed description, please see http://hci.stanford.edu/courses/cs147/2015/au/projects/creation/10lines.
+Group project for CS147. Runner up for Best Overall Project award. For a detailed description, please see http://hci.stanford.edu/courses/cs147/2015/au/projects/creation/10lines.
+
+![alt tag](https://github.com/bhnascar/10-Lines/blob/realtime/screenshot.png)
 
 ## Building
 
