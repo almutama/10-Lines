@@ -98,10 +98,12 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
             ({ AccountManager.sharedManager.syncLinesForSketch(self.sketch!) }
             ~>
             {
-                // Update whiteboard if we received new lines.
+                // Update whiteboard if we received new lines or lines were deleted.
                 let whiteboard = self.view as! WhiteboardView
-                if (self.sketch!.lineData.count > whiteboard.lines.count) {
+                if (self.sketch!.lineData.count != whiteboard.lines.count) {
                     whiteboard.lines = self.sketch!.lineData
+                    let lineCount = max(0, 10 - whiteboard.lines.count)
+                    self.instructionLabel.text = "\(lineCount) lines left. your turn!"
                     whiteboard.setNeedsDisplay()
                 }
             })
@@ -110,6 +112,11 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
     
     // Mark: - Whiteboard view delegate
     
+    func shouldAllowLine(line: Line) -> Bool {
+        let whiteboard = view as! WhiteboardView
+        return whiteboard.lines.count < 10
+    }
+    
     func didDrawLine(line: Line) {
         let whiteboard = view as! WhiteboardView
         let lineCount = max(0, 10 - whiteboard.lines.count)
@@ -117,6 +124,23 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         
         // Notify other participants of new line.
         ({ AccountManager.sharedManager.addlineToSketch(line, sketch: self.sketch!) } ~> {})
+        
+        // Update screenshot.
+        ({
+            let screenshot: UIImage = whiteboard.getScreenshot()!
+            AccountManager.sharedManager.addScreenshotForSketch(screenshot, sketch: self.sketch!)
+        }
+        ~>
+        {})
+    }
+    
+    func didUndoLine(line: Line) {
+        let whiteboard = view as! WhiteboardView
+        let lineCount = max(0, 10 - whiteboard.lines.count)
+        instructionLabel.text = "\(lineCount) lines left. your turn!"
+        
+        // Notify other participants of removed line.
+        ({ AccountManager.sharedManager.removeLineFromSketch(line, sketch: self.sketch!) } ~> {})
         
         // Update screenshot.
         ({

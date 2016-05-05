@@ -10,15 +10,22 @@ import Foundation
 import UIKit
 
 class Line {
+    var id: Int?
     var color: UIColor = UIColor.blackColor()
     var points: Array<CGPoint> = Array<CGPoint>()
     var width: CGFloat = 3
+    
+    /* Default initializer. */
+    init() {
+        self.id = -1
+    }
     
     /* Creates a Line object from a corresponding JSON fragment. */
     static func fromJSONFragment(object: JSON) -> Line {
         let line: Line = Line()
         
         // Deserialize line.
+        line.id = object["id"].int!
         line.points = Line.deserializePoints(object["lines"].string!)
         line.color = Line.deserializeColor(object["color"].string!)
         line.width = CGFloat(object["width"].float!)

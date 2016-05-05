@@ -22,7 +22,7 @@ class Sketch {
     
     /* Default initializer. */
     init() {
-        
+        self.id = -1
     }
     
     /* Init with sketch id. */

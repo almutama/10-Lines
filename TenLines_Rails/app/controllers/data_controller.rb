@@ -105,6 +105,39 @@ class DataController < ApplicationController
         end
     end
 
+    # Removes a line to a sketch.
+    # 
+    # Parameters:
+    # user_id - user ID of user making this request.
+    # sketch_id - sketch ID of sketch to modify.
+    # color - line color.
+    # width - line stroke width.
+    # points - line points encoded as JSON.
+    def remove_line
+        # Validate sketch.
+        user_id = params[:user_id]
+        sketch_id = params[:sketch_id]
+        sketch = Sketch.find_by(user_id: user_id, id: sketch_id)
+        if (not sketch)
+            sketch = Sketch.find_by(creator_id: user_id, id: sketch_id)
+            if (not sketch)
+                render json: {"result" => "Failure"}
+                return
+            end
+        end
+
+        # Validate line.
+        line_id = params[:line_id]
+        line = Line.find_by(id: line_id)
+        if (not line)
+            render json: {"result" => "Failure"}
+        end
+
+        # Remove line.
+        line.destroy()
+        render json: {"result" => "Success"}
+    end
+
     # Adds a comment to a user sketch.
     # 
     # Parameters:

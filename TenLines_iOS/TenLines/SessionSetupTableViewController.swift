@@ -238,12 +238,11 @@ class SessionSetupTableViewController: UITableViewController {
                 }
                 
                 sketch = AccountManager.sharedManager.createSketchWithTitle(title!, ispublic: publicSwitch.on)
+                let whiteboardController = segue.destinationViewController as! WhiteboardViewController
+                whiteboardController.sketch = sketch!
             }
             ~>
             {
-                let whiteboardController = segue.destinationViewController as! WhiteboardViewController
-                whiteboardController.sketch = sketch!
-                
                 // Invite selected friends.
                 let paths = self.tableView.indexPathsForSelectedRows!
                 for path in paths {

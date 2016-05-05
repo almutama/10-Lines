@@ -11,8 +11,14 @@ import QuartzCore
 import UIKit
 
 protocol WhiteboardViewDelegate {
+    /* Callback method for delegates to allow or disallow adding a new line. */
+    func shouldAllowLine(line: Line) -> Bool
+    
     /* Callback method to inform delegates that a new line has been drawn. */
     func didDrawLine(line: Line)
+    
+    /* Callback method to inform delegates that a line has been undone. */
+    func didUndoLine(line: Line)
 }
 
 class WhiteboardView: UIView {
@@ -28,7 +34,10 @@ class WhiteboardView: UIView {
        are permanent. */
     func undo() -> Bool {
         if (lines.count > 0) {
-            lines.removeLast()
+            let last = lines.removeLast()
+            if (delegate != nil) {
+                delegate!.didUndoLine(last)
+            }
             self.setNeedsDisplay()
             return true
         }
@@ -72,7 +81,20 @@ class WhiteboardView: UIView {
     /* Called when the user lifts their finger. */
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         // Save line.
-        lines += [currentLine!]
+        if (delegate != nil) {
+            if (delegate!.shouldAllowLine(currentLine!)) {
+                lines += [currentLine!]
+            }
+            else {
+                // Force redraw.
+                currentLine = nil
+                self.setNeedsDisplay()
+                return
+            }
+        }
+        else {
+            lines += [currentLine!]
+        }
         
         // Notify delegate of new line.
         if (delegate != nil) {

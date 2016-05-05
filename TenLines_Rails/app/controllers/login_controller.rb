@@ -42,6 +42,13 @@ class LoginController < ApplicationController
         password = params[:password]
         image = params[:image]
 
+        # Deny registration if user already exists.
+        user = User.find_by(username: username)
+        if (user)
+            render json: {"result" => "Failure", "reason" => "Duplicate"}
+            return
+        end
+
         # Create a new user with those credentials.
         user = User.new(username: username, password: password, icon: image)
         if (user.save)

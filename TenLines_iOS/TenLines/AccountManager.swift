@@ -21,6 +21,7 @@ class AccountManager {
     
     private static let addSketchUrl: String = "http://\(baseIpAddress):3000/data/add_sketch"
     private static let addLineUrl: String = "http://\(baseIpAddress):3000/data/add_line"
+    private static let removeLineUrl: String = "http://\(baseIpAddress):3000/data/remove_line"
     private static let addCommentUrl: String = "http://\(baseIpAddress):3000/data/add_comment"
     private static let addScreenshotUrl: String = "http://\(baseIpAddress):3000/data/add_screenshot"
     
@@ -158,13 +159,37 @@ class AccountManager {
             if (result != nil) {
                 let parsedResult: JSON =  JSON(data: result!)
                 if (parsedResult["result"] == "Success") {
-                    // TODO: Process.
+                    line.id = parsedResult["line_id"].int!;
                 }
             }
         }
         catch {
             // Log warning.
             print("Failed to add line to sketch.")
+        }
+    }
+    
+    /* Removes a line from an existing sketch server-side. */
+    func removeLineFromSketch(line: Line, sketch: Sketch) {
+        // Make a request to remove line.
+        let params = "user_id=\(self.userId!)&sketch_id=\(sketch.id!)&line_id=\(line.id!)"
+        let request = NSMutableURLRequest(URL: NSURL(string: AccountManager.removeLineUrl)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = params.dataUsingEncoding(NSUTF8StringEncoding)
+        do {
+            let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
+            let resultString: String = String(data: result!, encoding: NSUTF8StringEncoding)!
+            print("removeLineFromSketch: \(resultString)")
+            if (result != nil) {
+                let parsedResult: JSON =  JSON(data: result!)
+                if (parsedResult["result"] == "Success") {
+                    // TODO: Process.
+                }
+            }
+        }
+        catch {
+            // Log warning.
+            print("Failed to remove line from sketch.")
         }
     }
     

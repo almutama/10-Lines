@@ -22,3 +22,6 @@ xcuserdata
 *.moved-aside
 *.xcuserstate
 *.xcscheme
+
+## Mac junk
+*.DS_Store

@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151205004439) do
 
-  create_table "associations", force: true do |t|
-  end
-
   create_table "comments", force: true do |t|
     t.string   "text"
     t.integer  "user_id"
