@@ -28,14 +28,6 @@ class FeedTableViewController: UITableViewController {
 
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        // Programmatically create rounded corners for new sketch button.
-        newSketchButton.clipsToBounds = true;
-        newSketchButton.layer.cornerRadius = 65;
-        
-        // Center new sketch button.
-        newSketchButton.center = CGPoint.init(x: self.view.frame.width / 2, y: newSketchButton.center.y);
 
         // Load feed immediately.
         self.refreshFeed(nil)

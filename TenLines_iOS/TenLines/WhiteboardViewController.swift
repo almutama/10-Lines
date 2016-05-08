@@ -64,14 +64,6 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
             ({ self.sketch = AccountManager.sharedManager.createSketchWithTitle("Untitled") } ~> {})
         }*/
         
-
-        
-        // Programmatically set rounded corners on buttons.
-        submitButton.layer.masksToBounds = true
-        submitButton.layer.cornerRadius = 10
-        undoButton.layer.masksToBounds = true
-        undoButton.layer.cornerRadius = 10
-        
         // Reset undo
         resetUndoButton()
     }

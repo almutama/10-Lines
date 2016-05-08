@@ -26,12 +26,9 @@ class SessionSetupTableViewController: UITableViewController {
         
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         // Load friends right away.
         self.refreshFriends(nil)
-        
-        self.tableView.allowsMultipleSelection = true;
     }
     
     func refreshFriends(sender: AnyObject?) {

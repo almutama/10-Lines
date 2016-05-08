@@ -30,14 +30,6 @@ class FinishedSketchViewController: UITableViewController {
 
         // Load image.
         self.imageView.image = self.image
-        self.imageView.layer.masksToBounds = true
-        self.imageView.layer.borderColor = UIColor(white: 0.0, alpha: 0.1).CGColor
-        self.imageView.layer.borderWidth = 1
-        
-        // Center new sketch button.
-        self.homeButton.clipsToBounds = true;
-        self.homeButton.layer.cornerRadius = 65;
-        self.homeButton.center = CGPoint.init(x: self.view.frame.width / 2, y: homeButton.center.y);
         
         ({ self.artists = AccountManager.sharedManager.getUsers() }
         ~>
