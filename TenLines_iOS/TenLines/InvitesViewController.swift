@@ -26,9 +26,13 @@ class InvitesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Register table view cell class.
+        let cellNib: UINib? = UINib(nibName: "HandleTableViewCell", bundle: NSBundle.mainBundle())
+        self.tableView.registerNib(cellNib, forCellReuseIdentifier: "handleCell")
+        
         // Setup refresh callback.
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: "refreshInvites:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(InvitesViewController.refreshInvites(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
@@ -89,17 +93,10 @@ class InvitesViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("handleCell", forIndexPath: indexPath)
+        let handleCell: HandleTableViewCell? = cell as? HandleTableViewCell
         
-        // Configure the cell...
-        let iconImageView: UIImageView = cell.viewWithTag(100) as! UIImageView
-        cell.backgroundColor = UIColor.clearColor()
-        iconImageView.clipsToBounds = true
-        iconImageView.layer.cornerRadius = 50
-        iconImageView.layer.borderWidth = 4
-        iconImageView.layer.borderColor = UIColor(red: 0.6, green: 0.93, blue: 0.85, alpha: 1.0).CGColor
-        
-        // Get invite.
+        // Get invite for this cell.
         var invite: Sketch = invites![indexPath.row]
         if (inviteSwitch.selectedSegmentIndex == 0) {
             invite = invites![indexPath.row]
@@ -107,38 +104,13 @@ class InvitesViewController: UITableViewController {
         else {
             invite = anonymous![indexPath.row]
         }
-        
-        // Name label.
-        let nameLabel: UILabel = cell.viewWithTag(11) as! UILabel
-        if (inviteSwitch.selectedSegmentIndex == 0) {
-            nameLabel.text = invite.creator! + " invited you!"
-        }
-        else {
-            nameLabel.text = "Created by " + invite.creator!
-        }
-        
-        // Preview picture.
-        iconImageView.image = UIImage(named: "sketch_placeholder.png")
-        if (invite.image != nil) {
-            iconImageView.image = invite.image
-        }
-        else {
-            { invite.loadImage() } ~> { if (invite.image != nil) { iconImageView.image = invite.image } }
-        }
-        
-        // Set acessory view based on selection state.
-        let selectedRows = tableView.indexPathsForSelectedRows
-        if (selectedRows != nil && selectedRows!.contains(indexPath)) {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-        }
-        else {
-            cell.accessoryType = UITableViewCellAccessoryType.None
-        }
+        handleCell?.configureForSketch(invite)
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showSketch", sender: nil)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -148,7 +120,7 @@ class InvitesViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if (segue.identifier == "loadSketch") {
+        if (segue.identifier == "showSketch") {
             let path = self.tableView.indexPathForSelectedRow
             
             // Load sketch.

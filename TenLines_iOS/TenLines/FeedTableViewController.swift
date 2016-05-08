@@ -19,8 +19,12 @@ class FeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Register table view cell class.
+        let cellNib: UINib? = UINib(nibName: "SketchTableViewCell", bundle: NSBundle.mainBundle())
+        self.tableView.registerNib(cellNib, forCellReuseIdentifier: "sketchCell")
+        
         // Setup refresh callback.
-        self.refreshControl?.addTarget(self, action: "refreshFeed:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(FeedTableViewController.refreshFeed(_:)), forControlEvents: UIControlEvents.ValueChanged)
 
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
@@ -52,7 +56,7 @@ class FeedTableViewController: UITableViewController {
         if (sender.titleForState(UIControlState.Normal) != nil) {
             count = Int(sender.titleForState(UIControlState.Normal)!)!
         }
-        ++count
+        count += 1
         sender.setTitle(String(count), forState: UIControlState.Normal)
     }
     
@@ -75,50 +79,15 @@ class FeedTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-        let sketch = feedItems![indexPath.row]
-        
-        // Configure cell. Some custom visual things, like a subtle drop shadow.
-        cell.backgroundColor = UIColor.clearColor()
-        let imageView: UIImageView = cell.viewWithTag(10) as! UIImageView
-        imageView.layer.masksToBounds = true
-        imageView.layer.borderWidth = 1.0
-        imageView.layer.borderColor = UIColor(white: 0.0, alpha: 0.1).CGColor
-        imageView.image = UIImage(named: "sketch_placeholder.png")
-
-        // Load image.
-        if (feedItems![indexPath.row].image != nil) {
-            imageView.image = sketch.image
-        }
-        else {
-            // Fetch the image on a background thread, then show it.
-            // The first block here denotes something done on a background thread.
-            // The second block denotes something to do after the first block completes.
-            // See Threading.swift for details on how this works.
-            { sketch.loadImage() } ~> { if (sketch.image != nil) { imageView.image = sketch.image } }
-        }
-        
-        // Upvote button.
-        let upvoteButton: UIButton = cell.viewWithTag(20) as! UIButton
-        upvoteButton.addTarget(self, action:"upvote:", forControlEvents: UIControlEvents.TouchUpInside);
-        upvoteButton.setTitle(String(sketch.upvotes!), forState: UIControlState.Normal)
-        
-        // Comments button.
-        let commentButton: UIButton = cell.viewWithTag(30) as! UIButton
-        commentButton.setTitle(String(sketch.comments!), forState: UIControlState.Normal);
-        
-        // Line count label.
-        let lineLabel: UILabel = cell.viewWithTag(40) as! UILabel
-        lineLabel.text = "\(sketch.artists!) artists, \(sketch.lines!) lines"
-        
-        // Sketch title label.
-        let titleLabel: UILabel = cell.viewWithTag(50) as! UILabel
-        titleLabel.text = sketch.title
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("sketchCell", forIndexPath: indexPath)
+        let sketchCell: SketchTableViewCell? = cell as? SketchTableViewCell
+        let sketch: Sketch? = feedItems?[indexPath.row]
+        sketchCell?.configureForSketch(sketch)
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showComments", sender: nil)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
@@ -128,7 +97,7 @@ class FeedTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if (segue.identifier == "showSketch") {
+        if (segue.identifier == "showComments") {
             let path = self.tableView.indexPathForSelectedRow
             let commentController = segue.destinationViewController as! CommentController
             commentController.sketch = feedItems![path!.row]

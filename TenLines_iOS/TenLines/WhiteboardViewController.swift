@@ -103,7 +103,7 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
                 if (self.sketch!.lineData.count != whiteboard.lines.count) {
                     whiteboard.lines = self.sketch!.lineData
                     let lineCount = max(0, 10 - whiteboard.lines.count)
-                    self.instructionLabel.text = "\(lineCount) lines left. your turn!"
+                    self.instructionLabel.text = "\(lineCount) lines left"
                     whiteboard.setNeedsDisplay()
                 }
             })
@@ -120,7 +120,7 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
     func didDrawLine(line: Line) {
         let whiteboard = view as! WhiteboardView
         let lineCount = max(0, 10 - whiteboard.lines.count)
-        instructionLabel.text = "\(lineCount) lines left. your turn!"
+        instructionLabel.text = "\(lineCount) lines left"
         
         // Notify other participants of new line.
         ({ AccountManager.sharedManager.addlineToSketch(line, sketch: self.sketch!) } ~> {})
@@ -137,7 +137,7 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
     func didUndoLine(line: Line) {
         let whiteboard = view as! WhiteboardView
         let lineCount = max(0, 10 - whiteboard.lines.count)
-        instructionLabel.text = "\(lineCount) lines left. your turn!"
+        instructionLabel.text = "\(lineCount) lines left"
         
         // Notify other participants of removed line.
         ({ AccountManager.sharedManager.removeLineFromSketch(line, sketch: self.sketch!) } ~> {})

@@ -288,8 +288,9 @@ class AccountManager {
     }
     
     /* Gets the image data for a single sketch, as a base64 string. */
-    func getSketch(sketchId: Int) -> String? {
-        var sketch: String?
+    func getSketch(sketchId: Int) -> UIImage? {
+        var sketchString: String?
+        var sketch: UIImage?
         
         // Make an asynchronous request to get sketches.
         let params = "sketch_id=\(sketchId)"
@@ -300,7 +301,18 @@ class AccountManager {
             let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
             if (result != nil) {
                 let parsedResult: JSON =  JSON(data: result!)
-                sketch = parsedResult[0].string
+                sketchString = parsedResult[0].string
+                
+                // Hacky custom URL-decode
+                if (sketchString != nil) {
+                    var urlDecodedString = sketchString?.stringByReplacingOccurrencesOfString("_", withString: "/")
+                    urlDecodedString = urlDecodedString?.stringByReplacingOccurrencesOfString("-", withString: "+")
+                    let data: NSData? = NSData(base64EncodedString: urlDecodedString!, options: NSDataBase64DecodingOptions(rawValue: 0))
+                    
+                    if (data != nil) {
+                        sketch = UIImage(data: data!)
+                    }
+                }
             }
         }
         catch {
@@ -312,8 +324,9 @@ class AccountManager {
     }
     
     /* Gets the image data for a user pic, as a base64 string. */
-    func getUserPic(userId: Int) -> String? {
-        var sketch: String?
+    func getUserPic(userId: Int = sharedManager.userId!) -> UIImage? {
+        var picString: String?
+        var pic: UIImage?
         
         // Make an asynchronous request to get sketches.
         let params = "user_id=\(userId)"
@@ -324,15 +337,26 @@ class AccountManager {
             let result: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: nil)
             if (result != nil) {
                 let parsedResult: JSON =  JSON(data: result!)
-                sketch = parsedResult[0].string
+                picString = parsedResult[0].string
+                
+                // Hacky custom URL-decode
+                if (picString != nil) {
+                    var urlDecodedString = picString?.stringByReplacingOccurrencesOfString("_", withString: "/")
+                    urlDecodedString = urlDecodedString?.stringByReplacingOccurrencesOfString("-", withString: "+")
+                    let data: NSData? = NSData(base64EncodedString: urlDecodedString!, options: NSDataBase64DecodingOptions(rawValue: 0))
+                    
+                    if (data != nil) {
+                        pic = UIImage(data: data!)
+                    }
+                }
             }
         }
         catch {
             // Log warning.
-            print("Failed to get user sketches.")
+            print("Failed to get user pic.")
         }
         
-        return sketch
+        return pic
     }
     
     /* Gets all sketches belonging to the current user. */

@@ -66,6 +66,10 @@
 		269896EB1BFE945100E7E6E9 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269896EA1BFE945100E7E6E9 /* CommentController.swift */; };
 		77E1F8AA1C0E701B00AEDF3E /* invites.json in Resources */ = {isa = PBXBuildFile; fileRef = 77E1F8A91C0E701B00AEDF3E /* invites.json */; };
 		77E1F8AC1C12266600AEDF3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E1F8AB1C12266600AEDF3E /* ProfileViewController.swift */; };
+		78E9799C1CDF0BAA005D062E /* SketchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9799B1CDF0BAA005D062E /* SketchTableViewCell.swift */; };
+		78E9799E1CDF1FD1005D062E /* HandleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9799D1CDF1FD1005D062E /* HandleTableViewCell.swift */; };
+		78E979A11CDF2F31005D062E /* SketchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E979A01CDF2F31005D062E /* SketchTableViewCell.xib */; };
+		78E979A51CDF3F45005D062E /* HandleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E979A41CDF3F45005D062E /* HandleTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +136,10 @@
 		77E1F8A71C0D507300AEDF3E /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = IQKeyboardManager.bundle; path = TenLines/IQKeyboardManagerSwift/Resources/IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		77E1F8A91C0E701B00AEDF3E /* invites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invites.json; sourceTree = "<group>"; };
 		77E1F8AB1C12266600AEDF3E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		78E9799B1CDF0BAA005D062E /* SketchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchTableViewCell.swift; sourceTree = "<group>"; };
+		78E9799D1CDF1FD1005D062E /* HandleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandleTableViewCell.swift; sourceTree = "<group>"; };
+		78E979A01CDF2F31005D062E /* SketchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SketchTableViewCell.xib; sourceTree = "<group>"; };
+		78E979A41CDF3F45005D062E /* HandleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HandleTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,10 +361,22 @@
 		09F92C8B1C07C17C00E420D1 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
+				78E9799F1CDF2F1C005D062E /* Xibs */,
 				09507A781C12505C00328589 /* ReplacementSegue.swift */,
 				09F92C8C1C07C19500E420D1 /* WhiteboardView.swift */,
+				78E9799B1CDF0BAA005D062E /* SketchTableViewCell.swift */,
+				78E9799D1CDF1FD1005D062E /* HandleTableViewCell.swift */,
 			);
 			name = "Custom views";
+			sourceTree = "<group>";
+		};
+		78E9799F1CDF2F1C005D062E /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				78E979A01CDF2F31005D062E /* SketchTableViewCell.xib */,
+				78E979A41CDF3F45005D062E /* HandleTableViewCell.xib */,
+			);
+			name = Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,6 +448,7 @@
 				09C792F21BFFB58B009D2C96 /* AmaticSC-Bold.ttf in Resources */,
 				09C792F71BFFB58B009D2C96 /* new_sketch.png in Resources */,
 				09C792FB1BFFB58B009D2C96 /* friends.json in Resources */,
+				78E979A51CDF3F45005D062E /* HandleTableViewCell.xib in Resources */,
 				09507A751C1238EE00328589 /* invites2.json in Resources */,
 				0912CD9F1C06D5D700A0E0E0 /* pencil@2x.png in Resources */,
 				09507A731C1197F900328589 /* sketch_placeholder@2x.png in Resources */,
@@ -437,6 +458,7 @@
 				09C792F51BFFB58B009D2C96 /* heart_icon@2x.png in Resources */,
 				098527AB1C1112FF008A725E /* Settings.bundle in Resources */,
 				77E1F8AA1C0E701B00AEDF3E /* invites.json in Resources */,
+				78E979A11CDF2F31005D062E /* SketchTableViewCell.xib in Resources */,
 				09C792F61BFFB58B009D2C96 /* logo@2x.png in Resources */,
 				0912CD9E1C06D5D700A0E0E0 /* color_picker@2x.png in Resources */,
 				09719AEC1BF72578009BEE15 /* Assets.xcassets in Resources */,
@@ -459,6 +481,7 @@
 				09375CA61C05324300436510 /* IQBarButtonItem.swift in Sources */,
 				092B446A1C0C32A400281D89 /* LineWidthPickerViewController.swift in Sources */,
 				09719AE71BF72578009BEE15 /* ViewController.swift in Sources */,
+				78E9799C1CDF0BAA005D062E /* SketchTableViewCell.swift in Sources */,
 				09F92C8F1C07C1FB00E420D1 /* Line.swift in Sources */,
 				09719AFB1BF731C0009BEE15 /* SessionSetupTableViewController.swift in Sources */,
 				09375C9E1C05324300436510 /* IQUIView+Hierarchy.swift in Sources */,
@@ -469,6 +492,7 @@
 				09375CA71C05324300436510 /* IQTitleBarButtonItem.swift in Sources */,
 				092B446C1C0C433500281D89 /* FinishedSketchViewController.swift in Sources */,
 				09375CA31C05324300436510 /* IQKeyboardManager.swift in Sources */,
+				78E9799E1CDF1FD1005D062E /* HandleTableViewCell.swift in Sources */,
 				09719AF71BF72ACC009BEE15 /* FeedTableViewController.swift in Sources */,
 				09375CA91C05324300436510 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				09375C9C1C05324300436510 /* IQNSArray+Sort.swift in Sources */,
