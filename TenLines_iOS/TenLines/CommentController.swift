@@ -32,7 +32,7 @@ class CommentController: UITableViewController {
         if (sender.titleForState(UIControlState.Normal) != nil) {
             count = Int(sender.titleForState(UIControlState.Normal)!)!
         }
-        ++count
+        count += 1
         sender.setTitle(String(count), forState: UIControlState.Normal)
     }
     

@@ -39,7 +39,7 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         let whiteboard = view as! WhiteboardView
         if (whiteboard.undo()) {
             // Update undo button
-            remainingUndoCount--;
+            remainingUndoCount -= 1;
             let title = "Undo (\(remainingUndoCount))"
             undoButton.setTitle(title, forState: UIControlState.Normal)
             undoButton.enabled = (remainingUndoCount >= 1)
@@ -87,7 +87,7 @@ class WhiteboardViewController: UIViewController, UIAdaptivePresentationControll
         self.navigationController?.setToolbarHidden(true, animated: true);
         if (self.timer == nil) {
             // Start short polling
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "shortPoll:", userInfo: nil, repeats: true)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(WhiteboardViewController.shortPoll(_:)), userInfo: nil, repeats: true)
         }
     }
     
