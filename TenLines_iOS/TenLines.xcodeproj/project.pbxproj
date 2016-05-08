@@ -70,6 +70,7 @@
 		78E9799E1CDF1FD1005D062E /* HandleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9799D1CDF1FD1005D062E /* HandleTableViewCell.swift */; };
 		78E979A11CDF2F31005D062E /* SketchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E979A01CDF2F31005D062E /* SketchTableViewCell.xib */; };
 		78E979A51CDF3F45005D062E /* HandleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78E979A41CDF3F45005D062E /* HandleTableViewCell.xib */; };
+		78E979A81CDF50B4005D062E /* CALayer+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E979A71CDF50B4005D062E /* CALayer+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		78E9799D1CDF1FD1005D062E /* HandleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandleTableViewCell.swift; sourceTree = "<group>"; };
 		78E979A01CDF2F31005D062E /* SketchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SketchTableViewCell.xib; sourceTree = "<group>"; };
 		78E979A41CDF3F45005D062E /* HandleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HandleTableViewCell.xib; sourceTree = "<group>"; };
+		78E979A71CDF50B4005D062E /* CALayer+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 		09719AE31BF72578009BEE15 /* TenLines */ = {
 			isa = PBXGroup;
 			children = (
+				78E979A61CDF5091005D062E /* Extensions */,
 				09C792E41BFFB58B009D2C96 /* Assets */,
 				09719B021BF74A8F009BEE15 /* Third party */,
 				0974A8401C047FB800F1503E /* Data classes */,
@@ -379,6 +382,14 @@
 			name = Xibs;
 			sourceTree = "<group>";
 		};
+		78E979A61CDF5091005D062E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				78E979A71CDF50B4005D062E /* CALayer+UIColor.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -494,6 +505,7 @@
 				09375CA31C05324300436510 /* IQKeyboardManager.swift in Sources */,
 				78E9799E1CDF1FD1005D062E /* HandleTableViewCell.swift in Sources */,
 				09719AF71BF72ACC009BEE15 /* FeedTableViewController.swift in Sources */,
+				78E979A81CDF50B4005D062E /* CALayer+UIColor.swift in Sources */,
 				09375CA91C05324300436510 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				09375C9C1C05324300436510 /* IQNSArray+Sort.swift in Sources */,
 				09375CA11C05324300436510 /* IQKeyboardManagerConstants.swift in Sources */,

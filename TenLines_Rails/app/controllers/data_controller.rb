@@ -307,7 +307,20 @@ class DataController < ApplicationController
                 render json: {"result" => "Failure"}
                 return
             end
-            sketches = creator.creations
+
+            output = Array.new
+            creator.creations.order(created_at: :desc).each do |creation|
+                temp = Hash.new
+                temp["id"] = creation.id
+                temp["title"] = creation.title
+                temp["creator"] = creation.creator.username
+                temp["artists"] = 1 + creation.users.size
+                temp["lines"] = creation.lines.size
+                temp["upvotes"] = (creation.upvotes) ? creation.upvotes : 0
+                temp["comments"] = creation.comments.size
+                output.push(temp)
+            end
+            render json: output
         else
             if (params[:public].present?)
                 output = Array.new

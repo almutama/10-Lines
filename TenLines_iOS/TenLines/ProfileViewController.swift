@@ -38,7 +38,7 @@ class ProfileViewController: UITableViewController {
     }
     
     func refreshFeed(sender: AnyObject?) {
-        ({ self.feedItems = AccountManager.sharedManager.getAllSketches() }
+        ({ self.feedItems = AccountManager.sharedManager.getSketches() }
         ~>
         {
             // Hide the loading indicator since we're done loading.

@@ -28,6 +28,7 @@ class HandleTableViewCell : UITableViewCell {
 
     func setupCustomVisualProperties() {
         self.backgroundColor = UIColor.clearColor()
+        self.selectionStyle = .None
     }
     
     func configureForSketch(sketch: Sketch?) {

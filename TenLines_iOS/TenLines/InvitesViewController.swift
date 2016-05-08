@@ -37,9 +37,6 @@ class InvitesViewController: UITableViewController {
         // Setup background color.
         self.view.backgroundColor = UIColor(white: 0.96, alpha: 1.0)
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-
-        // Test account manager.
-        ({ AccountManager.sharedManager.getSketches() } ~> {})
         
         // Load invites right away.
         self.refreshInvites(nil)

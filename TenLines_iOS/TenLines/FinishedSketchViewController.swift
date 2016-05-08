@@ -39,11 +39,13 @@ class FinishedSketchViewController: UITableViewController {
         self.homeButton.layer.cornerRadius = 65;
         self.homeButton.center = CGPoint.init(x: self.view.frame.width / 2, y: homeButton.center.y);
         
-        // Temporary load feed data from a file. Eventually we want to get this
-        // data by invoking a web service instead.
-        let path = NSBundle.mainBundle().pathForResource("friends2", ofType: "json")
-        let data = JSON(data: NSData(contentsOfFile: path!)!)
-        self.artists = Artist.fromJSON(data)
+        ({ self.artists = AccountManager.sharedManager.getUsers() }
+        ~>
+        {
+            // Hide the loading indicator since we're done loading.
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {

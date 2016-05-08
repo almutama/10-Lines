@@ -16,15 +16,6 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Programmatically create rounded corners for new sketch button.
-        profilePictureButton.clipsToBounds = true;
-        profilePictureButton.layer.cornerRadius = 95;
-        profilePictureButton.layer.borderColor = UIColor.whiteColor().CGColor
-        profilePictureButton.layer.borderWidth = 4
-        
-        // Center new sketch button.
-        profilePictureButton.center = CGPoint.init(x: self.view.frame.width / 2, y: profilePictureButton.center.y);
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,8 +33,9 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     @IBAction func pickProfilePicture(sender: AnyObject) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        imagePickerController.allowsEditing = false
+        imagePickerController.allowsEditing = true
         imagePickerController.sourceType = .Camera
+        imagePickerController.cameraCaptureMode = .Photo
         self.presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
