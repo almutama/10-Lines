@@ -55,9 +55,7 @@ class LineWidthPickerViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (self.delegate != nil) {
-            let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            let lineView = cell.viewWithTag(10)!
-            self.delegate!.didPickLineWidth(Int(lineView.frame.size.height))
+            self.delegate!.didPickLineWidth(3 + 3 * indexPath.row)
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
